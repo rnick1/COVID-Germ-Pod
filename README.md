@@ -67,7 +67,7 @@ Extras: Mapping of COVID germ pod
 
 ## Team & Roles
 
-[Page Black](https://www.github.com/noheropage) - 
+[Page Black](https://www.github.com/noheropage) - Nodemailer/Package JSON
 
 [Hancong Wang](https://www.github.com/herita7171) - Handlebars
 
