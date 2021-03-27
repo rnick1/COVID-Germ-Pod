@@ -2,7 +2,17 @@
 
 ## Deployed Link
 
-[](https://)
+[COVID Germ Pod](https://https://git.heroku.com/covid-bubble-app.git)
+
+
+**Homepage
+
+Personal Dashboard
+
+Group Dashboard
+
+**
+
 
 ## User Story
 
@@ -59,10 +69,10 @@ Extras: Mapping of COVID germ pod
 
 [Page Black](https://www.github.com/noheropage) - 
 
-[Hancong Wang](https://www.github.com/herita7171) - 
+[Hancong Wang](https://www.github.com/herita7171) - Handlebars
 
-[Nick Rider](https://www.github.com/rnick1) - 
+[Nick Rider](https://www.github.com/rnick1) - MVC
 
-[Mikey Perara](https://www.github.com/mikeyp957) - 
+[Mikey Perara](https://www.github.com/mikeyp957) - Heroku Launch/Routes (APIs & Other)
 
-[Ingrid lyublinsky](https://www.github.com/ilyublinsky) -
+[Ingrid lyublinsky](https://www.github.com/ilyublinsky) - Tests/Handlebars
