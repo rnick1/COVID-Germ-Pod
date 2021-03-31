@@ -22,16 +22,24 @@ Group.init(
         len: [8],
       },
     },
-    group_id: {
+    rules_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true, 
+        references: {
+          model: 'rules',
+          key: 'id'
+        }
     },
-    Event_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        autoIncrement: true, 
-    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true, 
+      references: {
+        model: 'user',
+        key: 'id'
+      }
+  },
   },
   {
     sequelize,
