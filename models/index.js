@@ -1,5 +1,8 @@
 const User = require('./User');
 const Group = require('./Group');
+const Rule = require('./Rule');
+const Event = require('./Event');
+
 
 User.hasOne(Group, {
     foreignKey: 'user_id',
@@ -10,40 +13,40 @@ Group.hasMany(User, {
     foreignKey: 'user_id'
 });
 
-module.exports = { User, Group };
+Rule.
 
+Event.
 
+module.exports = { User, Group, Rule, Event };
 
-
-// make method called check 
 
 // User
-// ID
-// Name
-// Email
-// Password
-// Pod_Id?
-// Event_Id
-// Extra: username
-// Extra: risk_id
+    // ID
+    // Name
+    // Email
+    // Password
+    // Group_Id?
+    // Event_Id
+        // Extra: username
+        // Extra: risk_id
 
 // Group
-// ID
-// Name
-// Rules_Id
-    // foreign key
-// Password
-// Members (IDs of users)?
+    // ID
+    // Name
+    // Password
+    // Rules_Id
+        // Foreign key
+    // Members (IDs of users)?
+        // Foreign key
 
-// Rules - rules that a group agrees to follow
-// ID
-// Name
-// 
+// Rules - Rules that a group agrees to follow
+    // ID
+    // Name
 
-// Events - something a user can update the group about such as a covid occurence, vaccination, test
-// ID
-// Name
+// Events - COVID occurences, vaccinations, tests, etc.
+    // ID
+    // Name
 
-// Extra: Risk_Profile
-// ID
-// Name
+    // Extra: Risk_Profile
+        // ID
+        // Name
