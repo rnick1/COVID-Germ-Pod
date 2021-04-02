@@ -1,9 +1,9 @@
 const { Group } = require('../models');
 
-const grouprData = [
+const groupData = [
 
 ]
 
-const seedGroups = () => User.bulkCreate(userData);
+const seedGroups = () => Group.bulkCreate(groupData);
 
-module.exports = seedUsers;
+module.exports = seedGroups;
