@@ -22,12 +22,12 @@ Group.init(
         len: [8],
       },
     },
-    rules_id: {
+    rule_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true, 
         references: {
-          model: 'rules',
+          model: 'rule',
           key: 'id'
         }
     },
@@ -37,6 +37,15 @@ Group.init(
       autoIncrement: true, 
       references: {
         model: 'user',
+        key: 'id'
+      }
+  },
+    event_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true, 
+      references: {
+        model: 'event',
         key: 'id'
       }
   },

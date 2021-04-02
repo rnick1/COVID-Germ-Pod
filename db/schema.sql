@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS germpod_db;
+CREATE DATABASE germpod_db;
