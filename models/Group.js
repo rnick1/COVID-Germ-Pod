@@ -20,23 +20,30 @@ Group.init(
       allowNull: false,
       validate: {
         len: [8],
+        // May want to add more validators 
       },
     },
-    rules_id: {
+    rule_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        autoIncrement: true, 
         references: {
-          model: 'rules',
+          model: 'rule',
           key: 'id'
         }
     },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      autoIncrement: true, 
       references: {
         model: 'user',
+        key: 'id'
+      }
+  },
+    event_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'event',
         key: 'id'
       }
   },

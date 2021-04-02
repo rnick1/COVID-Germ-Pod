@@ -35,18 +35,6 @@ User.init(
         len: [8],
       },
     },
-    group_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        autoIncrement: true, 
-    },
-    Event_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        autoIncrement: true, 
-    },
-    // Extra: username
-    // Extra: risk_id
   },
   {
     hooks: {

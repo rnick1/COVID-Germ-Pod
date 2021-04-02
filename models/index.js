@@ -1,5 +1,7 @@
 const User = require('./User');
 const Group = require('./Group');
+const Rule = require('./Rule');
+const Event = require('./Event');
 
 User.hasOne(Group, {
     foreignKey: 'user_id',
@@ -10,40 +12,60 @@ Group.hasMany(User, {
     foreignKey: 'user_id'
 });
 
-module.exports = { User, Group };
+Rule.belongsToMany(Group, {
+    foreignKey: 'rule_id'
+});
 
+Group.hasMany(Rule, {
+    foreignKey: 'rule_id'
+});
 
+Event.belongsToMany(Group, {
+    foreignKey: 'event_id'
+});
 
+Group.hasMany(Event, {
+    foreignKey: 'event_id'
+});
 
-// make method called check 
+module.exports = { User, Group, Rule, Event };
 
-// User
-// ID
-// Name
-// Email
-// Password
-// Pod_Id?
-// Event_Id
-// Extra: username
-// Extra: risk_id
+// NOTES:
+// Association Methods:
+    // Association
+    // BelongsToMany
+    // BelongsTo
+    // HasMany
+    // HasOne
 
-// Group
-// ID
-// Name
-// Rules_Id
-    // foreign key
-// Password
-// Members (IDs of users)?
+// Rough shape of the data:
+    // User
+        // ID
+        // Name
+        // Email
+        // Password
+        // Group_Id?
+        // Event_Id
+            // Extra: username
+            // Extra: risk_id
 
-// Rules - rules that a group agrees to follow
-// ID
-// Name
-// 
+    // Group
+        // ID
+        // Name
+        // Password
+        // Rules_Id
+            // Foreign key
+        // Members (IDs of users)?
+            // Foreign key
 
-// Events - something a user can update the group about such as a covid occurence, vaccination, test
-// ID
-// Name
+    // Rules - Rules that a group agrees to follow
+        // ID
+        // Name
 
-// Extra: Risk_Profile
-// ID
-// Name
+    // Events - COVID occurences, vaccinations, tests, etc.
+        // ID
+        // Name
+
+        // Extra: Risk_Profile
+            // ID
+            // Name
