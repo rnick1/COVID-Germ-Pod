@@ -14,15 +14,19 @@ Event.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false
-  },
-},
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'event',
-  }
+    },
+    event_description: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    }
+    },
+    {
+      sequelize,
+      timestamps: false,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'event',
+    }
 );
 
 module.exports = Event;
