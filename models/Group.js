@@ -20,33 +20,12 @@ Group.init(
       allowNull: false,
       validate: {
         len: [8],
-        // May want to add more validators 
       },
     },
-    rule_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'rule',
-          key: 'id'
-        }
+    rule: {
+      type: DataTypes.TEXT,
+      allowNull: false
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'user',
-        key: 'id'
-      }
-  },
-    event_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'event',
-        key: 'id'
-      }
-  },
   },
   {
     sequelize,

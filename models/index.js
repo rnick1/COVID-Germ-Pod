@@ -1,26 +1,19 @@
 const User = require('./User');
 const Group = require('./Group');
-const Rule = require('./Rule');
 const Event = require('./Event');
-const GroupRule = require('./GroupRule');
 const GroupEvent = require('./GroupEvent');
 
-User.hasOne(Group, {
-    foreignKey: 'user_id',
+User.belongsTo(Group, {
+    foreignKey: 'group_id',
     onDelete: 'CASCADE'
 });
 
 Group.hasMany(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'group_id'
 });
 
-Rule.belongsToMany(Group, {
-    through: GroupRule,
-    foreignKey: 'rule_id'
-});
-
-Group.hasMany(Rule, {
-    foreignKey: 'rule_id'
+Group.hasMany(Event, {
+    foreignKey: 'event_id'
 });
 
 Event.belongsToMany(Group, {
@@ -28,11 +21,7 @@ Event.belongsToMany(Group, {
     foreignKey: 'event_id'
 });
 
-Group.hasMany(Event, {
-    foreignKey: 'event_id'
-});
-
-module.exports = { User, Group, Rule, Event, GroupRule, GroupEvent};
+module.exports = { User, Group, Event, GroupEvent};
 
 // NOTES:
 // Association Methods:

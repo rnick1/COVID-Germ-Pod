@@ -14,14 +14,16 @@ GroupEvent.init(
       type: DataTypes.INTEGER,
       references: {
         model: 'group',
-        key: 'id'
+        key: 'id',
+        unique: false
       }
     },
     event_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'event',
-        key: 'id'
+        key: 'id',
+        unique: false
       }
     }
   },
