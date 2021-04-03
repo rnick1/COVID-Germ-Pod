@@ -1,0 +1,44 @@
+<div class="topnav">
+    <img src="#logo-pic" alt="COVID Germ Pod Logo">
+    <a class="about-nav" href="#about">About GermPodz</a>
+    <a id="login-nav" href="./login.html">Login</a>
+    <a id="logout-nav" href="#logout">Logout</a>
+    <a id="profile-nav" href="./myDashboard.html">Profile</a>
+    <a id="search-nav" href="#search">Search GermPodz</a>
+    <a id="cdc-nav" href="https://www.cdc.gov/">CDC</a>
+</div>
+
+<div class="row">
+    <h1 id="group-page-title">Welcome to {{group.groupName}}!</h1>
+    <img src="#group-pic" alt="Group Picture">
+    <div class="group-info">
+        <h2 id="group-name">{{group.groupName}}</h2>
+        <div>
+            <h3 id="list-rules">List of Our Rules</h3>
+            <textarea name="text" id="group-rules" cols="40" rows="20">rule 1.</textarea>
+        </div>
+        <div>
+            <h3 id="group-members">Group Members</h3>
+            <div id="members">
+                <ul>
+                    <li>Tom Cruise</li>
+                    <li>Will Smith</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button id="invite-peeps">Invite More Peeps</button>
+        <button id="update-peeps">Update Peeps</button>
+        <button id="delete-group">Delete Group</button>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<footer>
+    <button id="notify">Notify Group of COVID Event</button>
+    <button id="change-settings">Change Notification Settings</button>
+</footer>
+  

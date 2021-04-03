@@ -1,0 +1,26 @@
+<div class="topnav">
+    <img src="#logo-pic" alt="COVID Germ Pod Logo">
+    <a class="about-nav" href="#about">About GermPodz</a>
+    <a id="login-nav" href="./login.html">Login</a>
+    <a id="logout-nav" href="#logout">Logout</a>
+    <a id="profile-nav" href="./myDashboard.html">Profile</a>
+    <a id="search-nav" href="#search">Search GermPodz</a>
+    <a id="cdc-nav" href="https://www.cdc.gov/">CDC</a>
+</div>
+
+<div class="container">
+    <div class="row">
+        <h1 id="my-dashboard">My Dashboard</h1>
+        <div class="col-md-6 user-info">
+            <div id="first-name">First Name: {{user.firstname}}</div>
+            <div id="last-name">Last Name: {{user.lastname}}</div>
+            <div id="email">Email: {{user.email}}</div>
+            <button id="update-password">Update Password</button>
+        </div>
+        <div class="col-md-6 user-group">
+            <button id="create-group" href="#createGroup">Create a Group</button>
+            OR
+            <button id="germpod" href="#groupDashboard">Go to my Germpod</button>
+        </div>
+    </div>
+</div>
