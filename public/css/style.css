@@ -1,0 +1,178 @@
+
+
+.homepage-body {
+    background-image: url("../public/images/homepageBackground.png");
+}
+
+.dash-body {
+  font-family: Arial;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgb(193, 226, 226);
+}
+
+nav {
+  display: flex;
+  background-color:  darkcyan;
+  height: 15%;
+}
+
+nav a {
+  color: var(--light);
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+nav a:hover {
+  color: var(--secondary);
+  background-color: lightskyblue;
+}
+
+.topnav {
+display: flex;
+  background-color:  darkcyan;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* CARDS */
+.dash-card {
+    margin: 20px;
+  padding: 40px 20px 40px 20px;
+  box-sizing: border-box;
+  height: 70% !important;
+  flex-wrap: wrap;
+  flex-flow: column;
+  border: 7px double darkcyan;
+  mask-border-width: 40%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  border-radius: 25px;
+  background-color: lightslategray;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content:space-around;
+}
+
+.aside {
+  align-content: flex-end;
+  display: flex;
+  justify-content:space-around;
+}
+
+.info-card {
+  margin: 20px;
+  padding: 10px 40px 10px 40px;
+  box-sizing: border-box;
+  max-width: 50%;
+  height: 40% !important;
+  flex-wrap: wrap;
+  flex-flow: column;
+  border: 7px double darkcyan;
+  mask-border-width: 40%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  border-radius: 25px;
+  background-color: lightslategray;
+  text-align: left;
+  color: white;
+  display: flex;
+  justify-content:space-around;
+}
+
+.group-card {
+  margin: 20px;
+  padding: 40px 20px 40px 20px;
+  box-sizing: border-box;
+  height: 70% !important;
+  flex-wrap: wrap;
+  flex-flow: column;
+  border: 7px double darkcyan;
+  mask-border-width: 40%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  border-radius: 25px;
+  background-color: lightslategray;
+  text-align: left;
+  color: white;
+  display: flex;
+  justify-content:space-around;
+}
+
+#update-password, #create-group, #join-group {
+    color: darkcyan;
+    font: small-caps;
+    font-weight: bolder;
+    font-family:'Arial';
+    text-shadow: steelblue;
+    background-color: thistle;
+    border-radius: 10px;
+    box-shadow: slategrey;
+    margin: 5%;
+    padding: 10px 5px 10px 5px;
+    flex-flow: wrap;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+
+.login-card {
+  margin: 0 0 20px 0;
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 5px;
+  border: 3px solid var(--dark);
+  border-radius: var(--border-radius);
+  border-style: double;
+  border-width: thick;
+  background-color: #577a7c;
+  color: ;
+}
+
+.card header {
+  color: var(--light);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  background-color: var(--tertiary);
+  padding: 0.625rem;
+  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+}
+
+.card-body {
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  align-items: center;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+
+
+@media screen and (max-height: 450px) {
+  
+} 
+

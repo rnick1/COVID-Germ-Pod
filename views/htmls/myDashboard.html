@@ -1,26 +1,95 @@
-<div class="topnav">
-    <img src="#logo-pic" alt="COVID Germ Pod Logo">
-    <a class="about-nav" href="#about">About GermPodz</a>
-    <a id="login-nav" href="./login.html">Login</a>
-    <a id="logout-nav" href="#logout">Logout</a>
-    <a id="profile-nav" href="./myDashboard.html">Profile</a>
-    <a id="search-nav" href="#search">Search GermPodz</a>
-    <a id="cdc-nav" href="https://www.cdc.gov/">CDC</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="container">
-    <div class="row">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../public/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+</head>
+
+<body class="dash-body" href="dash-body">
+      <nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" href="#">COVID Germ Pod</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+<nav class="collapse navbar-collapse">
+    <ul>
+        <li class="nav-item">
+         <img src="#logo-pic" alt="COVID Germ Pod Logo">
+        </li>
+        <li class="nav-item"></li>
+        <a class="about-nav" href="#about">About Us</a>
+        </ul>
+        <li class="nav-item">
+        <a id="profile-nav" href="./myDashboard.html">Profile</a>
+        </li>
+        <li class="nav-item">
+        <a id="search-nav" href="#search">Search GermPodz</a>
+        </li>
+        <li class="nav-item">
+        <a id="cdc-nav" href="https://www.cdc.gov/">CDC</a>
+        </li>
+    </ul>
+</nav>
+</div>
+​<div class="flex-column justify-space-around"></div>
+<div class="container"></div>
+    <div class="row" href="main">
+        <div class="dash-card">
         <h1 id="my-dashboard">My Dashboard</h1>
-        <div class="col-md-6 user-info">
-            <div id="first-name">First Name: {{user.firstname}}</div>
-            <div id="last-name">Last Name: {{user.lastname}}</div>
-            <div id="email">Email: {{user.email}}</div>
-            <button id="update-password">Update Password</button>
+        <hr>
+        <br>
+        <br>
+        <form action="upload.php" method="post">
+        <input type="file" name="file" id="file"/>
+        </form>
         </div>
+        <aside class="col-md-6 user-info">
+            <div class="info-card">
+            <h4 id="my-info">Personal Information</h4>
+            <hr>
+            <br>
+            <ul>
+            <ul id="first-name">First Name: {{user.firstname}}</ul>
+            <ul id="last-name">Last Name: {{user.lastname}}</ul>
+            <ul id="email">Email: {{user.email}}</ul>
+            <button id="update-password">Update Password</button>
+            </ul>
+        </div>
+        ​<div class="flex-column justify-space-around"></div>
+        <div class="row">
         <div class="col-md-6 user-group">
-            <button id="create-group" href="#createGroup">Create a Group</button>
-            OR
-            <button id="germpod" href="#groupDashboard">Go to my Germpod</button>
+            <div class="group-card">
+                <h4 id="my-info">Pod Options</h4>
+            <hr>
+            <ul>
+            <button id="create-group" href="#createGroup" style="position: relative;">Create a New Germpod</button>
+            <button id="join-group" href="#groupDashboard">Go to my Germpod</button>
+            </ul>
+            </div>
         </div>
     </div>
+</aside>
 </div>
+<footer>
+                    <nav class="navbar navbar-expand-lg fixed-bottom">
+                        <a class="navbar-brand" href="#">
+                          <li class="nav-item active">
+                            <a href="#placeholder" class="fa fa-facebook"></a>
+                            <a href="#placeholder" class="fa fa-twitter"></a>
+                            <a href="#placeholder" class="fa fa-instagram"></a>
+                      </ul>
+                      </a>
+                    </div>
+                  </nav>
+                  </div>
+                  </footer>
+    
+</body>
+</html>
