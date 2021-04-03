@@ -1,9 +1,20 @@
 const { Group } = require('../models');
 
-const grouprData = [
-
+const groupData = [
+    {
+        "name": "The Freedom Kingfishers",
+        "password": "passwordA"
+    },
+    {
+        "name": "The Prime Mythics",
+        "password": "passwordB"
+    },
+    {
+        "name": "The Clever Stars",
+        "password": "passwordC"
+    },
 ]
 
-const seedGroups = () => User.bulkCreate(userData);
+const seedGroups = () => Group.bulkCreate(groupData);
 
-module.exports = seedUsers;
+module.exports = seedGroups;
