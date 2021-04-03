@@ -38,7 +38,7 @@ const deleteGroup = async (event) => {
 }
 
 document
-    .querySelector('new-group-form')
+    .querySelector('.new-group-form')
     .addEventListener('submit', newGroupHandeler);
 // document
 //     .querySelector('') //<I do not know what to put here
