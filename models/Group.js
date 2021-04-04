@@ -23,30 +23,22 @@ Group.init(
         // May want to add more validators 
       },
     },
-    rule_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'rule',
-          key: 'id'
-        }
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'user',
-        key: 'id'
-      }
-  },
-    event_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'event',
-        key: 'id'
-      }
-  },
+  //   rule_id: {
+  //       type: DataTypes.INTEGER,
+  //       allowNull: false,
+  //       references: {
+  //         model: 'rule',
+  //         key: 'id'
+  //       }
+  //   },
+  //   event_id: {
+  //     type: DataTypes.INTEGER,
+  //     allowNull: false,
+  //     references: {
+  //       model: 'event',
+  //       key: 'id'
+  //     }
+  // },
   },
   {
     sequelize,

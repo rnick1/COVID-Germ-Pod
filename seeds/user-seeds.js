@@ -4,12 +4,14 @@ const userData = [
     {
         "name": "Julien Hobbs",
         "email": "julien@example.com",
-        "password": "password1"
+        "password": "password1",
+        "group_id": "1"
     },
     {
         "name": "Casey Proctor",
         "email": "casey@example.com",
-        "password": "password2"
+        "password": "password2",
+        "group_id": "1"
     },
     {
         "name": "Janet Walters",

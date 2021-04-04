@@ -1,4 +1,4 @@
-const { Events } = require('../models');
+const { Event } = require('../models');
 
 const eventData = [
     {
