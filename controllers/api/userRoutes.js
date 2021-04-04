@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.post('/', async (req, res) => {
     try{
@@ -39,6 +40,22 @@ router.post('/login', async (req, res) => {
         })
     } catch(err) {
         res.status(400).json(err);
+    }
+})
+
+router.put('/joinGroup', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id)
+        if (!userData) {
+            res.status(404).json({ message: 'No user found with this ID' })
+            return;
+        }
+        userData.group_id = req.body.group_id;
+        userData.save()
+        
+        res.status(200).json(userData)
+    } catch (error) {
+        res.status(400).json(error)
     }
 })
 
