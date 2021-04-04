@@ -2,6 +2,8 @@ const seedUsers = require('./user-seeds');
 const seedGroups = require('./group-seeds');
 const seedRules = require('./rule-seeds');
 const seedEvents = require('./event-seeds');
+const seedUserEvents = require('./userEvent-seeds')
+const seedGroupRules = require('./groupRule-seeds')
 
 const sequelize = require('../config/connection');
 
@@ -19,7 +21,14 @@ const seedAll = async () => {
   console.log('\n----- RULES SEEDED -----\n');
 
   await seedEvents();
-  console.log('\n----- EVENTS TAGS SEEDED -----\n');
+  console.log('\n----- EVENTS SEEDED -----\n');
+
+  await seedUserEvents();
+  console.log('\n----- USER EVENTS SEEDED -----\n');
+
+  await seedGroupRules();
+  console.log('\n----- GROUP RULES SEEDED -----\n');
+
 
   process.exit(0);
 };
