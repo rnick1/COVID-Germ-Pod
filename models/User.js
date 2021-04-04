@@ -37,7 +37,7 @@ User.init(
     },
     group_id: {
           type: DataTypes.INTEGER,
-          allowNull: false,
+          // allowNull: false,
           references: {
             model: 'group',
             key: 'id'

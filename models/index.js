@@ -5,7 +5,7 @@ const Event = require('./Event');
 const GroupRule = require('./GroupRule');
 const UserEvent = require('./UserEvent');
 
-User.hasOne(Group, {
+User.belongsTo(Group, {
     foreignKey: 'group_id',
 });
 
@@ -20,7 +20,7 @@ Rule.belongsToMany(Group, {
     // foreignKey: 'rule_id'
 });
 
-Group.hasMany(Rule, {
+Group.belongsToMany(Rule, {
     through: {
         model: GroupRule,
     }
@@ -34,7 +34,7 @@ Event.belongsToMany(User, {
     // foreignKey: 'event_id'
 });
 
-User.hasMany(Event, {
+User.belongsToMany(Event, {
     through: {
         model: UserEvent,
     }

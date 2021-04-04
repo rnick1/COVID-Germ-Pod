@@ -8,11 +8,12 @@ const sequelize = require('../config/connection');
 const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log('\n----- DATABASE SYNCED -----\n');
-  await seedUsers();
-  console.log('\n----- USERS SEEDED -----\n');
 
   await seedGroups();
   console.log('\n----- GROUPS SEEDED -----\n');
+
+  await seedUsers();
+  console.log('\n----- USERS SEEDED -----\n');
 
   await seedRules();
   console.log('\n----- RULES SEEDED -----\n');
