@@ -1,23 +1,56 @@
-<div class="topnav">
-    <img src="#logo-pic" alt="COVID Germ Pod Logo">
-    <a class="about-nav" href="#about">About GermPodz</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pod Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../public/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg">
+ <img src="/public/images/COVID Germ Pod.png" alt="COVID Germ Pod Logo" style="border-radius: 20%; height: 150px;">
+    <a class="about-nav" href="#about">About Us</a>
     <a id="login-nav" href="./login.html">Login</a>
     <a id="logout-nav" href="#logout">Logout</a>
-    <a id="profile-nav" href="./myDashboard.html">Profile</a>
-    <a id="search-nav" href="#search">Search GermPodz</a>
-    <a id="cdc-nav" href="https://www.cdc.gov/">CDC</a>
-</div>
+    <a id="profile-nav" href="./myDashboard.html">My Dashboard</a>
+    <a id="search-nav" href="#search">Pod Search</a>
+    <a id="cdc-nav" href="https://www.cdc.gov/">CDC Website</a>
+</nav>
 
 <div class="row">
+    <div class="leftcolumn">
+        <p style="float: left; clear: left"></p>
+    <div class="dash-card">
     <h1 id="group-page-title">Welcome to {{group.groupName}}!</h1>
-    <img src="#group-pic" alt="Group Picture">
+    </div>
+    <hr>
+    <div class="dash-card">
+    <img src="#group-pic" alt="Group Picture"><form action="upload.php" method="post">
+        <input type="file" name="file" id="file"/>
+        </form>
     <div class="group-info">
-        <h2 id="group-name">{{group.groupName}}</h2>
-        <div>
-            <h3 id="list-rules">List of Our Rules</h3>
-            <textarea name="text" id="group-rules" cols="40" rows="20">rule 1.</textarea>
+        <h4 id="group-name">{{group.groupName}}</h4>
+    </div>
+</div>
+</div>
+    <div class="container">
+        <div class="rightcolumn">
+    <p style="float: right; clear: right"></p>
+        <div class="rule-card">
+            <h3 id="list-rules">List of {{group.groupName}} Rules</h3>
+            <i><textarea name="text" id="group-rules" cols="40" rows="20" style="width: 100%; height: 25%;">Enter your rules here.</textarea></i>
         </div>
-        <div>
+        </div>
+    </div>
+    ​<div class="flex-column justify-space-around"></div>
+        <div class="col col-md-6">
+            <div class="member-card">
             <h3 id="group-members">Group Members</h3>
             <div id="members">
                 <ul>
@@ -27,18 +60,34 @@
             </div>
         </div>
     </div>
-    <div>
+    </div>
+     <div class="col col-md-6">
+        <div class="rule-card">
         <button id="invite-peeps">Invite More Peeps</button>
         <button id="update-peeps">Update Peeps</button>
         <button id="delete-group">Delete Group</button>
     </div>
+    </div>
+    </div> 
+    </div>
+</div>
+</div>
 </div>
 <br>
 <br>
 <br>
 <br>
 <footer>
-    <button id="notify">Notify Group of COVID Event</button>
-    <button id="change-settings">Change Notification Settings</button>
+                        <a class="navbar-brand" href="#">
+                          <li class="nav-item active">
+                            <a href="#placeholder" class="fa fa-facebook"></a>
+                            <a href="#placeholder" class="fa fa-twitter"></a>
+                            <a href="#placeholder" class="fa fa-instagram"></a>
+                      </ul>
+                      </a>
+                    </div>
+                  </nav>
 </footer>
+</body>
+</html>
   
