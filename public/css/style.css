@@ -1,22 +1,22 @@
-
-
-.homepage-body {
-    background-image: url("../public/images/homepageBackground.png");
-}
-
-.dash-body {
-  font-family: Arial;
+body {
+  font-family:'Trebuchet MS';
   margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  background-image: image-set("/public/images/homepageBackground.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
   background-color: rgb(193, 226, 226);
 }
 
 nav {
   display: flex;
   background-color:  darkcyan;
-  height: 15%;
+  font-family:'Lucida Sans Unicode';
+  font-weight: bolder;
+  border-style: ridge;
 }
 
 nav a {
@@ -27,13 +27,9 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--secondary);
+  color: white;
   background-color: lightskyblue;
-}
-
-.topnav {
-display: flex;
-  background-color:  darkcyan;
+  opacity: 85%;
 }
 
 img {
@@ -68,6 +64,7 @@ img {
 
 .info-card {
   margin: 20px;
+  margin-left: 30%;
   padding: 10px 40px 10px 40px;
   box-sizing: border-box;
   max-width: 50%;
@@ -86,12 +83,54 @@ img {
 }
 
 .group-card {
-  margin: 20px;
+  margin: 10px;
+  margin-left: 30%;
   padding: 40px 20px 40px 20px;
+  box-sizing: border-box;
+  width: 10%;
+  height: 30% !important;
+  flex-wrap: wrap;
+  flex-flow: column;
+  border: 7px double darkcyan;
+  mask-border-width: 40%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  border-radius: 25px;
+  background-color: lightslategray;
+  text-align: left;
+  color: white;
+  display: flex;
+  justify-content:space-around;
+}
+
+.rule-card {
+  margin: 1px;
+  margin-left: 30%;
+  margin-bottom:10%;
+  padding: 10px 10px 10px 10px;
   box-sizing: border-box;
   height: 70% !important;
   flex-wrap: wrap;
   flex-flow: column;
+  border: 7px double darkcyan;
+  mask-border-width: 40%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  border-radius: 25px;
+  background-color: lightslategray;
+  text-align: left;
+  color: white;
+  display: flex;
+  justify-content:space-around;
+}
+
+.member-card {
+  margin: 20px;
+  margin-left: 30%;
+  margin-bottom:10%;
+  padding: 10px 10px 10px 10px;
+  box-sizing: border-box;
+  height: 70% !important;
+  flex-wrap: wrap;
+  flex-flow: wrap;
   border: 7px double darkcyan;
   mask-border-width: 40%;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
