@@ -13,22 +13,47 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <img src="/public/images/COVID Germ Pod.png" alt="COVID Germ Pod Logo"
-            style="border-radius: 20%; height: 150px;">
-        <a class="navbar-brand" href="#">About Us</a>
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        {{else}}
-        <a href="/login" id="login">login</a>
-        {{/if}}
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+    <nav class="navbar navbar-expand-lg navbar-color">
+        <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+            <ul class="navbar-nav ml-auto text-center">
+                <li class="nav-item active">
+                    <a class="navbar-brand" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand" href="#">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    {{#if logged_in}}
+                    <a href="/profile">Dashboard</a> |
+                    {{else}}
+                    <a href="/login" id="login">Let's get started!</a>
+                    {{/if}}
+                </li>
+                <li class="nav-item active">
+                    <a id="cdc-nav" href="https://www.cdc.gov/">CDC Website</a>
+                </li>
+            </ul>
+            <ul>
+                <ul>
+                    <div class="mx-auto my-2 order-0 order-md-1 position-center">
+                        <a class="mx-auto" href="#home">
+                            <img src="/images/COVID Germ Pod.png" class="rounded-circle" style="height: 80px;">
+                        </a>
+                </ul>
+            </ul>
+            <ul>
+                <ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Find a group..."
+                            aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </ul>
+            </ul>
         </div>
+
     </nav>
-    </header>
+
     <main class="container container-fluid mt-5">
         <!-- Render the sub layout -->
         {{{ body }}}
@@ -39,24 +64,26 @@
     </div>
     ​
     <!-- Render script for logged in users only -->
-    {{#if logged_in}}
-    <script src="/js/logout.js"></script>
-    {{/if}}
+
 
     <footer>
-        <nav class="navbar navbar-expand-lg fixed-bottom navbar-color bg-color">
+        <nav id="navbar navbar-expand-lg fixed-bottom navbar-color bg-color" id="foot-nav">
             <a class="navbar-brand" href="#">
                 <ul>
-                    <li class="nav-item active">
+                    <ul class="nav-item active">
                         <a href="#placeholder" class="fa fa-facebook"></a>
                         <a href="#placeholder" class="fa fa-twitter"></a>
                         <a href="#placeholder" class="fa fa-instagram"></a>
+                    </ul>
                 </ul>
             </a>
-            </div>
+
         </nav>
         </div>
     </footer>
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 ​
 
