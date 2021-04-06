@@ -1,6 +1,35 @@
 const router = require('express').Router();
-const { Group, GroupRule } = require('../../models');
+const { Group, GroupRule, Rule } = require('../../models');
 const withAuth = require('../../utils/auth');
+
+router.get('/', async (req, res) => {
+    try {
+        const groupData = await Group.findAll({
+            include: [{ model: Rule, through: GroupRule }]
+        })
+        res.status(200).json(groupData)
+    } catch (error) {
+        res.status(400).json(error)
+    }
+})
+
+router.get('/:id', async (req, res) => {
+
+    try{
+        const groupData = await Group.findByPk(req.params.id, {
+            include: [{ model: Rule, through: GroupRule }]
+        })
+        if(!groupData) {
+            res.status(404).json({ message: 'No location found with this id. '});
+            return;
+        }
+
+        res.status(200).json(groupData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+    
+});
 
 router.post('/', withAuth, async (req, res) => {
     try{
@@ -26,6 +55,8 @@ router.post('/addRule', withAuth, async (req, res) => {
         res.status(400).json(error)
     }
 })
+
+
 
 router.delete('/:id', withAuth, async (req, res) => {
     try {
