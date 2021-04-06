@@ -7,28 +7,32 @@
     <title><i class="fas fa-viruses"></i>COVID Germ Pod</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg">
-        <img src="/public/images/COVID Germ Pod.png" alt="COVID Germ Pod Logo"
-            style="border-radius: 20%; height: 150px;">
-        <a class="navbar-brand" href="#">About Us</a>
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        {{else}}
-        <a href="/login" id="login">login</a>
-        {{/if}}
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <img src="/images/COVID Germ Pod.png" alt="COVID Germ Pod Logo" style="border-radius: 20%; height: 150px;">
+        <ul class="nav navbar-nav navbar-left">
+            <li><a class="navbar-brand" href="#">Home</a></li>
+            <li><a class="navbar-brand" href="#">FAQ</a></li>
+            {{#if logged_in}}
+            <a href="/profile">profile</a> |
+            {{else}}
+            <a href="/login" id="login">Let's get started!</a>
+            {{/if}}
+            <br>
+            <a id="cdc-nav" href="https://www.cdc.gov/">CDC Website</a>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Find a group..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </ul>
         </div>
     </nav>
-    </header>
+
     <main class="container container-fluid mt-5">
         <!-- Render the sub layout -->
         {{{ body }}}

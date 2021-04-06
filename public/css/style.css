@@ -11,7 +11,7 @@ body {
   background-color: rgb(193, 226, 226);
 }
 
-nav {
+/* nav {
   display: flex;
   background-color:  darkcyan;
   font-family:'Lucida Sans Unicode';
@@ -19,10 +19,17 @@ nav {
   border-style:hidden;
   opacity: 80%;
   text-indent: 20px;
-}
+} */
 
-.navbar-brand {
-  text-align-last: right;
+.navbar {
+  text-align: right;
+  display: flex;
+  background-color:  darkcyan;
+  font-family:'Lucida Sans Unicode';
+  font-weight: bolder;
+  border-style:hidden;
+  opacity: 80%;
+  text-indent: 20px;
 }
 
 
