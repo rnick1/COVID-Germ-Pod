@@ -16,9 +16,11 @@ Group.hasMany(Event, {
     foreignKey: 'event_id'
 });
 
-Event.belongsToMany(Group, {
-    through: GroupEvent,
-    foreignKey: 'event_id'
+Event.belongsToMany(User, {
+    through: {
+        model: UserEvent,
+    }
+    // foreignKey: 'event_id'
 });
 
 module.exports = { User, Group, Event, GroupEvent};
