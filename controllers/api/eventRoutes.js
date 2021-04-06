@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Rule } = require('../../models');
+const { Event } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
-        const ruleData = await Rule.findAll()
-        res.status(200).json(ruleData)
+        const EventData = await Event.findAll()
+        res.status(200).json(eventData)
     } catch (error) {
         res.status(400).json(error)
     }
@@ -13,12 +13,12 @@ router.get('/', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
     try{
-        const newRule = await Rule.create({
+        const newEvent = await Event.create({
             ...req.body,
             // user_id: req.session.user_id,
         })
 
-        res.status(200).json(newRule);
+        res.status(200).json(newEvent);
     } catch (err) {
         res.status(400).json(err)
     }
@@ -26,18 +26,18 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
     try {
-        const ruleData = await Rule.destroy({
+        const eventData = await Event.destroy({
             where: {
              id: req.params.id,
              user_id: req.session.user_id,   
             },
         });
 
-        if(!ruleData) {
-            res.status(404).json({message: 'No rule found with this ID.'})
+        if(!eventData) {
+            res.status(404).json({message: 'No event found with this ID.'})
             return;
         }
-        res.status(200).json(ruleData)
+        res.status(200).json(eventData)
     } catch(err) {
         status(500).json(err)
     }
