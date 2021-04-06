@@ -13,7 +13,6 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // if successful, redirect to profile page
-      alert("you did it!");
       document.location.replace("/profile");
     } else {
       alert(response.statusText);
