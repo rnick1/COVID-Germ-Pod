@@ -64,9 +64,7 @@
     </div>
     ​
     <!-- Render script for logged in users only -->
-    {{#if logged_in}}
-    <script src="/js/logout.js"></script>
-    {{/if}}
+
 
     <footer>
         <nav id="navbar navbar-expand-lg fixed-bottom navbar-color bg-color" id="foot-nav">
@@ -83,6 +81,9 @@
         </nav>
         </div>
     </footer>
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 ​
 
