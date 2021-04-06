@@ -1,7 +1,8 @@
 const User = require('./User');
 const Group = require('./Group');
 const Event = require('./Event');
-const GroupEvent = require('./GroupEvent');
+const UserEvent = require('./UserEvent')
+// const GroupEvent = require('./GroupEvent');
 
 User.belongsTo(Group, {
     foreignKey: 'group_id',
@@ -23,7 +24,7 @@ Event.belongsToMany(User, {
     // foreignKey: 'event_id'
 });
 
-module.exports = { User, Group, Event, GroupEvent};
+module.exports = { User, Group, Event, UserEvent};
 
 // NOTES:
 // Association Methods:
