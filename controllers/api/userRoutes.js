@@ -1,6 +1,36 @@
 const router = require('express').Router();
-const { User, UserEvent } = require('../../models');
+const { User, UserEvent, Event} = require('../../models');
 const withAuth = require('../../utils/auth');
+
+
+router.get('/', async (req, res) => {
+    try {
+        const userData = await User.findAll({
+            include: [{ model: Event, through: UserEvent }]
+        })
+        res.status(200).json(userData)
+    } catch (error) {
+        res.status(400).json(error)
+    }
+})
+
+router.get('/:id', async (req, res) => {
+
+    try{
+        const userData = await User.findByPk(req.params.id, {
+             include: [{ model: Event, through: UserEvent }]
+        })
+        if(!userData) {
+            res.status(404).json({ message: 'No location found with this id. '});
+            return;
+        }
+
+        res.status(200).json(userData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+    
+});
 
 router.post('/', async (req, res) => {
     try{
