@@ -51,16 +51,16 @@ router.get('/group/:id', async (req,res) => {
 router.get('/profile', withAuth, async (req,res) => {
     try{
         //find the logged in user based on the session id
-        const groupData = await Group.findByPk(req.session.user_id, {
+        const userData = await User.findByPk(req.session.user_id, {
             attributes: {exclude: ['password'] },
-            include: [{ model: User }],
+            include: [{ model: Group }],
         })
 
         //serialize the data and render
-        const group = groupData.get({ plain: true });
+        const user = userData.get({ plain: true });
 
         res.render('profile', {
-            ...group,
+            ...user,
             logged_in: true
         })
     } catch(err) {
