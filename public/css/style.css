@@ -16,8 +16,16 @@ nav {
   background-color:  darkcyan;
   font-family:'Lucida Sans Unicode';
   font-weight: bolder;
-  border-style: ridge;
+  border-style:hidden;
+  opacity: 80%;
+  text-indent: 20px;
 }
+
+.navbar-brand {
+  text-align-last: right;
+}
+
+
 
 nav a {
   color: var(--light);
@@ -32,9 +40,6 @@ nav a:hover {
   opacity: 85%;
 }
 
-.rightcolum {
-  
-}
 
 /* CARDS */
 .dash-card {
@@ -167,7 +172,6 @@ nav a:hover {
   border-style: double;
   border-width: thick;
   background-color: #577a7c;
-  color: ;
 }
 
 .card header {
@@ -213,4 +217,3 @@ a[data-toggle="collapse"] {
 @media screen and (max-height: 450px) {
   
 } 
-
