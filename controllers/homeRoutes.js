@@ -4,34 +4,44 @@ const withAuth = require('../utils/auth');
 
 //this gets the groups and shows the users in the group
 router.get('/', async (req,res) => {
-try{
-    const groupData = await Group.findAll({
-        include: [
-            {
-                model: User,
-                attributes: ['name'],
-            },
-        ],
-    })
+    if(req.session.logged_in) {
+        res.redirect('/profile');
+        return;
+    }
+    
+    res.render('homepage')
+})
+    // try{
+//     const groupData = await Group.findAll({
+//         include: [
+//             {
+//                 model: User,
+//                 attributes: ['name'],
+//             },
+//         ],
+//     })
 
-    const groups = groupData.map((group) => group.get({ plain: true }));
+//     const groups = groupData.map((group) => group.get({ plain: true }));
 
-    res.render('homepage', {
-        groups,
-        logged_in: req.session.logged_in
-    })
-} catch(err) {
-    res.status(500).json(err)
-}
+//     res.render('homepage', {
+//         groups,
+//         logged_in: req.session.logged_in
+//     })
+// } catch(err) {
+//     res.status(500).json(err)
+// }
+
+router.get('/faq', async (req, res) => {
+    res.render('faq')
 })
 
 //this gets a single group by id and shows the user name attatched 
-router.get('/group/:id', async (req,res) => {
+router.get('/group/:id', withAuth, async (req,res) => {
     try{
-        const userData = await User.findByPk(req.params.id, {
+        const userData = await Group.findByPk(req.params.id, {
             include: [
                 {
-                    model: Group,
+                    model: User,
                     attributes: ['name'],
                 },
             ],
@@ -39,7 +49,7 @@ router.get('/group/:id', async (req,res) => {
 
         const group = userData.get({ plain: true});
 
-        res.render('user', {
+        res.render('podDashboard', {
             ...group,
             logged_in: req.session.logged_in
         })

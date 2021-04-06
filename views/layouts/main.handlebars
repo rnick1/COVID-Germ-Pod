@@ -16,10 +16,11 @@
     <nav class="navbar navbar-expand-lg">
         <img src="/images/COVID Germ Pod.png" alt="COVID Germ Pod Logo" style="border-radius: 20%; height: 150px;">
         <ul class="nav navbar-nav navbar-left">
-            <li><a class="navbar-brand" href="#">Home</a></li>
-            <li><a class="navbar-brand" href="#">FAQ</a></li>
+            <li><a class="navbar-brand" href="/">Home</a></li>
+            <li><a class="navbar-brand" href="/faq">FAQ</a></li>
             {{#if logged_in}}
-            <a href="/profile">profile</a> |
+            <a href="/profile">profile</a>
+            <a href='/' id='logout'>logout</a> |
             {{else}}
             <a href="/login" id="login">Let's get started!</a>
             {{/if}}
@@ -43,9 +44,7 @@
     </div>
     ​
     <!-- Render script for logged in users only -->
-    {{#if logged_in}}
-    <script src="/js/logout.js"></script>
-    {{/if}}
+    
 
     <footer>
         <nav class="navbar navbar-expand-lg fixed-bottom navbar-color bg-color">
@@ -61,6 +60,9 @@
         </nav>
         </div>
     </footer>
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 ​
 
