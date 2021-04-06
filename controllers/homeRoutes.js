@@ -28,18 +28,18 @@ try{
 //this gets a single group by id and shows the user name attatched 
 router.get('/group/:id', async (req,res) => {
     try{
-        const groupData = await Group.findByPk(req.params.id, {
+        const userData = await User.findByPk(req.params.id, {
             include: [
                 {
-                    model: User,
+                    model: Group,
                     attributes: ['name'],
                 },
             ],
         });
 
-        const group = groupData.get({ plain: true});
+        const group = userData.get({ plain: true});
 
-        res.render('group', {
+        res.render('user', {
             ...group,
             logged_in: req.session.logged_in
         })
@@ -51,16 +51,16 @@ router.get('/group/:id', async (req,res) => {
 router.get('/profile', withAuth, async (req,res) => {
     try{
         //find the logged in user based on the session id
-        const userData = await User.findByPk(req.session.user_id, {
+        const groupData = await Group.findByPk(req.session.user_id, {
             attributes: {exclude: ['password'] },
-            include: [{ model: Group }],
+            include: [{ model: User }],
         })
 
         //serialize the data and render
-        const user = userData.get({ plain: true });
+        const group = groupData.get({ plain: true });
 
         res.render('profile', {
-            ...user,
+            ...group,
             logged_in: true
         })
     } catch(err) {
