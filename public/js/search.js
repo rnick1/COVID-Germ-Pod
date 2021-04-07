@@ -2,9 +2,9 @@ const searchBarHandler = async (event) => {
     event.preventDefault();
 
 const input = document.getElementById('searchbar').value.trim()
-
+console.log(input)
 if (input) {
-    const response = await fetch ("/api/groups/:name", {
+    const response = await fetch ("/group/name/:name", {
         method: "GET",
         body: JSON.stringify({ id, name }),
         headers: { "Content-Type": "application/json" },
