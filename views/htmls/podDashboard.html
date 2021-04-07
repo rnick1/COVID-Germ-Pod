@@ -44,7 +44,35 @@
     <p style="float: right; clear: right"></p>
         <div class="rule-card">
             <h3 id="list-rules">List of {{group.groupName}} Rules</h3>
-            <i><textarea name="text" id="group-rules" cols="40" rows="20" style="width: 100%; height: 25%;">Enter your rules here.</textarea></i>
+            <i><textarea name="text" id="group-rules" cols="40" rows="20" style="width: 100%; height: 25%;">
+                <ul>
+                    {{#each rules}}
+                        <li>{{rule}}</li>
+                    {{/each}}
+                </ul>
+            </textarea></i>
+            <div class="about-blurb">
+    <div class="col-md-5">
+        <h2>Germ Pods</h2>
+        </h2>
+
+        <p>
+            …COVID Bubble, Quaranteam, whatever you call them, they can be useful tools for mitigating the risks of
+            contracting and
+            spreading serious diseases while reducing the harms of social isolation. Establishing and navigating within
+            these groups
+            can be difficult especially without clear understanding of expectations.
+            Let us help you get your Germ Pod started with our simple process. After you signup/login you will be able
+            to create
+            your own pod and start inviting your friend’s today! If you are new to Germ Pods it’s highly recommended
+            that you begin
+            at our FAQ page to help you get started on the right foot.
+
+        </p>
+
+    </div>
+
+</div>
         </div>
         </div>
     </div>
