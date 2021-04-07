@@ -2,7 +2,7 @@
     <div class="leftcolumn">
         <p style="float: left; clear: left"></p>
         <div class="dash-card">
-            <h1 id="group-page-title">Welcome to {{group.name}}!</h1>
+            <h1 id="group-page-title">Welcome to {{name}}!</h1>
         </div>
         <hr>
         <div class="dash-card">
@@ -11,7 +11,7 @@
                 <input type="file" name="file" id="file" />
             </form>
             <div class="group-info">
-                <h4 id="group-name">{{group.name}}</h4>
+                <h4 id="group-name">{{name}}</h4>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
                         style="width: 100%; height: 25%;">
                             <ul class="listed-rules">
                                 {{#each rules as |rule|}}
-                                    <li>{{rule}}</li>
+                                    <li> {{rule.name}}: {{rule.description}}</li>
                                 {{/each}}
                             </ul>
                         </div>
@@ -37,8 +37,8 @@
             <h3 id="group-members">Group Members</h3>
             <div id="members">
                 <ul>
-                    {{#each user}}
-                        <li>{{name}}</li>
+                    {{#each users as |user|}}
+                        <li>{{user.name}}</li>
                     {{/each}}
                 </ul>
             </div>

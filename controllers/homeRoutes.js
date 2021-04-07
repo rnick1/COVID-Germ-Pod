@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Group, Rule} = require('../models');
+const {User, Group, Rule, GroupRule} = require('../models');
 const withAuth = require('../utils/auth');
 
 //this gets the groups and shows the users in the group
@@ -67,6 +67,10 @@ router.get('/group/:id', withAuth, async (req,res) => {
                     model: User,
                     attributes: ['name'],
                 },
+                {
+                    model: Rule, through: GroupRule,
+                    attributes: ['name', 'description']
+                }
             ],
         });
 
