@@ -1,10 +1,5 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-const {User, Group, Rule} = require('../models');
-const { findOne } = require('../models/User');
-=======
 const {User, Group, Rule, UserEvent, GroupRule} = require('../models');
->>>>>>> 404651002c6229105fb56a281de5bf14e493db83
 const withAuth = require('../utils/auth');
 
 //this gets the groups and shows the users in the group
