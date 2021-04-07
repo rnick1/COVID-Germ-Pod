@@ -17,6 +17,29 @@ h1, h2, h3, h4, h5, h6 {
     text-align: left;
 }
 
+.about-blurb {
+  margin: 15px 100px 15px 100px;
+  padding: 40px 20px 40px 20px;
+  box-sizing: border-box;
+  height: 70% !important;
+  flex-wrap: wrap;
+  background-color: darkcyan;
+  color: white;
+  border-style: double;
+  border-color: lightcyan;
+  border-width: 10px;
+}
+
+.faq {
+  margin: 15px 100px 15px 100px;
+  padding: 40px 20px 40px 20px;
+  box-sizing: border-box;
+  height: 70% !important;
+  flex-wrap: wrap;
+  background-color: darkcyan;
+  color: white;
+}
+
 .navbar {
   background-color:  darkcyan;
   font-family:'Lucida Sans Unicode';

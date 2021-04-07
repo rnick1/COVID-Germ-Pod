@@ -20,8 +20,14 @@
             <p style="float: right; clear: right"></p>
             <div class="rule-card">
                 <h3 id="list-rules">List of {{group.groupName}} Rules</h3>
-                <i><textarea name="text" id="group-rules" cols="40" rows="20"
-                        style="width: 100%; height: 25%;">Enter your rules here.</textarea></i>
+                <div id="group-rules" cols="40" rows="20"
+                        style="width: 100%; height: 25%;">
+                            <ul class="listed-rules">
+                                {{#each group.groupRules}}
+                                    <li>{{rule}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
             </div>
         </div>
     </div>
@@ -31,8 +37,9 @@
             <h3 id="group-members">Group Members</h3>
             <div id="members">
                 <ul>
-                    <li>Tom Cruise</li>
-                    <li>Will Smith</li>
+                    {{#each group.groupMembers}}
+                        <li>{{member}}</li>
+                    {{/each}}
                 </ul>
             </div>
         </div>
