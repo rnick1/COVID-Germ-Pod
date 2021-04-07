@@ -30,15 +30,6 @@ router.get('/:name', async (req, res) => {
         res.status(500).json(err);
     }
 });
-// response.name=
-// const project = await Project.findOne({ where: { title: 'My Title' } });
-// if (project === null) {
-//   console.log('Not found!');
-// } else {
-//   console.log(project instanceof Project); // true
-//   console.log(project.title); // 'My Title'
-// }
-
 
 router.get('/:id', async (req, res) => {
 
