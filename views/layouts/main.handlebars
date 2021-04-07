@@ -25,6 +25,7 @@
                 <li class="nav-item">
                     {{#if logged_in}}
                     <a href="/profile">Dashboard</a> |
+                    <a href="/" id="logout">Logout</a>
                     {{else}}
                     <a href="/login" id="login">Let's get started!</a>
                     {{/if}}
@@ -55,8 +56,11 @@
     </nav>
 
     <main class="container container-fluid mt-5">
-        <!-- Render the sub layout -->
-        {{{ body }}}
+        <section class="block block--simple_content bg--none block--paddingTopMedium block--paddingBottomNone block--textDefault
+    block--alignCenter pad-top-100">
+            <div class="container container--sm">
+                {{{ body }}}
+        </section>
     </main>
     <footer>
 

@@ -2,7 +2,7 @@
 <div class="container"></div>
 <div class="row" href="main">
     <div class="dash-card">
-        <h1 id="my-dashboard">My Dashboard</h1>
+        <h1 class="my-dashboard">My Dashboard</h1>
         <hr>
         <br>
         <br>
@@ -12,24 +12,25 @@
     </div>
     <aside class="col-md-6 user-info">
         <div class="info-card">
-            <h4 id="my-info">Personal Information</h4>
+            <h4 class="my-info">Personal Information</h4>
+            <hr>
             <ul>
                 <ul id="first-name">First Name: {{user.firstname}}</ul>
                 <ul id="last-name">Last Name: {{user.lastname}}</ul>
                 <ul id="email">Email: {{user.email}}</ul>
                 <button id="update-password">Update Password</button>
-            </ul>
-        </div>
-        ​<div class="flex-column justify-space-around"></div>
-        <div class="row">
-            <div class="col-md-6 user-group">
-                <div class="group-card">
-                    <h4 id="my-info">Pod Options</h4>
+                ​<div class="flex-column justify-space-around"></div>
+                <div class="col-md-6 user-group">
+                    <h4 class="my-info">Pod Options</h4>
                     <hr>
+                    <br>
                     <ul>
-                        <button id="create-group" href="#createGroup" style="position: relative;">Create a New
-                            Germpod</button>
-                        <button id="join-group" href="#groupDashboard">Go to my Germpod</button>
+                        <a href="#createGroup">Create a New
+                            Germpod</a>
+                        <br>
+                        <a href="#groupDashboard">Go to my Germpod</a>
                     </ul>
                 </div>
-            </div>
+        </div>
+</div>
+</div>

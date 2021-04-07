@@ -12,14 +12,16 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-stretch: semi-condensed;
+    font-stretch:semi-expanded;
+    display: inline-block;
+    text-align: left;
 }
 
 .navbar {
   background-color:  darkcyan;
   font-family:'Lucida Sans Unicode';
   font-weight: bolder;
-  opacity: 80%;
+  opacity: 90%;
   height: min-content;
 }
 
@@ -32,7 +34,7 @@ nav a {
 
 nav a:hover {
   color: rgb(216, 220, 224);
-  background-color: lightskyblue;
+  background-color: darkcyan !important;
   opacity: 40%;
   border-radius: 40%;
   transition: ease-in;
@@ -44,6 +46,26 @@ nav a:hover {
   font-weight: bolder;
   opacity: 80%;
   width: 10px;
+}
+
+.container {
+    margin: 40px 40px 40px 40px;
+    max-width: 3000px;
+    padding: 5px 3px 30px 0px;
+    position: relative;
+    font-family:Georgia;
+    text-align: center;
+    background-color: lightslategray;
+    opacity: 80%;
+}
+
+#homepage-card {
+    height: 100%;
+    width: 100%;
+    background-color: darkcyan;
+    color: darkslategray;
+    font-family:'Trebuchet MS';
+    flex-direction: wrap;
 }
 
 
@@ -77,8 +99,8 @@ nav a:hover {
   margin-left: 30%;
   padding: 10px 40px 10px 40px;
   box-sizing: border-box;
-  max-width: 50%;
-  height: 40% !important;
+  max-width: 100%;
+  height: 100% !important;
   flex-wrap: wrap;
   flex-flow: column;
   border: 7px double darkcyan;
@@ -92,9 +114,9 @@ nav a:hover {
   justify-content:space-around;
 }
 
-.group-card {
+/* .group-card {
   margin: 10px;
-  margin-left: 30%;
+  margin-left: 60%;
   padding: 40px 20px 40px 20px;
   box-sizing: border-box;
   width: 10%;
@@ -110,7 +132,7 @@ nav a:hover {
   color: white;
   display: flex;
   justify-content:space-around;
-}
+} */
 
 .rule-card {
   margin: 1px;
@@ -171,13 +193,31 @@ nav a:hover {
 .login-card {
   margin: 0 0 20px 0;
   flex: 0 0 50%;
-  max-width: 50%;
-  padding: 5px;
+  max-width: 18%;
+  padding: 30px;
+  text-align: left;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
   border-style: double;
   border-width: thick;
   background-color: #577a7c;
+}
+
+.sign-up-card {
+  margin: 0 0 20px 0;
+  flex: 0 0 50%;
+  max-width: 20%;
+  padding: 30px;
+  text-align: left;
+  border: 3px solid var(--dark);
+  border-radius: var(--border-radius);
+  border-style: double;
+  border-width: thick;
+  background-color: #577a7c;
+}
+
+.form-input {
+    text-align: justify;
 }
 
 /* .card header {
