@@ -14,6 +14,7 @@ Group.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      isUnique: true
     },
     password: {
       type: DataTypes.STRING,
