@@ -16,11 +16,11 @@ router.get('/', async (req, res) => {
 router.get('/:name', async (req, res) => {
 
     try{
-        const groupData = await Group.findOne(req.params.name, {
+        const groupData = await Group.findOne(req.params.group_name, {
             include: [{ model: Group }]
         })
         if(!groupData) {
-            res.status(404).json({ message: 'No group found with this id. '});
+            res.status(404).json({ message: 'No group found with this id.'});
             return;
         }
 
