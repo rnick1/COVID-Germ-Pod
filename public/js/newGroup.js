@@ -1,31 +1,35 @@
-const { response } = require("express");
 
 const newGroupHandler = async (event) => {
-  event.preventDefaul();
+  event.preventDefault();
 
   const name = document.querySelector("#group-name").value.trim();
-  const members = document.querySelector("#group-members").value.trim();
+  // const members = document.querySelector("#group-members").value.trim();
   const password = document.querySelector("#group-password").value.trim();
-
-  if (name && members && password) {
+  
+  if (name && password) {
     const response = await fetch("/api/groups", {
       method: "POST",
-      body: JSON.stringify({ name, members, password }),
+      body: JSON.stringify({ name, password }),
       headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
+        const groupData = await fetch(`api/groups/${name}`, {
+          method: 'GET',
+          // body: JSON.stringify({ id }),
+          // headers: { 'Content-Type': 'application/json' }
+        })
         const assignLeader = await fetch('api/users/joinGroup', {
             method: 'PUT',
-            body: JSON.stringify({ group_id }),
+            body: JSON.stringify({ groupData }),
             headers: { 'Content-Type': 'application/json' },
         })
         response.status(200).json(assignLeader)
       document.location.replace("/profile");
+    } 
     } else {
       alert("Failed to create group.");
-    }
-  }
+  } 
 };
 
 const deleteGroup = async (event) => {
