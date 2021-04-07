@@ -14,17 +14,6 @@ router.get('/', async (req, res) => {
 })
 // NEW!!! For search bar:
 router.get('/:name', async (req, res) => {
-<<<<<<< HEAD
-    try{
-        const groupData = await Group.findOne({ 
-            where: { 
-                name: req.params.name 
-            },
-            include: [{ model: Rule, through: GroupRule }]
-        })
-        if(!groupData) {
-            res.status(404).json({ message: 'No group found with this id.'});
-=======
 
     try{
         const groupData = await Group.findOne({
@@ -35,7 +24,6 @@ router.get('/:name', async (req, res) => {
         })
         if(!groupData) {
             res.status(404).json({ message: 'No group found with this name. '});
->>>>>>> e947f15afe25756b86c1c21c474cc03c35b04d76
             return;
         }
         res.status(200).json(groupData);
