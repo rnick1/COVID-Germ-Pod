@@ -45,9 +45,9 @@ const newGroupHandler = async (event) => {
         })
         const content = await ruleCall.json()
         console.log(content);
-        if (ruleCall.ok) {
-          console.log(rule_id, group_id);
-          document.location.replace('/podDashboard')
+        if (response.ok) {
+          console.log('you made it');
+          document.location.replace(`/group/${groupData.id}`)
         }
       }
       
