@@ -1,13 +1,13 @@
 const searchBarHandler = async (event) => {
     event.preventDefault();
 
-const input = document.querySelector('#searchbar').value.trim()
+const name = document.querySelector('#searchbar').value.trim()
 
-console.log(input)
-if (input) {
+console.log(name)
+if (name) {
     const response = await fetch (`/group/name/${name}`, {
-        method: "POST",
-        body: JSON.stringify({ name }),
+        method: "GET",
+        // body: JSON.stringify(name),
         headers: { "Content-Type": "application/json" },
     });
     if(response.ok) {
@@ -20,4 +20,4 @@ if (input) {
 
 document
     .querySelector("#search")
-    .addEventListener("submit", searchBarHandler);
+    .addEventListener("click", searchBarHandler);
