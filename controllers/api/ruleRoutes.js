@@ -1,10 +1,12 @@
 const router = require('express').Router();
-const { Rule } = require('../../models');
+const { Rule, Group, GroupRule } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
-        const ruleData = await Rule.findAll()
+        const ruleData = await Rule.findAll({
+            include: [{ model: Group, through: GroupRule }]
+        })
         res.status(200).json(ruleData)
     } catch (error) {
         res.status(400).json(error)
