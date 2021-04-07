@@ -5,9 +5,9 @@ const input = document.querySelector('#searchbar').value.trim()
 
 console.log(input)
 if (input) {
-    const response = await fetch ("/group/name/:name", {
-        method: "GET",
-        body: JSON.stringify({ id, name }),
+    const response = await fetch (`/group/name/${name}`, {
+        method: "POST",
+        body: JSON.stringify({ name }),
         headers: { "Content-Type": "application/json" },
     });
     if(response.ok) {
@@ -18,4 +18,6 @@ if (input) {
 }
 }
 
-document.querySelector("#search").addEventListener("submit", searchBarHandler);
+document
+    .querySelector("#search")
+    .addEventListener("submit", searchBarHandler);
