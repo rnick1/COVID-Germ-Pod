@@ -9,17 +9,9 @@ const newGroupHandler = async (event) => {
     .filter((checkbox) => checkbox.checked)
     .map((checkbox) => parseInt(checkbox.value))
 
-  // console.log(checkboxes);
-  console.log(rules);
-  // const getId = () => {
-  //   const x = this.value
-  //   return x;
-  // }
-
-  // const rules = checkboxes.map(getId())
   
   // require name and password
-  if (name && password) {
+  if (name && password ) {
     const response = await fetch("/api/groups", {
       method: "POST",
       body: JSON.stringify({ name, password }),
@@ -36,22 +28,28 @@ const newGroupHandler = async (event) => {
           body: JSON.stringify({ group_id: groupData.id }),
           headers: { 'Content-Type': 'application/json' },
       })
+      const leader = await assignLeader.json()
+      console.log(leader);
       // console.log(assignLeader);
       // response.json(assignLeader)
       
       
-      addRules(rules, groupData)
+      // addRules(rules, groupData)
 
-      // if (rules) {
-      //   const ruleCall = await fetch('/api/groups/addRule', {
-      //     method: 'POST',
-      //     body: JSON.stringify({ rule_id: rules, group_id: groupData.id})
-      //   })
-        // if (ruleCall.ok) {
-          // console.log(rule_id, group_id);
-          // document.location.replace('/podDashboard')
-        // }
-      // }
+      if (assignLeader.ok) {
+        console.log(rules);
+        const ruleCall = await fetch('/api/groups/addRule', {
+          method: 'POST',
+          body: JSON.stringify({ rule_id: rules, group_id: groupData.id } ),
+          headers: { 'Content-Type': 'application/json' }
+        })
+        const content = await ruleCall.json()
+        console.log(content);
+        if (ruleCall.ok) {
+          console.log(rule_id, group_id);
+          document.location.replace('/podDashboard')
+        }
+      }
       
       alert("New Germ Pod Created")
     // document.location.replace("/profile");
@@ -76,19 +74,20 @@ const deleteGroup = async (event) => {
   }
 };
 
-const addRules = async (rules, groupData) => {
-  rules.forEach(element => {
-    console.log(element);
-    const ruleCall = await fetch('api/groups/addRule', {
-      method: 'POST',
-      body: JSON.stringify({ rule_id: element, group_id: groupData.id})
-    })
-    if (ruleCall.ok) {
-      console.log('did it work?');
-    }
-    // console.log(rule_id);
-  });
-}
+// const addRules = async (rules, groupData) => {
+//   rules.forEach(element => {
+//     console.log(element);
+//     const ruleCall = await fetch('api/groups/addRule', {
+//       method: 'POST',
+//       body: JSON.stringify({ rule_id: element, group_id: groupData.id})
+//     })
+//     if (ruleCall.ok) {
+//       console.log('did it work?');
+//       return await;
+//     }
+//     // console.log(rule_id);
+//   });
+// }
 
 document
   .querySelector(".new-group-form")
