@@ -19,7 +19,7 @@
         <h4>Which rules should the group agree to follow?</h4>
     {{#each rules as |rule| }}
     <div class='form-group'>
-      <input class='form-input' type='checkbox'> {{rule.name}}: {{rule.description}}</input>
+      <input class='form-input group-rules' type='checkbox' name='group-rules' value={{rule.id}}> <label for={{rule.id}}> {{rule.name}}: {{rule.description}}</label></input>
         </div>
         {{/each}}
 

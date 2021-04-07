@@ -1,10 +1,22 @@
-
 const newGroupHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector("#group-name").value.trim();
   // const members = document.querySelector("#group-members").value.trim();
   const password = document.querySelector("#group-password").value.trim();
+  const rules = Array
+    .from(document.querySelectorAll('input[type="checkbox"]'))
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => parseInt(checkbox.value))
+
+  // console.log(checkboxes);
+  console.log(rules);
+  // const getId = () => {
+  //   const x = this.value
+  //   return x;
+  // }
+
+  // const rules = checkboxes.map(getId())
   
   // require name and password
   if (name && password) {
@@ -26,8 +38,23 @@ const newGroupHandler = async (event) => {
       })
       // console.log(assignLeader);
       // response.json(assignLeader)
+      
+      
+      addRules(rules, groupData)
+
+      // if (rules) {
+      //   const ruleCall = await fetch('/api/groups/addRule', {
+      //     method: 'POST',
+      //     body: JSON.stringify({ rule_id: rules, group_id: groupData.id})
+      //   })
+        // if (ruleCall.ok) {
+          // console.log(rule_id, group_id);
+          // document.location.replace('/podDashboard')
+        // }
+      // }
+      
       alert("New Germ Pod Created")
-    document.location.replace("/profile");
+    // document.location.replace("/profile");
   } 
     } else {
       alert("Requires name and password to work");
@@ -48,6 +75,20 @@ const deleteGroup = async (event) => {
     alert("Failed to delete group");
   }
 };
+
+const addRules = async (rules, groupData) => {
+  rules.forEach(element => {
+    console.log(element);
+    const ruleCall = await fetch('api/groups/addRule', {
+      method: 'POST',
+      body: JSON.stringify({ rule_id: element, group_id: groupData.id})
+    })
+    if (ruleCall.ok) {
+      console.log('did it work?');
+    }
+    // console.log(rule_id);
+  });
+}
 
 document
   .querySelector(".new-group-form")
