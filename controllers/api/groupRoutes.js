@@ -56,7 +56,7 @@ router.post('/', withAuth, async (req, res) => {
             ...req.body,
             // user_id: req.session.user_id,
         })
-
+        
         res.status(200).json(newGroup);
     } catch (err) {
         res.status(400).json(err)
@@ -64,16 +64,32 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 router.post('/addRule', withAuth, async (req, res) => {
-    try { 
-        const addRule = await GroupRule.create({
-            group_id: req.body.group_id,
-            rule_id: req.body.rule_id
-        })
-        res.status(200).json(addRule)
+    try {
+        console.log(req.body)
+        if (req.body.rule_id.length) {
+            const groupRuleIdArr = req.body.rule_id.map((rule_id) => {
+                return {
+                    group_id: req.body.group_id,
+                    rule_id,
+                }
+            })
+            return GroupRule.bulkCreate(groupRuleIdArr)
+        }   
+        res.status(200).json(req.body)
     } catch (error) {
-        res.status(400).json(error)
+        res.status(500).json(error)
     }
 })
+    //     try { 
+    //     const addRule = await GroupRule.create({
+    //         group_id: req.body.group_id,
+    //         rule_id: req.body.rule_id
+    //     })
+    //     res.status(200).json(addRule)
+    // } catch (error) {
+    //     res.status(400).json(error)
+    // }
+// })
 
 
 

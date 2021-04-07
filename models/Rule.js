@@ -15,7 +15,7 @@ Rule.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    rule_description: {
+    description: {
       type: DataTypes.TEXT,
       allowNull: false
     }
