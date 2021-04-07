@@ -11,33 +11,17 @@
   
 </head>
 
-<body class="dash-body" href="dash-body">
+<body>
       <nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" href="#">COVID Germ Pod</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+ <img src="/public/images/COVID Germ Pod.png" alt="COVID Germ Pod Logo" style="border-radius: 20%; height: 150px;">
+    <a class="about-nav" href="#about">FAQ</a>
+    <a id="login-nav" href="./login.html">Login</a>
+    <a id="logout-nav" href="#logout">Logout</a>
+    <a id="profile-nav" href="./myDashboard.html">Pod Dashboard</a>
+    <a id="search-nav" href="#search">Pod Search</a>
+    <a id="cdc-nav" href="https://www.cdc.gov/">CDC Website</a>
+      
 </nav>
-<nav class="collapse navbar-collapse">
-    <ul>
-        <li class="nav-item">
-         <img src="#logo-pic" alt="COVID Germ Pod Logo">
-        </li>
-        <li class="nav-item"></li>
-        <a class="about-nav" href="#about">About Us</a>
-        </ul>
-        <li class="nav-item">
-        <a id="profile-nav" href="./myDashboard.html">Profile</a>
-        </li>
-        <li class="nav-item">
-        <a id="search-nav" href="#search">Search GermPodz</a>
-        </li>
-        <li class="nav-item">
-        <a id="cdc-nav" href="https://www.cdc.gov/">CDC</a>
-        </li>
-    </ul>
-</nav>
-</div>
 ​<div class="flex-column justify-space-around"></div>
 <div class="container"></div>
     <div class="row" href="main">
@@ -53,8 +37,6 @@
         <aside class="col-md-6 user-info">
             <div class="info-card">
             <h4 id="my-info">Personal Information</h4>
-            <hr>
-            <br>
             <ul>
             <ul id="first-name">First Name: {{user.firstname}}</ul>
             <ul id="last-name">Last Name: {{user.lastname}}</ul>

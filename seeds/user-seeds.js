@@ -4,22 +4,26 @@ const userData = [
     {
         "name": "Julien Hobbs",
         "email": "julien@example.com",
-        "password": "password1"
+        "password": "password1",
+        "group_id": 1
     },
     {
         "name": "Casey Proctor",
         "email": "casey@example.com",
-        "password": "password2"
+        "password": "password2",
+        "group_id": 2
     },
     {
         "name": "Janet Walters",
         "email": "janet@example.com",
-        "password": "password3"
+        "password": "password3",
+        "group_id": 1
     },
     {
         "name": "Skylar Hawkins",
         "email": "skylar@example.com",
-        "password": "password4"
+        "password": "password4",
+        "group_id": 3
     },
     {
         "name": "Dylan Koch",
@@ -48,6 +52,9 @@ const userData = [
     }
 ]
 
-const seedUsers = () => User.bulkCreate(userData);
+const seedUsers = () => User.bulkCreate(userData, {
+    individualHooks: true,
+    returning: true,
+});
 
 module.exports = seedUsers;
