@@ -23,6 +23,9 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
   background-color: darkcyan;
   color: white;
+  border-style: double;
+  border-color: lightcyan;
+  border-width: 10px;
 }
 
 .faq {
