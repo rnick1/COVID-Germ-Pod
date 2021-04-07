@@ -76,7 +76,7 @@ router.post('/addRule', withAuth, async (req, res) => {
                     rule_id,
                 }
             })
-            return GroupRule.bulkCreate(groupRuleIdArr)
+            GroupRule.bulkCreate(groupRuleIdArr)
         }   
         res.status(200).json(req.body)
     } catch (error) {

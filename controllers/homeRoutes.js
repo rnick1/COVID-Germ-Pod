@@ -9,7 +9,7 @@ router.get('/', async (req,res) => {
         return;
     }
     
-    res.render('homepage')
+    res.render('homepage', { logged_in: req.session.logged_in })
 })
     // try{
 //     const groupData = await Group.findAll({
@@ -32,7 +32,7 @@ router.get('/', async (req,res) => {
 // }
 
 router.get('/faq', async (req, res) => {
-    res.render('faq')
+    res.render('faq', { logged_in: req.session.logged_in })
 })
 
 router.get('/newGroup', withAuth, async (req, res) => {
@@ -49,7 +49,7 @@ router.get('/newGroup', withAuth, async (req, res) => {
 
         res.render('newGroup', {
             rules,
-            // logged_in: req.session.logged_in
+            logged_in: req.session.logged_in
         })
 
         
@@ -129,7 +129,7 @@ router.get('/profile', withAuth, async (req,res) => {
 
         res.render('profile', {
             ...user,
-            // logged_in: true
+            logged_in: req.session.logged_in 
         })
     } catch(err) {
         res.status(500).json(err)
