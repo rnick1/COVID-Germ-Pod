@@ -14,9 +14,8 @@
         <div class="info-card">
             <h4 id="my-info">Personal Information</h4>
             <ul>
-                <ul id="first-name">First Name: {{user.firstname}}</ul>
-                <ul id="last-name">Last Name: {{user.lastname}}</ul>
-                <ul id="email">Email: {{user.email}}</ul>
+                <ul id="first-name">Name: {{name}}</ul>
+                <ul id="email">Email: {{email}}</ul>
                 <button id="update-password">Update Password</button>
             </ul>
         </div>
@@ -27,9 +26,18 @@
                     <h4 id="my-info">Pod Options</h4>
                     <hr>
                     <ul>
-                        <button id="create-group" href="#createGroup" style="position: relative;">Create a New
-                            Germpod</button>
-                        <button id="join-group" href="#groupDashboard">Go to my Germpod</button>
+                        {{#if group_id}}
+                        <li><a href='/group/{{group.id}}'>{{group.name}}</a></li>
+                        {{else}}
+                        <li><a class='btn' id='create-group' href='/newGroup' role='button'>Create a New Germ Pod</a></li>
+                        {{/if}}
+                        {{!-- <button class='btn' id='create-group' style='position: relative'></button> --}}
+                        {{!-- <button id="create-group" href="/newGroup" style="position: relative;">Create a New
+                            Germpod</button> --}}
+                        {{!-- <button id="join-group" href="#groupDashboard">Go to my Germpod</button> --}}
                     </ul>
                 </div>
             </div>
+        </div>
+    </aside>
+</div>

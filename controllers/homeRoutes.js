@@ -35,10 +35,30 @@ router.get('/faq', async (req, res) => {
     res.render('faq')
 })
 
+router.get('/newGroup', async (req, res) => {
+    try {
+        // const userData = await User.findByPk(req.session.user_id, {
+        //     attributes: 'name',
+        //     // include: [
+        //     //     {
+        //     //         model: 
+        //     //     }
+        //     // ]
+        // })
+        // const user = userData.get({ plain: true })
+
+        res.render('newGroup')
+
+        
+    } catch (error) {
+        
+    }
+})
+
 //this gets a single group by id and shows the user name attatched 
 router.get('/group/:id', withAuth, async (req,res) => {
     try{
-        const userData = await Group.findByPk(req.params.id, {
+        const groupData = await Group.findByPk(req.params.id, {
             include: [
                 {
                     model: User,
@@ -47,7 +67,7 @@ router.get('/group/:id', withAuth, async (req,res) => {
             ],
         });
 
-        const group = userData.get({ plain: true});
+        const group = groupData.get({ plain: true});
 
         res.render('podDashboard', {
             ...group,
@@ -71,7 +91,7 @@ router.get('/profile', withAuth, async (req,res) => {
 
         res.render('profile', {
             ...user,
-            logged_in: true
+            // logged_in: true
         })
     } catch(err) {
         res.status(500).json(err)
