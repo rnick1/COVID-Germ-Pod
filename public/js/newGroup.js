@@ -1,12 +1,17 @@
-
 const newGroupHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector("#group-name").value.trim();
   // const members = document.querySelector("#group-members").value.trim();
   const password = document.querySelector("#group-password").value.trim();
+  const rules = Array
+    .from(document.querySelectorAll('input[type="checkbox"]'))
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => parseInt(checkbox.value))
+
   
-  if (name && password) {
+  // require name and password
+  if (name && password ) {
     const response = await fetch("/api/groups", {
       method: "POST",
       body: JSON.stringify({ name, password }),
@@ -14,21 +19,43 @@ const newGroupHandler = async (event) => {
     });
 
     if (response.ok) {
-        const groupData = await fetch(`api/groups/${name}`, {
-          method: 'GET',
-          // body: JSON.stringify({ id }),
-          // headers: { 'Content-Type': 'application/json' }
+      const groupCall = await fetch(`api/groups/${name}`, {
+        method: 'GET',
+      })
+      const groupData = await groupCall.json()
+      const assignLeader = await fetch('api/users/joinGroup', {
+          method: 'PUT',
+          body: JSON.stringify({ group_id: groupData.id }),
+          headers: { 'Content-Type': 'application/json' },
+      })
+      const leader = await assignLeader.json()
+      console.log(leader);
+      // console.log(assignLeader);
+      // response.json(assignLeader)
+      
+      
+      // addRules(rules, groupData)
+
+      if (assignLeader.ok) {
+        console.log(rules);
+        const ruleCall = await fetch('/api/groups/addRule', {
+          method: 'POST',
+          body: JSON.stringify({ rule_id: rules, group_id: groupData.id } ),
+          headers: { 'Content-Type': 'application/json' }
         })
-        const assignLeader = await fetch('api/users/joinGroup', {
-            method: 'PUT',
-            body: JSON.stringify({ groupData }),
-            headers: { 'Content-Type': 'application/json' },
-        })
-        response.status(200).json(assignLeader)
-      document.location.replace("/profile");
-    } 
+        const content = await ruleCall.json()
+        console.log(content);
+        if (ruleCall.ok) {
+          console.log(rule_id, group_id);
+          document.location.replace('/podDashboard')
+        }
+      }
+      
+      alert("New Germ Pod Created")
+    // document.location.replace("/profile");
+  } 
     } else {
-      alert("Failed to create group.");
+      alert("Requires name and password to work");
   } 
 };
 
@@ -46,6 +73,21 @@ const deleteGroup = async (event) => {
     alert("Failed to delete group");
   }
 };
+
+// const addRules = async (rules, groupData) => {
+//   rules.forEach(element => {
+//     console.log(element);
+//     const ruleCall = await fetch('api/groups/addRule', {
+//       method: 'POST',
+//       body: JSON.stringify({ rule_id: element, group_id: groupData.id})
+//     })
+//     if (ruleCall.ok) {
+//       console.log('did it work?');
+//       return await;
+//     }
+//     // console.log(rule_id);
+//   });
+// }
 
 document
   .querySelector(".new-group-form")

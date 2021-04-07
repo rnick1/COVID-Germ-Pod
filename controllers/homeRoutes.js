@@ -1,6 +1,10 @@
 const router = require('express').Router();
+<<<<<<< HEAD
 const {User, Group, Rule} = require('../models');
 const { findOne } = require('../models/User');
+=======
+const {User, Group, Rule, UserEvent, GroupRule} = require('../models');
+>>>>>>> 404651002c6229105fb56a281de5bf14e493db83
 const withAuth = require('../utils/auth');
 
 //this gets the groups and shows the users in the group
@@ -36,23 +40,26 @@ router.get('/faq', async (req, res) => {
     res.render('faq')
 })
 
-router.get('/newGroup', async (req, res) => {
+router.get('/newGroup', withAuth, async (req, res) => {
     try {
-        // const userData = await User.findByPk(req.session.user_id, {
-        //     attributes: 'name',
-        //     // include: [
-        //     //     {
-        //     //         model: 
-        //     //     }
-        //     // ]
-        // })
-        // const user = userData.get({ plain: true })
+        const ruleData = await Rule.findAll({
+            // attributes: ['name', 'description'],
+            // include: [
+            //     {
+            //         model: 
+            //     }
+            // ]
+        })
+        const rules = ruleData.map((rule) => rule.get({ plain: true }))
 
-        res.render('newGroup')
+        res.render('newGroup', {
+            rules,
+            // logged_in: req.session.logged_in
+        })
 
         
     } catch (error) {
-        
+        res.status(500).json(error)
     }
 })
 
@@ -65,6 +72,10 @@ router.get('/group/:id', withAuth, async (req,res) => {
                     model: User,
                     attributes: ['name'],
                 },
+                {
+                    model: Rule, through: GroupRule,
+                    attributes: ['name', 'description']
+                }
             ],
         });
 
@@ -124,6 +135,24 @@ router.get('/profile', withAuth, async (req,res) => {
         res.render('profile', {
             ...user,
             // logged_in: true
+        })
+    } catch(err) {
+        res.status(500).json(err)
+    }
+})
+
+router.get('/events', async (req,res) => {
+    try{
+        
+        const eventData = await Event.findAll()
+
+        //serialize the data and render
+        const events = eventData.map((event) => { event.get({plain: true })
+        })
+
+        res.render('events', {
+            ...events
+    
         })
     } catch(err) {
         res.status(500).json(err)
