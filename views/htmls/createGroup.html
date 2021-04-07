@@ -1,0 +1,39 @@
+<div class="topnav">
+    <img src="#logo-pic" alt="COVID Germ Pod Logo">
+    <a class="about-nav" href="#about">About GermPodz</a>
+    <a id="login-nav" href="./login.html">Login</a>
+    <a id="logout-nav" href="#logout">Logout</a>
+    <a id="profile-nav" href="./myDashboard.html">Profile</a>
+    <a id="search-nav" href="#search">Search GermPodz</a>
+    <a id="cdc-nav" href="https://www.cdc.gov/">CDC</a>
+</div>
+
+<div class="create-group-form">
+    <h1>
+        <span id="web-logo" role="img" aria-label="logo">💉✅</span>
+        COVID Germ Podz
+    </h1>
+    <h2>Create Your Group</h2>
+    <form class="form new-group-form">
+        <div class="form-group">
+          <label for="group-name">Group Name:</label>
+          <input class="form-input" type="text" id="group-name" name="group-name" />
+        </div>
+        <div class="form-group">
+          <label for="group-rules">Group Rules:</label>
+          <textarea class="form-input" id="group-rules" name="group-rules"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="group-password">Set Group Password:</label>
+            <input type="password" id="group-password" name="group-password"
+                   minlength="8" required>
+        </div >
+        <div class="form-group">
+            <label for="email">Invite a Friend through Email:</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Create Group</button>
+        </div>
+    </form>
+</div>
