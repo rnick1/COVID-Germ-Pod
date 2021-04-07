@@ -3,6 +3,7 @@ const { Group, GroupRule, Rule } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
+    console.log('Hello')
     try {
         const groupData = await Group.findAll({
             include: [{ model: Rule, through: GroupRule }]
@@ -26,7 +27,9 @@ router.get('/:name', async (req, res) => {
             res.status(404).json({ message: 'No group found with this name. '});
             return;
         }
-        res.status(200).json(groupData);
+        // res.status(200).json(groupData);
+        res.render('singleGroup', groupData)
+        console.log(groupData)
     } catch (err) {
         res.status(500).json(err);
     }
