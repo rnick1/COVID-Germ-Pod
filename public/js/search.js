@@ -1,7 +1,8 @@
 const searchBarHandler = async (event) => {
     event.preventDefault();
 
-const input = document.getElementById('searchbar').value.trim()
+const input = document.querySelector('#searchbar').value.trim()
+
 console.log(input)
 if (input) {
     const response = await fetch ("/group/name/:name", {
