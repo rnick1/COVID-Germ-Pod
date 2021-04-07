@@ -6,6 +6,7 @@ const newGroupHandler = async (event) => {
   // const members = document.querySelector("#group-members").value.trim();
   const password = document.querySelector("#group-password").value.trim();
   
+  // require name and password
   if (name && password) {
     const response = await fetch("/api/groups", {
       method: "POST",
@@ -14,21 +15,22 @@ const newGroupHandler = async (event) => {
     });
 
     if (response.ok) {
-        const groupData = await fetch(`api/groups/${name}`, {
-          method: 'GET',
-          // body: JSON.stringify({ id }),
-          // headers: { 'Content-Type': 'application/json' }
-        })
-        const assignLeader = await fetch('api/users/joinGroup', {
-            method: 'PUT',
-            body: JSON.stringify({ groupData }),
-            headers: { 'Content-Type': 'application/json' },
-        })
-        response.status(200).json(assignLeader)
-      document.location.replace("/profile");
-    } 
+      const groupCall = await fetch(`api/groups/${name}`, {
+        method: 'GET',
+      })
+      const groupData = await groupCall.json()
+      const assignLeader = await fetch('api/users/joinGroup', {
+          method: 'PUT',
+          body: JSON.stringify({ group_id: groupData.id }),
+          headers: { 'Content-Type': 'application/json' },
+      })
+      // console.log(assignLeader);
+      // response.json(assignLeader)
+      alert("New Germ Pod Created")
+    document.location.replace("/profile");
+  } 
     } else {
-      alert("Failed to create group.");
+      alert("Requires name and password to work");
   } 
 };
 
