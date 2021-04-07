@@ -17,14 +17,15 @@
         <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
             <ul class="navbar-nav ml-auto text-center">
                 <li class="nav-item active">
-                    <a class="navbar-brand" href="#">Home</a>
+                    <a class="navbar-brand" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-brand" href="#">FAQ</a>
+                    <a class="navbar-brand" href="/faq">FAQ</a>
                 </li>
                 <li class="nav-item">
                     {{#if logged_in}}
-                    <a href="/profile">Dashboard</a> |
+                    <a href="/profile">Dashboard</a>
+                    <a href='/' id='logout'>Logout</a> |
                     {{else}}
                     <a href="/login" id="login">Let's get started!</a>
                     {{/if}}
@@ -36,7 +37,7 @@
             <ul>
                 <ul>
                     <div class="mx-auto my-2 order-0 order-md-1 position-center">
-                        <a class="mx-auto" href="#home">
+                        <a class="mx-auto" href="/">
                             <img src="/images/COVID Germ Pod.png" class="rounded-circle" style="height: 80px;">
                         </a>
                 </ul>

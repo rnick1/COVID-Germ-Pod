@@ -13,14 +13,17 @@ router.get('/', async (req, res) => {
     }
 })
 // NEW!!! For search bar:
-router.get('/name', async (req, res) => {
+router.get('/:name', async (req, res) => {
 
     try{
-        const groupData = await Group.findOne(req.params.name, {
+        const groupData = await Group.findOne({
+            where: {
+                name: req.params.name
+            }, 
             include: [{ model: Rule, through: GroupRule }]
         })
         if(!groupData) {
-            res.status(404).json({ message: 'No location found with this name. '});
+            res.status(404).json({ message: 'No group found with this name. '});
             return;
         }
 
