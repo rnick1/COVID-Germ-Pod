@@ -26,12 +26,10 @@ router.get('/:name', async (req, res) => {
             res.status(404).json({ message: 'No group found with this name. '});
             return;
         }
-
         res.status(200).json(groupData);
     } catch (err) {
         res.status(500).json(err);
     }
-    
 });
 
 router.get('/:id', async (req, res) => {
