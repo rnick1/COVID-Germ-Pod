@@ -10,7 +10,7 @@ if (input) {
         headers: { "Content-Type": "application/json" },
     });
     if(response.ok) {
-        document.location.replace("/singleGroup");
+        document.location.replace("/searchResults");
     }else{
         alert(response.statusText);
     }
