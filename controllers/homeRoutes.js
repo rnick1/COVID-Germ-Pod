@@ -138,19 +138,21 @@ router.get('/profile', withAuth, async (req,res) => {
 
 router.get('/events', async (req,res) => {
     try{
-        
         const eventData = await Event.findAll()
-
+        console.log(eventData, 'eventData')
+        console.log("****************************")
         //serialize the data and render
-        const events = eventData.map((event) => { event.get({plain: true })
-        })
+        const events = eventData.map(({name, event_description, id}) => ({
+            name: name,
+            event_description: event_description,
+            id: id
+        }) )
 
-        res.render('events', {
-            ...events
-    
-        })
+        console.log(events, 'Events')
+
+        res.render('events', events)
     } catch(err) {
-        res.status(500).json(err)
+        res.json(err)
     }
 })
 

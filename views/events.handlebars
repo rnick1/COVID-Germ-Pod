@@ -1,10 +1,11 @@
 
 <div class='event-list'>
-
-{{#each events as |event|}}
-    <div>
-        {{name}}
-    </div>
-{{/event}}
-
+<div>
+{{#each event as |something| }}
+    
+        {{something.name}}
+        {{something.event_description}}
+    
+{{/each}}
+</div>
 </div>
