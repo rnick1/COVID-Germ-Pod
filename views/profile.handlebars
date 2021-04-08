@@ -16,9 +16,16 @@
             <ul>
                 <ul id="first-name">Name: {{name}}</ul>
                 <ul id="email">Email: {{email}}</ul>
-                <button id="update-password">Update Password</button>
+               
             </ul>
         </div>
+        <div>
+            <div class="form-group">
+                <label for="password-update">update password:</label>
+                <input class="form-input" type="text" id="password-update" />
+
+                <button id="update-password-btn" data-id="{{id}}">Update Password</button>
+            </div>
         ​<div class="flex-column justify-space-around"></div>
         <div class="row">
             <div class="col-md-6 user-group">
