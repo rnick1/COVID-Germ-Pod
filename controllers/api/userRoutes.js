@@ -86,6 +86,7 @@ router.put('/joinGroup', withAuth, async (req, res) => {
         }
         userData.group_id = req.body.group_id;
         userData.save()
+        req.session.group_id = userData.group_id
         
         res.status(200).json(userData)
     } catch (error) {

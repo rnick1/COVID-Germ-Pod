@@ -6,7 +6,6 @@ const nodeMail = require('../../utils/mail/email')
 // routes are /api/groups
 
 router.get('/', async (req, res) => {
-    console.log('Hello')
     try {
         const groupData = await Group.findAll({
             include: [{ model: Rule, through: GroupRule }]
@@ -58,7 +57,8 @@ router.post('/', withAuth, async (req, res) => {
     try{
         const newGroup = await Group.create({
             ...req.body,
-            // user_id: req.session.user_id,
+            user_id: req.session.user_id,
+            
         })
         
         res.status(200).json(newGroup);
@@ -89,7 +89,7 @@ router.post('/sendInviteEmail/:id', withAuth, async (req,  res) => {
     try {
         const email = await req.body.email.split(',')
         const user = await User.findByPk(req.session.user_id)
-        const group = await Group.findByPk(req.params.id) 
+        const group = await Group.findByPk(req.session.group_id) 
         email.forEach(element => {
             nodeMail.sendInviteEmail(element, user, group)
         });

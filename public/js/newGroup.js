@@ -61,6 +61,7 @@ const newGroupHandler = async (event) => {
       const confirm = await emailCall.json()
       console.log(confirm);
       if (ruleCall.ok) {
+        // alert('created new group')
         await new Promise(r=> setTimeout(r,1000))
         document.location.replace(`/group/${groupData.id}`);
       }
