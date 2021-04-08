@@ -1,3 +1,4 @@
+// This powers the search bar
 const searchBarHandler = async (event) => {
     event.preventDefault();
 

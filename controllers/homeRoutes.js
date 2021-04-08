@@ -2,39 +2,32 @@ const router = require('express').Router();
 const {User, Group, Rule, Event, UserEvent, GroupRule} = require('../models');
 const withAuth = require('../utils/auth');
 
-//renders homepage
+//This renders the Homepage:
 router.get('/', async (req,res) => {
-    // if(req.session.logged_in) {
-    //     res.redirect('/profile');
-    //     return;
-    // }
-    
     res.render('homepage', { logged_in: req.session.logged_in })
 })
 
+//This renders the FAQ page:
 router.get('/faq', async (req, res) => {
     res.render('faq', { logged_in: req.session.logged_in })
 })
 
+//This renders the page where the user can create a new group (as long as they are signed in):
 router.get('/newGroup', withAuth, async (req, res) => {
     try {
         const ruleData = await Rule.findAll({
-            
         })
         const rules = ruleData.map((rule) => rule.get({ plain: true }))
-
         res.render('newGroup', {
             rules,
             logged_in: req.session.logged_in
         })
-
-        
     } catch (error) {
         res.status(500).json(error)
     }
 })
 
-//this gets a single group by id and shows the user name attatched 
+//This gets a single group by id and displays the user names: 
 router.get('/group/:id', withAuth, async (req,res) => {
     try{
         const groupData = await Group.findByPk(req.params.id, {
@@ -49,10 +42,8 @@ router.get('/group/:id', withAuth, async (req,res) => {
                 }
             ],
         });
-
         const group = groupData.get({ plain: true});
         const groupMatches = (group.id == req.session.group_id)
-
         res.render('podDashboard', {
             ...group,
             logged_in: req.session.logged_in,
@@ -63,7 +54,7 @@ router.get('/group/:id', withAuth, async (req,res) => {
     }
 })
 
-// For the search bar. This gets a single group by name and displays the associated users and rules.
+// This gets a single group by name and displays the associated users and rules.
 // Note: after testing remember to add 'withAuth' before 'async.'
 router.get('/group/name/:name', async (req, res) => {
     try{
@@ -83,7 +74,6 @@ router.get('/group/name/:name', async (req, res) => {
                         ],
     });
     const group = groupData.get({ plain: true});
-
     res.render('singleGroup', {
         ...group,
         // logged_in: req.session.logged_in
@@ -93,7 +83,7 @@ router.get('/group/name/:name', async (req, res) => {
 }
 })
 
-//withAuth render the profile from the session id
+//This renders the user's profile page when they are signed in:
 router.get('/profile', withAuth, async (req,res) => {
     try{
         //find the logged in user based on the session id
@@ -114,6 +104,7 @@ router.get('/profile', withAuth, async (req,res) => {
     }
 })
 
+//This renders the events:
 router.get('/events', async (req,res) => {
     try{
         const eventData = await Event.findAll()
@@ -125,22 +116,19 @@ router.get('/events', async (req,res) => {
             event_description: event_description,
             id: id
         }) )
-
         console.log(events, 'Events')
-
         res.render('events', events)
     } catch(err) {
         res.json(err)
     }
 })
 
-//if the user is logged in, redirect to profile, otherwise render login
+//This makes sure that if a user is not logged in then they are directed to the login/signup page:
 router.get('/login', async (req,res) => {
     if(req.session.logged_in) {
         res.redirect('/profile');
         return;
     }
-    
     res.render('login')
 })
 

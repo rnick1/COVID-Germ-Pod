@@ -1,3 +1,4 @@
+// This provides functionality for when someone wants to join a group
 const joinGroupHandler = async (event) => {
     event.preventDefault();
 

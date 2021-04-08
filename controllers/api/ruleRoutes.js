@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Rule, Group, GroupRule } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// Displays all rules
 router.get('/', async (req, res) => {
     try {
         const ruleData = await Rule.findAll({
@@ -13,6 +14,7 @@ router.get('/', async (req, res) => {
     }
 })
 
+// Creates a new rule
 router.post('/', withAuth, async (req, res) => {
     try{
         const newRule = await Rule.create({
@@ -26,6 +28,7 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
+// This deletes a rule referencing it's id
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const ruleData = await Rule.destroy({

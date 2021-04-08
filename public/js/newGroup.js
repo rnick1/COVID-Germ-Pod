@@ -1,4 +1,4 @@
-// import { sendInviteEmail } from "../../utils/mail/email.js";
+// This handles new groups
 document.getElementById('group-invites').multiple=true;
 const newGroupHandler = async (event) => {
   event.preventDefault();
@@ -9,7 +9,6 @@ const newGroupHandler = async (event) => {
     .querySelector("#group-invites")
     .value
     console.log(email);
-
   const rules = Array.from(document.querySelectorAll('input[type="checkbox"]'))
     .filter((checkbox) => checkbox.checked)
     .map((checkbox) => parseInt(checkbox.value));
@@ -21,7 +20,6 @@ const newGroupHandler = async (event) => {
       body: JSON.stringify({ name, password }),
       headers: { "Content-Type": "application/json" },
     });
-
     if (response.ok) {
       const groupCall = await fetch(`api/groups/${name}`, {
         method: "GET",
@@ -34,11 +32,9 @@ const newGroupHandler = async (event) => {
       });
       const leader = await assignLeader.json();
       console.log(leader);
-      
       if (!assignLeader.ok) {
         throw(assignLeader.json())
       }
-
       console.log(rules);
       const ruleCall = await fetch("/api/groups/addRule", {
         method: "POST",
@@ -47,17 +43,14 @@ const newGroupHandler = async (event) => {
       });
       const content = await ruleCall.json();
       console.log(content);
-
       if (!ruleCall.ok) {
         throw(ruleCall.json())
       }
-
       const emailCall = await fetch('/api/groups/sendInviteEmail/:id', {
         method: 'POST',
         body: JSON.stringify({ email }),
         headers: { 'Content-Type': 'application/json' }
       })
-
       const confirm = await emailCall.json()
       console.log(confirm);
       if (ruleCall.ok) {

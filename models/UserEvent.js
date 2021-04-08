@@ -2,6 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 class UserEvent extends Model { }
 
+// This is a join table for both the user and event tables
 UserEvent.init(
   {
     id: {

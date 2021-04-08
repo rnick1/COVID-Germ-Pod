@@ -1,3 +1,4 @@
+// This powers the email invitation functionality
 const inviteUserHandler = async (event) => {
   event.preventDefault();
   const email = document.querySelector("#emails").value;
@@ -22,6 +23,7 @@ const inviteUserHandler = async (event) => {
   }
 };
 
+// This powers the leave group/delete group email functionality
 const requestEmail = (event) => {
   event.preventDefault();
   document.querySelector("#leave-group").setAttribute("hidden", "true");
@@ -58,6 +60,7 @@ const requestEmail = (event) => {
     .addEventListener("click", inviteUserHandler);
 };
 
+// This allows a user to leave a group
 const leaveGroup = async (event) => {
   event.preventDefault();
 
@@ -72,6 +75,7 @@ const leaveGroup = async (event) => {
   }
 };
 
+// This enables a user to delete a group
 const deleteGroup = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
