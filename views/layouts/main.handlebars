@@ -38,15 +38,15 @@
                 <ul>
                     <div class="mx-auto my-2 order-0 order-md-1 position-center">
                         <a class="mx-auto" href="/">
-                            <img src="/images/COVID Germ Pod.png" class="rounded-circle" style="height: 80px;">
+                            <img src="/images/COVID Germ Pod.png" class="rounded-circle"
+                                style="height: 80px; opacity: unset;">
                         </a>
                 </ul>
             </ul>
             <ul>
                 <ul>
-                    <form class="form-inline my-2 my-lg-0" id="">
-                        <input id="searchbar" class="form-control mr-sm-2" type="search" placeholder="Find a group..."
-                            aria-label="Search">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input id="searchbar" class="form-control mr-sm-2" placeholder="Find a group...">
                         <button id="search" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </ul>
@@ -88,6 +88,8 @@
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
+
+    <script src="/js/search.js"></script>
 </body>
 ​
 

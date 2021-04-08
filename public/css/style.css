@@ -1,5 +1,5 @@
 body {
-  font-family:'Trebuchet MS';
+  font-family: Helvetica;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -8,6 +8,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
+  background-blend-mode:color-burn;
   background-color: rgb(193, 226, 226);
 }
 
@@ -16,6 +17,12 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
     text-align: left;
 }
+
+/* .container {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  align-items: center; */
 
 .about-blurb {
   margin: 15px 100px 15px 100px;
@@ -31,17 +38,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .faq {
-  margin: 15px 100px 15px 100px;
-  padding: 40px 20px 40px 20px;
+  margin: 0px 300px 5px 300px;
+  padding: 10px 20px 40px 10px;
   box-sizing: border-box;
   height: 70% !important;
+  text-align: left;
   flex-wrap: wrap;
   background-color: darkcyan;
   color: white;
+  border-style: double;
+  border-color: lightcyan;
+  border-width: 10px;
+}
+
+.pod-images {
+  padding-right: 200px;
+  padding-bottom: 0px;
+  flex-direction: wrap;
+  justify-content: left;
+  flex-wrap: wrap;
+  flex-flow: wrap;
+  float:initial;
 }
 
 .navbar {
-  background-color:  darkcyan;
+  background-color:  lightcyan;
   font-family:'Lucida Sans Unicode';
   font-weight: bolder;
   opacity: 90%;
@@ -65,9 +86,11 @@ nav a:hover {
 
 #navbar {
   background-color:  darkcyan;
-  font-family:'Lucida Sans Unicode';
+  background-blend-mode: overlay;
+  font-family:'Helvetica';
   font-weight: bolder;
-  opacity: 80%;
+  image-resolution: 100%;
+  opacity: 60%;
   width: 10px;
 }
 
@@ -142,8 +165,8 @@ nav a:hover {
   margin-left: 60%;
   padding: 40px 20px 40px 20px;
   box-sizing: border-box;
-  width: 10%;
-  height: 30% !important;
+  max-width: 50%;
+  height: 150% !important;
   flex-wrap: wrap;
   flex-flow: column;
   border: 7px double darkcyan;
@@ -151,6 +174,7 @@ nav a:hover {
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
   border-radius: 25px;
   background-color: lightslategray;
+  background-blend-mode: lighten;
   text-align: left;
   color: white;
   display: flex;
@@ -201,9 +225,11 @@ nav a:hover {
     color: darkcyan;
     font: small-caps;
     font-weight: bolder;
-    font-family:'Arial';
+    font-family: Helvetica;
     text-shadow: steelblue;
-    background-color: thistle;
+    text-align: left;
+    background-color: rgb(207, 231, 238);
+    background-blend-mode: hue;
     border-radius: 10px;
     box-shadow: slategrey;
     margin: 5%;
@@ -213,30 +239,28 @@ nav a:hover {
     justify-content:space-between;
 }
 
-.login-card {
-  margin: 0 0 20px 0;
-  flex: 0 0 50%;
-  max-width: 18%;
-  padding: 30px;
-  text-align: left;
-  border: 3px solid var(--dark);
+.login-form {
+  margin: 0 0 200px 0;
+  flex: 0 0 10%;
+  max-width: 75%;
+  padding: 20px;
+  border: 3px darkslategray;
   border-radius: var(--border-radius);
   border-style: double;
-  border-width: thick;
-  background-color: #577a7c;
+  background-color: #d1e6e7;
+  background-blend-mode: lighten;
 }
 
-.sign-up-card {
-  margin: 0 0 20px 0;
-  flex: 0 0 50%;
-  max-width: 20%;
-  padding: 30px;
-  text-align: left;
-  border: 3px solid var(--dark);
+.signup-form {
+  margin: 0 0 200px 0;
+  flex: 0 0 10%;
+  max-width: 75%;
+  padding:20px;
+  border: 3px darkslategray;
   border-radius: var(--border-radius);
   border-style: double;
-  border-width: thick;
-  background-color: #577a7c;
+  background-color: #d1e6e7;
+  background-blend-mode: lighten;
 }
 
 .form-input {
