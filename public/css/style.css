@@ -291,6 +291,30 @@ nav a:hover {
   background-blend-mode: lighten;
 }
 
+.new-group-card {
+  margin: 0 0 200px 0;
+  flex: 0 0 10%;
+  max-width: 75%;
+  padding:20px;
+  border: 3px darkslategray;
+  border-radius: var(--border-radius);
+  border-style: double;
+  background-color: #d1e6e7;
+  background-blend-mode: lighten;
+}
+
+.new-group-rules-card {
+  margin: 0 0 20px 0;
+  /* flex: 0 0 10%; */
+  max-width: 100%;
+  padding:20px;
+  border: 3px darkslategray;
+  border-radius: var(--border-radius);
+  border-style: double;
+  background-color: #d1e6e7;
+  background-blend-mode: lighten;
+}
+
 .form-input {
     text-align: justify;
 }
