@@ -55,13 +55,11 @@ _Create-New-Group_
 
 ## Challenges:
 
--
-
--
+- From the beginning of the project we divided the tasks into neat categories such as Nick doing the database and models, Mikey doing the routes, etc. This worked very well until it came time to link everything together. Each member's lack of familiarity with other parts of the project made it a challenge to pull everything together.
 
 ## Direction for Future Development:
 
--
+- Increased functionality for adding photos.
 
 -
 
