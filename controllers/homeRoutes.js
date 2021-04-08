@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Group, Rule, UserEvent, GroupRule} = require('../models');
+const {User, Group, Rule, Event, UserEvent, GroupRule} = require('../models');
 const withAuth = require('../utils/auth');
 
 //this gets the groups and shows the users in the group
@@ -84,6 +84,37 @@ router.get('/group/:id', withAuth, async (req,res) => {
         res.status(500).json(err)
     }
 })
+
+// For the search bar. This gets a single group by name and displays the associated users and rules.
+// Note: after testing remember to add 'withAuth' before 'async.'
+router.get('/group/name/:name', async (req, res) => {
+    try{
+        const groupData = await Group.findOne({
+                        where: {
+                            name: req.params.name
+                        }, 
+                        include: [
+                            {
+                                model: User,
+                                attributes: ['name']
+                            },
+                            {
+                                model: Rule,
+                                attributes: ['name']
+                            },
+                        ],
+    });
+    const group = groupData.get({ plain: true});
+
+    res.render('singleGroup', {
+        ...group,
+        // logged_in: req.session.logged_in
+    });
+} catch(err) {
+    res.status(500).json(err)
+}
+})
+
 //withAuth render the profile from the session id
 router.get('/profile', withAuth, async (req,res) => {
     try{
@@ -92,12 +123,12 @@ router.get('/profile', withAuth, async (req,res) => {
             attributes: {exclude: ['password'] },
             include: [{ model: Group }],
         })
-
+        const eventData = await Event.findAll()
         //serialize the data and render
         const user = userData.get({ plain: true });
-
+        const events = eventData.map((event) => event.get({ plain: true }));
         res.render('profile', {
-            ...user,
+            ...user, events,
             logged_in: req.session.logged_in 
         })
     } catch(err) {

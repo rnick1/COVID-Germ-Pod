@@ -35,31 +35,34 @@ const newGroupHandler = async (event) => {
       });
       const leader = await assignLeader.json();
       console.log(leader);
-      // console.log(assignLeader);
-      // response.json(assignLeader)
-
-      // addRules(rules, groupData)
-
-      if (assignLeader.ok) {
-        console.log(rules);
-        const ruleCall = await fetch("/api/groups/addRule", {
-          method: "POST",
-          body: JSON.stringify({ rule_id: rules, group_id: groupData.id }),
-          headers: { "Content-Type": "application/json" },
-        });
-        const content = await ruleCall.json();
-        console.log(content);
-        
-      }
       
+      if (!assignLeader.ok) {
+        throw(assignLeader.json())
+      }
+
+      console.log(rules);
+      const ruleCall = await fetch("/api/groups/addRule", {
+        method: "POST",
+        body: JSON.stringify({ rule_id: rules, group_id: groupData.id }),
+        headers: { "Content-Type": "application/json" },
+      });
+      const content = await ruleCall.json();
+      console.log(content);
+
+      if (!ruleCall.ok) {
+        throw(ruleCall.json())
+      }
+
       const emailCall = await fetch('/api/groups/sendInviteEmail/:id', {
         method: 'POST',
         body: JSON.stringify({ email }),
         headers: { 'Content-Type': 'application/json' }
       })
+
       const confirm = await emailCall.json()
       console.log(confirm);
-      if (response.ok) {
+      if (ruleCall.ok) {
+        await new Promise(r=> setTimeout(r,1000))
         document.location.replace(`/group/${groupData.id}`);
       }
     }
