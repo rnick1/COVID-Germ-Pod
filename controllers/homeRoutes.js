@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Group, Rule, UserEvent, GroupRule} = require('../models');
+const {User, Group, Rule, Event, UserEvent, GroupRule} = require('../models');
 const withAuth = require('../utils/auth');
 
 //this gets the groups and shows the users in the group
@@ -92,12 +92,12 @@ router.get('/profile', withAuth, async (req,res) => {
             attributes: {exclude: ['password'] },
             include: [{ model: Group }],
         })
-
+        const eventData = await Event.findAll()
         //serialize the data and render
         const user = userData.get({ plain: true });
-
+        const events = eventData.map((event) => event.get({ plain: true }));
         res.render('profile', {
-            ...user,
+            ...user, events,
             logged_in: req.session.logged_in 
         })
     } catch(err) {

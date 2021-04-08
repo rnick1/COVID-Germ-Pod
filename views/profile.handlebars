@@ -40,4 +40,19 @@
             </div>
         </div>
     </aside>
+    
+<div class='event-list'>
+<div><div class='form-group'>
+    <label for='user-events'>Report a COVID Event to your Pod:</label>
+    <select name='user-events' id='events'>
+{{#each events as |event| }}
+    
+      <option value={{event.id}}>{{event.name}}:{{event.description}}</option>
+       
+        {{/each}}
+        </select>
+         </div>
+</div>
+</div>
+
 </div>
