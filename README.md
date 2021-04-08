@@ -32,23 +32,23 @@ bcrypt, bootstrap, express, mySQL, nodemailer, and many others
 
 _Home-Page_
 
-![image](https://github.com/rnick1/Group_6/blob/main/public/images/home-page.PNG)
-(https://github.com/rnick1/Weather_App/blob/main/Assets/Weather_Dashboard.png)
+![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/home-page.PNG)
+
 _Login/Signup_
 
-![image](https://github.com/rnick1/Group_6/blob/main/public/images/login.png)
+![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/login.png)
 
 _Dashboard_
 
-![image](https://github.com/rnick1/Group_6/blob/main/public/images/dashboard.png)
+![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/dashboard.png)
 
 _Search-Results_
 
-![image](https://github.com/rnick1/Group_6/blob/main/public/images/searchresult.png)
+![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/searchresult.png)
 
 _Create-New-Group_
 
-![image](https://github.com/rnick1/Group_6/blob/main/public/images/new-group.png)
+![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/new-group.png)
 
 ## Contributors:
 
