@@ -2,34 +2,15 @@ const router = require('express').Router();
 const {User, Group, Rule, Event, UserEvent, GroupRule} = require('../models');
 const withAuth = require('../utils/auth');
 
-//this gets the groups and shows the users in the group
+//renders homepage
 router.get('/', async (req,res) => {
-    if(req.session.logged_in) {
-        res.redirect('/profile');
-        return;
-    }
+    // if(req.session.logged_in) {
+    //     res.redirect('/profile');
+    //     return;
+    // }
     
     res.render('homepage', { logged_in: req.session.logged_in })
 })
-    // try{
-//     const groupData = await Group.findAll({
-//         include: [
-//             {
-//                 model: User,
-//                 attributes: ['name'],
-//             },
-//         ],
-//     })
-
-//     const groups = groupData.map((group) => group.get({ plain: true }));
-
-//     res.render('homepage', {
-//         groups,
-//         logged_in: req.session.logged_in
-//     })
-// } catch(err) {
-//     res.status(500).json(err)
-// }
 
 router.get('/faq', async (req, res) => {
     res.render('faq', { logged_in: req.session.logged_in })
@@ -38,12 +19,7 @@ router.get('/faq', async (req, res) => {
 router.get('/newGroup', withAuth, async (req, res) => {
     try {
         const ruleData = await Rule.findAll({
-            // attributes: ['name', 'description'],
-            // include: [
-            //     {
-            //         model: 
-            //     }
-            // ]
+            
         })
         const rules = ruleData.map((rule) => rule.get({ plain: true }))
 
@@ -75,10 +51,12 @@ router.get('/group/:id', withAuth, async (req,res) => {
         });
 
         const group = groupData.get({ plain: true});
+        const groupMatches = (group.id == req.session.group_id)
 
         res.render('podDashboard', {
             ...group,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            groupMatches
         })
     } catch(err) {
         res.status(500).json(err)

@@ -27,22 +27,25 @@ const sendEmail = (toEmail, subject, body) => {
     })
 }
 
-const sendInviteEmail = (email, User, Group) => {
-    let body = `<h1>GermPods</h1>
-    <p>Bubbles, pods, quaranteams: whatever you call them, they can be an effective tool in reducing the spread of disease within a community while reducing the negative impacts of isolation. You have been invited to a pod. If you haven't already, create an account to view the invite and decide if this group is right for you. </p> 
-    <a href='https://https//git.heroku.com/covid-bubble-app.git'>Start your podship here!</a>`
+const sendInviteEmail = (email, user, group) => {
+    let body = `<h1>${group.name}</h1>
+    <p>Bubbles, pods, quaranteams: whatever you call them, they can be an effective tool in reducing the spread of disease within a community while reducing the negative impacts of isolation. You have been invited to a pod by ${user.name}. If you haven't already, create an account to view the invite and decide if this group is right for you.</p>
+    <p>Use this password to join: ${group.password}</p>
 
-    let subject = 'Someone wants you to join their quaranteam'
+    <a href='https://https//git.heroku.com/covid-bubble-app.git/group/${group.id}'>Check out ${group.name}</a>`
+
+    let subject = `${user.name} wants you in their GermPod`
 
     sendEmail(email, subject, body);
 }
 
 
-const sendEventEmail = (email, User, Event) => {
-    let subject= 'There was an event';
+const sendEventEmail = (email, user, event) => {
+    let subject= 'Someone from your GermPod Wants You to Know';
     let body = `<h1>Something Happened</h1>
-    <p>Someone in your germpod had an interaction they wanted you to know about. Please login to your account to view the update.</p>
-    <a href='https://https//git.heroku.com/covid-bubble-app.git'>See the update</a>`
+    <p>${user.name} from your GermPod wanted you to know that ${event.name}: ${event.description}. Please discuss with your group to determine the best path forward.</p>
+
+    <a href='https://https//git.heroku.com/covid-bubble-app.git'>Login and check on your Pod</a>`
     
     sendEmail(email, subject, body)
 }
