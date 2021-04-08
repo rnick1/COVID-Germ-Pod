@@ -1,4 +1,5 @@
 const router = require('express').Router();
+
 const { User, UserEvent, Event} = require('../../models');
 const withAuth = require('../../utils/auth');
 
@@ -86,6 +87,16 @@ router.put('/joinGroup', withAuth, async (req, res) => {
         res.status(200).json(userData)
     } catch (error) {
         res.status(400).json(error)
+    }
+})
+
+router.get('/getGroupMembers', withAuth, async (req, res) => {
+    try {
+        const currentUser = await User.findByPk(req.session.user_id)
+        const userData = await User.findAll({ where: { group_id: currentUser.group_id }, attributes: [email]})
+        res.status(200).json(userData)
+    } catch (error) {
+        res.status(500).json(error)
     }
 })
 
