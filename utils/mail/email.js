@@ -28,11 +28,41 @@ const sendEmail = (toEmail, subject, body) => {
 }
 
 const sendInviteEmail = (email, user, group) => {
-    let body = `<h1>${group.name}</h1>
-    <p>Bubbles, pods, quaranteams: whatever you call them, they can be an effective tool in reducing the spread of disease within a community while reducing the negative impacts of isolation. You have been invited to a pod by ${user.name}. If you haven't already, create an account to view the invite and decide if this group is right for you.</p>
-    <p>Use this password to join: ${group.password}</p>
+    let body = ` <style>
+        body {
+            background-color: lightcyan;
+            color: lightseagreen;
+        }
 
-    <a href='https://https//git.heroku.com/covid-bubble-app.git/group/${group.id}'>Check out ${group.name}</a>`
+        .container {
+            padding: 10%;
+            background-color: lightskyblue;
+            background-blend-mode: overlay;
+            border: 7px double darkcyan;
+        }
+
+        .container-text {
+            padding: 10%;
+            background-color: lightcyan;
+            background-blend-mode: overlay;
+            border: 7px double darkcyan;
+            font-family: Helvetica;
+        }
+    </style>
+    <div class="container">
+    <div class="container-text">
+    <strong><h1>${group.name} <span role="img" aria-label="logo">💉✅</span></h1></strong>
+    <hr>
+    <p><i>Bubbles, pods, quaranteams: whatever you call them, they can be an effective tool in reducing the spread of disease within a community while reducing the negative impacts of isolation. You have been invited to a pod by ${user.name}.
+    <br>
+    <br>
+        If you haven't already, create an account to view the invite and decide if this group is right for you.</p></i>
+    <p>Use this password to join: <b>${group.password}</b></p>
+    <hr>
+    <br>
+    <a href='https://https//git.heroku.com/covid-bubble-app.git/group/${group.id}'>Check out ${group.name}</a>
+    </div>
+    </div>`
 
     let subject = `${user.name} wants you in their GermPod`
 
@@ -42,10 +72,36 @@ const sendInviteEmail = (email, user, group) => {
 
 const sendEventEmail = (email, user, event) => {
     let subject= 'Someone from your GermPod Wants You to Know';
-    let body = `<h1>Something Happened</h1>
-    <p>${user.name} from your GermPod wanted you to know that ${event.name}: ${event.description}. Please discuss with your group to determine the best path forward.</p>
+    let body = `<style>
+        body {
+            background-color: lightcyan;
+            color: lightseagreen;
+        }
 
-    <a href='https://https//git.heroku.com/covid-bubble-app.git'>Login and check on your Pod</a>`
+        .container {
+            padding: 10%;
+            background-color: lightskyblue;
+            background-blend-mode: overlay;
+            border: 7px double darkcyan;
+        }
+
+        .container-text {
+            padding: 10%;
+            background-color: lightcyan;
+            background-blend-mode: overlay;
+            border: 7px double darkcyan;
+            font-family: Helvetica;
+        }
+    </style>
+    <div class="container">
+    <div class="container-text">
+    <strong><h1>Something Happened <span role="img" aria-label="logo">💉✅</span></h1></strong>
+    <hr>
+    <i><p>${user.name} from your GermPod wanted you to know that ${event.name}: ${event.description}. Please discuss with your group to determine the best path forward.</p></i>
+
+    <a href='https://https//git.heroku.com/covid-bubble-app.git'>Login and check on your Pod</a>
+    </div>
+    </div>`
     
     sendEmail(email, subject, body)
 }
