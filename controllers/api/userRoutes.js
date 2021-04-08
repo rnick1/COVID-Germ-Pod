@@ -1,10 +1,9 @@
 const router = require('express').Router();
-
 const { User, UserEvent, Event} = require('../../models');
 const withAuth = require('../../utils/auth');
 const nodeMail = require('../../utils/mail/email')
 
-
+// Displays all users
 router.get('/', async (req, res) => {
     try {
         const userData = await User.findAll({
@@ -16,8 +15,8 @@ router.get('/', async (req, res) => {
     }
 })
 
+// Displays single user referencing it's id
 router.get('/:id', async (req, res) => {
-
     try{
         const userData = await User.findByPk(req.params.id, {
              include: [{ model: Event, through: UserEvent }]
@@ -26,14 +25,13 @@ router.get('/:id', async (req, res) => {
             res.status(404).json({ message: 'No location found with this id. '});
             return;
         }
-
         res.status(200).json(userData);
     } catch (err) {
         res.status(500).json(err);
     }
-    
 });
 
+// Creates a new user
 router.post('/', async (req, res) => {
     try{
         const userData = await User.create(req.body);
@@ -50,6 +48,7 @@ router.post('/', async (req, res) => {
     }
 })
 
+// This enables a user to login
 router.post('/login', async (req, res) => {
     try{
         const userData = await User.findOne({ where: { email: req.body.email } });
@@ -57,19 +56,15 @@ router.post('/login', async (req, res) => {
             res.status(400).json({message: 'Incorrect email or password, please try again'})
             return;
         }
-
         const validPassword = await userData.checkPassword(req.body.password);
-
         if(!validPassword) {
             res.status(400).json({message: 'Incorrect email or password, please try again'})
             return;
         }
-
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.group_id = userData.group_id;
             req.session.logged_in = true;
-
             res.json({ user: userData, message: 'You are now logged in!'})
         })
     } catch(err) {
@@ -77,6 +72,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
+// This enables a user to join a group
 router.put('/joinGroup', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id)
@@ -87,21 +83,13 @@ router.put('/joinGroup', withAuth, async (req, res) => {
         userData.group_id = req.body.group_id;
         userData.save()
         req.session.group_id = userData.group_id
-        
         res.status(200).json(userData)
     } catch (error) {
         res.status(400).json(error)
     }
 })
 
-// router.get('/getGroupMembers', withAuth, async (req, res) => {
-//     try {
-        
-//     } catch (error) {
-//         res.status(500).json(error)
-//     }
-// })
-
+// This creates an event and sends an email to those concerned
 router.post('/addEvent', withAuth, async (req, res) => {
     try {
         try {
@@ -112,17 +100,14 @@ router.post('/addEvent', withAuth, async (req, res) => {
         }
         catch (error) {
             if (error.name === 'SequelizeUniqueConstraintError') {
-                
             }
             else {
                 res.status(500).json(error)
             }
         }
-        
         const currentUser = await User.findByPk(req.session.user_id)
         const userData = await User.findAll({ where: { group_id: currentUser.group_id }, attributes: ['email']})
         const currentEvent = await Event.findByPk(req.body.event_id)
-
         userData.forEach(element => {
             nodeMail.sendEventEmail(element.email, currentUser, currentEvent);
         });
@@ -132,6 +117,7 @@ router.post('/addEvent', withAuth, async (req, res) => {
     }
 })
 
+// Logout
 router.post('/logout', async (req, res) => {
     if(req.session.logged_in) {
         req.session.destroy(() => {
@@ -142,15 +128,14 @@ router.post('/logout', async (req, res) => {
     }
 })
 
+// Enables users to leave a group that they are a member of
 router.put('/leaveGroup', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id)
         userData.group_id = null;
         userData.save()
-
         res.status(200).json(userData)
     } catch (error) {
-        
     }
 })
 

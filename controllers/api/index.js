@@ -5,12 +5,11 @@ const ruleRoutes = require('./ruleRoutes')
 const eventRoutes = require('./eventRoutes')
 const groupRuleRoutes = require('./groupRuleRoutes')
 
-
+// Designates the different routes after "/api"
 router.use('/users', userRoutes);
 router.use('/groups', groupRoutes)
 router.use('/rules', ruleRoutes)
 router.use('/events', eventRoutes)
 router.use('/groupRules', groupRuleRoutes)
-
 
 module.exports = router;
