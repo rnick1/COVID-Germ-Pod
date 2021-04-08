@@ -17,19 +17,31 @@
     <div class="col-md-7 user-info">
         <div class="info-card">
             <h4 id="my-info">Personal Information</h4>
-            <hr>
             <ul>
                 <ul id="first-name">Name: {{name}}</ul>
                 <ul id="email">Email: {{email}}</ul>
-                <button id="update-password">Update Password</button>
+               
             </ul>
+            <hr>
         </div>
+
+        <div>
+            <div class="form-group">
+                <label for="password-update">update password:</label>
+                <input class="form-input" type="text" id="password-update" />
+
+                <button id="update-password-btn" data-id="{{id}}">Update Password</button>
+            </div>
+        ​<div class="flex-column justify-space-around"></div>
+
     </div>
-    {{!-- ​<div class="flex-column justify-space-around"></div> --}}
+    
     <div class="container">
+
         <div class="row">
             <div class="col-md-6 user-group">
                 <div class="group-card">
+<<<<<<< HEAD
                     <h4 id="my-info">Pod Options</h4>
                     <hr>
                     <br>
@@ -47,10 +59,33 @@
                         {{!-- <button id="create-group" href="/newGroup" style="position: relative;">Create a New
                             Germpod</button> --}}
 
+=======
+                    <ul id='pod-options'>
+                        <div class="row">
+                            <h4 id="my-info">Pod Options</h4>
+                        </div>
+                        <hr>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-3 user-group">
+                                {{#if group_id}}
+                                <a href='/group/{{group_id}}' style="text-align: center;">{{group.name}}</a>
+                                {{else}}
+
+                                <a class='btn' id='create-group' href='/newGroup' role='button'>Create a New Germ
+                                    Pod</a>
+                            </div>
+                            <div class="col-md-3 user-group">
+                                <button id="join-group">Search for a Germ Pod to Join</button>
+
+                                {{/if}}
+                            </div>
+                        </div>
+>>>>>>> 4b7ea7f503a246739afd0ba3859f3172d8d7d6bc
                     </ul>
                 </div>
             </div>
-            <div class="col-md-1 user-group">
+            <div class="col-md-5 user-group">
                 <div class='event-list'>
                     <div>
                         <form class="form report-event-form">
@@ -66,7 +101,7 @@
                                     {{/each}}
                                 </select>
                             </div>
-                            <button type='submit' class='btn btn-primary'>Submit</button>
+                            <button type='submit' class='btn btn-secondary'>Submit</button>
                         </form>
                     </div>
                 </div>
