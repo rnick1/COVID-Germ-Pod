@@ -9,6 +9,7 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {{!-- <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16" /> --}}
 </head>
 
@@ -65,16 +66,13 @@
         <!-- Render the sub layout -->
         {{{ body }}}
     </main>
-    <footer>
-
-    </footer>
-    </div>
+    
     ​
     <!-- Render script for logged in users only -->
 
 
     <footer>
-        <nav id="navbar navbar-expand-lg fixed-bottom navbar-color bg-color" id="foot-nav">
+        <nav class="navbar navbar-expand-lg fixed-bottom navbar-color bg-color" id="foot-nav">
             <a class="navbar-brand" href="#">
                 <ul>
                     <ul class="nav-item active">
@@ -84,10 +82,9 @@
                     </ul>
                 </ul>
             </a>
-
         </nav>
-        </div>
     </footer>
+    
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
