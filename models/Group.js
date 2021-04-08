@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+// This is the shape of the group data
 class Group extends Model {}
-
 Group.init(
   {
     id: {
@@ -24,22 +24,6 @@ Group.init(
         // May want to add more validators 
       },
     },
-  //   rule_id: {
-  //       type: DataTypes.INTEGER,
-  //       allowNull: false,
-  //       references: {
-  //         model: 'rule',
-  //         key: 'id'
-  //       }
-  //   },
-  //   event_id: {
-  //     type: DataTypes.INTEGER,
-  //     allowNull: false,
-  //     references: {
-  //       model: 'event',
-  //       key: 'id'
-  //     }
-  // },
   },
   {
     sequelize,

@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+// This is the shape of the event data
 class Event extends Model {}
-
 Event.init(
   {
     id: {

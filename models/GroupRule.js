@@ -2,6 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 class GroupRule extends Model { }
 
+// This is a join table for both the group and rule tables
 GroupRule.init(
   {
     id: {
