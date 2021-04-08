@@ -55,10 +55,18 @@ const requestEmail = (event) => {
         .addEventListener('click', inviteUserHandler)
 }
 
-const leaveGroup = (event) => {
+const leaveGroup = async (event) => {
     event.preventDefault();
     
-
+    const response = await fetch('/api/users/leaveGroup', {
+        method: 'PUT',
+    })
+    if (response.ok) {
+        await new Promise(r=> setTimeout(r,1000))
+        document.location.replace('/profile')
+    } else {
+        alert('Failed to leave group')
+    }
 }
 
 const deleteGroup = (event) => {

@@ -142,4 +142,16 @@ router.post('/logout', async (req, res) => {
     }
 })
 
+router.put('/leaveGroup', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id)
+        userData.group_id = null;
+        userData.save()
+
+        res.status(200).json(userData)
+    } catch (error) {
+        
+    }
+})
+
 module.exports = router;
