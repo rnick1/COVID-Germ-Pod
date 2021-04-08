@@ -10,14 +10,12 @@ const transport = nodemailer.createTransport({
     }
   });
 
-const sendInviteEmail = (email) => {
+const sendEmail = (toEmail, subject, body) => {
     const mailOptions = {
         from: 'youremail@gmail.com',
-        to: email,
-        subject: 'Someone wants you to join their quaranteam',
-        html: `<h1>GermPods</h1>
-        <p>Bubbles, pods, quaranteams: whatever you call them, they can be an effective tool in reducing the spread of disease within a community while reducing the negative impacts of isolation. You have been invited to a pod. If you haven't already, create an account to view the invite and decide if this group is right for you. </p> 
-        <a href='https://https//git.heroku.com/covid-bubble-app.git'>Start your podship here!</a>`
+        to: toEmail,
+        subject: subject,
+        html: body
     }
 
     transport.sendMail(mailOptions, function(error, info){
@@ -29,29 +27,28 @@ const sendInviteEmail = (email) => {
     })
 }
 
+const sendInviteEmail = (email, User, Group) => {
+    let body = `<h1>GermPods</h1>
+    <p>Bubbles, pods, quaranteams: whatever you call them, they can be an effective tool in reducing the spread of disease within a community while reducing the negative impacts of isolation. You have been invited to a pod. If you haven't already, create an account to view the invite and decide if this group is right for you. </p> 
+    <a href='https://https//git.heroku.com/covid-bubble-app.git'>Start your podship here!</a>`
 
-const sendGroupEmail = () => {
-    const groupEvent = {
-        from: 'youremail@gmail.com',
-        to: 'to@email.com',
-        subject: 'There was an event',
-        html: `<h1>Something Happened</h1>
-        <p>Someone in your germpod had an interaction they wanted you to know about. Please login to your account to view the update.</p>
-        <a href='https://https//git.heroku.com/covid-bubble-app.git'>See the update</a>`
-    }
+    let subject = 'Someone wants you to join their quaranteam'
 
-    transport.sendMail(groupEvent, function(err, info) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log('Email send: ' + info.response);
-        }
-    })
+    sendEmail(email, subject, body);
 }
 
 
-exports.sendGroupEmail = sendGroupEmail;
-exports.sendInviteEmail = sendInviteEmail;
+const sendEventEmail = (email, User, Group) => {
+    let subject= 'There was an event';
+    let body = `<h1>Something Happened</h1>
+    <p>Someone in your germpod had an interaction they wanted you to know about. Please login to your account to view the update.</p>
+    <a href='https://https//git.heroku.com/covid-bubble-app.git'>See the update</a>`
+    
+    sendEmail(email, subject, body)
+}
+
+
+module.exports = {sendEventEmail, sendInviteEmail}
 
 // Invite to group
 // Group event
