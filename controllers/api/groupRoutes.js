@@ -97,9 +97,9 @@ router.post('/sendInviteEmail/:id', withAuth, async (req,  res) => {
         const user = await User.findByPk(req.session.user_id)
         const group = await Group.findByPk(req.params.id) 
         nodeMail.sendInviteEmail(email, user, group)
-        res.status(200)
+        res.status(200).json({message: 'Sending email...'})
     } catch (error) {
-        
+        res.status(500).json(error)
     }
 })
 
