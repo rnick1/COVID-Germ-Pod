@@ -1,40 +1,24 @@
-<div class="row">
-    <div class="leftcolumn">
-        <p style="float: left; clear: left"></p>
-        <div class="group=pic-card">
+<div class="grid-container">
+    <div class="card" style="background-color: transparent; border-style: none;">
+        <div class="group-pic-card">
+            <h3 id="group-name">{{name}}</h3>
+            <hr>
             <a class="mx-auto" alt="kids" href="/">
-                <img src="/images/kid-pod.png" class="rounded-circle" style="height: 60%; border: 7px double darkcyan;">
+                <img src="/images/kid-pod.png" class="rounded-circle"
+                    style="height: 200px; border: 7px double darkcyan;">
             </a>
-            <div class="group-name-card">
-                <form action="upload.php" method="post">
-                    <input type="file" name="file" id="file" />
-                </form>
-                <hr>
-                <div class="group-info">
-                    <h4 id="group-name">{{name}}</h4>
-                </div>
-            </div>
+            <br>
+            <br>
+            <br>
+            <form action="upload.php" method="post">
+                <input type="file" name="file" id="file" />
+            </form>
         </div>
     </div>
-    <div class="container">
-        <div class="col-md-9">
-            <p style="float: right; clear: right"></p>
-            <div class="rule-card">
-                <h3 id="list-rules">List of Rules</h3>
-                <div id="group-rules" cols="40" rows="20" style="width: 100%; height: 25%;">
-                    <ul class="listed-rules">
-                        {{#each rules as |rule|}}
-                        <li> {{rule.name}}: {{rule.description}}</li>
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    ​<div class="flex-column justify-space-around"></div>
-    <div class="col col-md-2">
+    <div class="card" style="background-color: transparent; border-style: none;">
         <div class="member-card">
             <h3 id="group-members">Group Members</h3>
+            <hr>
             <div id="members">
                 <ul>
                     {{#each users as |user|}}
@@ -44,26 +28,45 @@
             </div>
         </div>
     </div>
-</div>
-<div class="col col-md-6">
-    <<<<<<< HEAD <div class="rule-card">
-
-        =======
-        <div class="rule-card" id='rule-area'>
+    <div class="card" style="background-color: transparent; border-style: none;">
+        <div class="pod-options-card">
             <h3>Pod Options</h3>
-            >>>>>>> 241a742832ab6f3fda9acba90a02d2d05b457dc6
+            <hr>
+            <br>
             {{#if groupMatches}}
-            <button id="invite-users">Invite Members</button>
-            <button id="leave-group">Leave Group</button>
-            <button data-id='{{id}}' id="delete-group">Delete Group</button>
-            <script src="/js/editGroup.js"></script>
-            {{else}}
-            <button id='join-group'>Join Group</button>
+            <ul>
+                <ul>
+                    <button id="invite-users">Invite Members</button>
+                </ul>
+                <br>
+                <br>
+                <ul>
+                    <button id="leave-group">Leave Group</button>
+                </ul>
+                <br>
+                <br>
+                <ul>
+                    <button data-id='{{id}}' id="delete-group">Delete Group</button>
+                    <script src="/js/editGroup.js"></script>
+                    {{else}}
+                    <button id='join-group'>Join Group</button>
+                </ul>
+            </ul>
             <script src="/js/joinGroup.js"></script>
             {{/if}}
         </div>
-        <<<<<<< HEAD </div>
-            =======
+    </div>
+    <div class="card" style="background-color: transparent; border-style: none;">
+        <div class="rule-card">
+            <h3 id="list-rules">List of Rules</h3>
+            <hr>
+            <div id="group-rules" cols="40" rows="20" style="width: 100%; height: 100%;">
+                <ul class="listed-rules">
+                    {{#each rules as |rule|}}
+                    <li> {{rule.name}}: {{rule.description}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
-
->>>>>>> 241a742832ab6f3fda9acba90a02d2d05b457dc6
