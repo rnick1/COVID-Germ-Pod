@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Group} = require('../models');
+const {User, Group, Rule, UserEvent, GroupRule} = require('../models');
 const withAuth = require('../utils/auth');
 
 //this gets the groups and shows the users in the group
@@ -9,7 +9,7 @@ router.get('/', async (req,res) => {
         return;
     }
     
-    res.render('homepage')
+    res.render('homepage', { logged_in: req.session.logged_in })
 })
     // try{
 //     const groupData = await Group.findAll({
@@ -32,26 +32,29 @@ router.get('/', async (req,res) => {
 // }
 
 router.get('/faq', async (req, res) => {
-    res.render('faq')
+    res.render('faq', { logged_in: req.session.logged_in })
 })
 
-router.get('/newGroup', async (req, res) => {
+router.get('/newGroup', withAuth, async (req, res) => {
     try {
-        // const userData = await User.findByPk(req.session.user_id, {
-        //     attributes: 'name',
-        //     // include: [
-        //     //     {
-        //     //         model: 
-        //     //     }
-        //     // ]
-        // })
-        // const user = userData.get({ plain: true })
+        const ruleData = await Rule.findAll({
+            // attributes: ['name', 'description'],
+            // include: [
+            //     {
+            //         model: 
+            //     }
+            // ]
+        })
+        const rules = ruleData.map((rule) => rule.get({ plain: true }))
 
-        res.render('newGroup')
+        res.render('newGroup', {
+            rules,
+            logged_in: req.session.logged_in
+        })
 
         
     } catch (error) {
-        
+        res.status(500).json(error)
     }
 })
 
@@ -64,6 +67,10 @@ router.get('/group/:id', withAuth, async (req,res) => {
                     model: User,
                     attributes: ['name'],
                 },
+                {
+                    model: Rule, through: GroupRule,
+                    attributes: ['name', 'description']
+                }
             ],
         });
 
@@ -91,10 +98,30 @@ router.get('/profile', withAuth, async (req,res) => {
 
         res.render('profile', {
             ...user,
-            // logged_in: true
+            logged_in: req.session.logged_in 
         })
     } catch(err) {
         res.status(500).json(err)
+    }
+})
+
+router.get('/events', async (req,res) => {
+    try{
+        const eventData = await Event.findAll()
+        console.log(eventData, 'eventData')
+        console.log("****************************")
+        //serialize the data and render
+        const events = eventData.map(({name, event_description, id}) => ({
+            name: name,
+            event_description: event_description,
+            id: id
+        }) )
+
+        console.log(events, 'Events')
+
+        res.render('events', events)
+    } catch(err) {
+        res.json(err)
     }
 })
 

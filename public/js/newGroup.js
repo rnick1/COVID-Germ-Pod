@@ -1,11 +1,21 @@
-
+// import { sendInviteEmail } from "../../utils/mail/email.js";
+document.getElementById('group-invites').multiple=true;
 const newGroupHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector("#group-name").value.trim();
   // const members = document.querySelector("#group-members").value.trim();
   const password = document.querySelector("#group-password").value.trim();
-  
+  const email = document
+    .querySelector("#group-invites")
+    .value
+    console.log(email);
+
+  const rules = Array.from(document.querySelectorAll('input[type="checkbox"]'))
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => parseInt(checkbox.value));
+
+  // require name and password
   if (name && password) {
     const response = await fetch("/api/groups", {
       method: "POST",
@@ -14,22 +24,48 @@ const newGroupHandler = async (event) => {
     });
 
     if (response.ok) {
-        const groupData = await fetch(`api/groups/${name}`, {
-          method: 'GET',
-          // body: JSON.stringify({ id }),
-          // headers: { 'Content-Type': 'application/json' }
-        })
-        const assignLeader = await fetch('api/users/joinGroup', {
-            method: 'PUT',
-            body: JSON.stringify({ groupData }),
-            headers: { 'Content-Type': 'application/json' },
-        })
-        response.status(200).json(assignLeader)
-      document.location.replace("/profile");
-    } 
-    } else {
-      alert("Failed to create group.");
-  } 
+      const groupCall = await fetch(`api/groups/${name}`, {
+        method: "GET",
+      });
+      const groupData = await groupCall.json();
+      const assignLeader = await fetch("api/users/joinGroup", {
+        method: "PUT",
+        body: JSON.stringify({ group_id: groupData.id }),
+        headers: { "Content-Type": "application/json" },
+      });
+      const leader = await assignLeader.json();
+      console.log(leader);
+      // console.log(assignLeader);
+      // response.json(assignLeader)
+
+      // addRules(rules, groupData)
+
+      if (assignLeader.ok) {
+        console.log(rules);
+        const ruleCall = await fetch("/api/groups/addRule", {
+          method: "POST",
+          body: JSON.stringify({ rule_id: rules, group_id: groupData.id }),
+          headers: { "Content-Type": "application/json" },
+        });
+        const content = await ruleCall.json();
+        console.log(content);
+        
+      }
+      
+      const emailCall = await fetch('/api/groups/sendInviteEmail/:id', {
+        method: 'POST',
+        body: JSON.stringify({ email }),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      const confirm = await emailCall.json()
+      console.log(confirm);
+      if (response.ok) {
+        document.location.replace(`/group/${groupData.id}`);
+      }
+    }
+  } else {
+    alert("Requires name and password to work");
+  }
 };
 
 const deleteGroup = async (event) => {
@@ -46,6 +82,21 @@ const deleteGroup = async (event) => {
     alert("Failed to delete group");
   }
 };
+
+// const addRules = async (rules, groupData) => {
+//   rules.forEach(element => {
+//     console.log(element);
+//     const ruleCall = await fetch('api/groups/addRule', {
+//       method: 'POST',
+//       body: JSON.stringify({ rule_id: element, group_id: groupData.id})
+//     })
+//     if (ruleCall.ok) {
+//       console.log('did it work?');
+//       return await;
+//     }
+//     // console.log(rule_id);
+//   });
+// }
 
 document
   .querySelector(".new-group-form")
