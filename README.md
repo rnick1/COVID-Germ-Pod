@@ -6,16 +6,14 @@
 
 _LIVE_
 
-<a href="">COVID Germ Pod<a>
-
 ## Table of Contents
 
-1. Project Description
-2. Technologies Used
-3. Web Application
-4. Challenges
-5. Future
-6. Contributors
+1. [Project Description](#project-description)
+2. [Technologies Used](#technologies-used)
+3. [Web Application](#web-application)
+4. [Challenges](#challenges)
+5. [Future Development](#future-development)
+6. [Contributors](#contributors)
 
 ## Project Description:
 
@@ -35,39 +33,35 @@ bcrypt, bootstrap, express, mySQL, nodemailer, and many others
 
 _Home-Page_
 
-![Home-Page]()
+![Home-Page](public\images\home-page.PNG)
 
 _Login/Signup_
 
-![Login/signup]()
+![Login/signup](public\images\login.PNG)
 
 _Dashboard_
 
-![Dashboard]()
+![Dashboard](public\images\dashboard.PNG)
 
 _Search-Results_
 
-![Search-Results]()
+![Search-Results](public\images\searchresult.PNG)
 
 _Create-New-Group_
 
-![Create-New-Pod]()
+![Create-New-Pod](public\images\new-group.PNG)
 
 ## Challenges:
 
 - From the beginning of the project we divided the tasks into neat categories such as Nick doing the database and models, Mikey doing the routes, etc. This worked very well until it came time to link everything together. Each member's lack of familiarity with other parts of the project made it a challenge to pull everything together.
 
-## Direction for Future Development:
+## Future Development:
 
 - Increased functionality for adding photos.
 
 -
 
 ## Contributors:
-
-Page Black, Ingrid Lyublisky, Mikey Perara, Nick Rider, Hancong Wang
-
-## Team & Roles
 
 [Page Black](https://www.github.com/noheropage) - Nodemailer/Routes
 
