@@ -17,12 +17,12 @@
     <div class="col-md-7 user-info">
         <div class="info-card">
             <h4 id="my-info">Personal Information</h4>
-            <hr>
             <ul>
                 <ul id="first-name">Name: {{name}}</ul>
                 <ul id="email">Email: {{email}}</ul>
                
             </ul>
+            <hr>
         </div>
 
         <div>
@@ -41,26 +41,31 @@
         <div class="row">
             <div class="col-md-6 user-group">
                 <div class="group-card">
-                    <h4 id="my-info">Pod Options</h4>
-                    <hr>
                     <ul id='pod-options'>
-                        {{#if group_id}}
-                        <a href='/group/{{group_id}}'>{{group.name}}</a>
-                        {{else}}
+                        <div class="row">
+                            <h4 id="my-info">Pod Options</h4>
+                        </div>
+                        <hr>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-3 user-group">
+                                {{#if group_id}}
+                                <a href='/group/{{group_id}}' style="text-align: center;">{{group.name}}</a>
+                                {{else}}
 
-                        <a class='btn' id='create-group' href='/newGroup' role='button'>Create a New Germ Pod</a>
-                        
-                        <button id="join-group">Search for a Germ Pod to Join</button>
+                                <a class='btn' id='create-group' href='/newGroup' role='button'>Create a New Germ
+                                    Pod</a>
+                            </div>
+                            <div class="col-md-3 user-group">
+                                <button id="join-group">Search for a Germ Pod to Join</button>
 
-                        {{/if}}
-                        {{!-- <button class='btn' id='create-group' style='position: relative'></button> --}}
-                        {{!-- <button id="create-group" href="/newGroup" style="position: relative;">Create a New
-                            Germpod</button> --}}
-                        
+                                {{/if}}
+                            </div>
+                        </div>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-1 user-group">
+            <div class="col-md-5 user-group">
                 <div class='event-list'>
                     <div>
                         <form class="form report-event-form">
@@ -76,7 +81,7 @@
                                     {{/each}}
                                 </select>
                             </div>
-                            <button type='submit' class='btn btn-primary'>Submit</button>
+                            <button type='submit' class='btn btn-secondary'>Submit</button>
                         </form>
                     </div>
                 </div>

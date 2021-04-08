@@ -17,6 +17,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
+hr {
+  color: lightcoral;
+}
+
 /* .container {
   display: flex;
   flex-flow: column wrap;
@@ -107,9 +111,9 @@ nav a:hover {
   mask-border-width: 40%;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
   border-radius: 25px;
-  background-color: lightslategray;
+  background-color: lightcyan;
   text-align: center;
-  color: white;
+  color: darkcyan;
   display: flex;
   justify-content:space-around;
 }
@@ -121,26 +125,26 @@ nav a:hover {
 } */
 
 .info-card {
-  margin: 20px;
-  margin-left: 30%;
+  margin: 5px;
+  margin-left: 45%;
   padding: 10px 40px 10px 40px;
   box-sizing: border-box;
   max-width: 300%;
   height: 90% !important;
-  flex-wrap: wrap;
-  flex-flow: column;
+  flex-wrap: nowrap;
+  flex-flow:column-reverse;
   border: 7px double darkcyan;
   mask-border-width: 40%;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
   border-radius: 25px;
-  background-color: lightslategray;
+  background-color: lightcyan;
   text-align: left;
-  color: white;
+  color: darkcyan;
   display: flex;
   justify-content:space-around;
 }
 
-#first-name, #email, #create-group, #join-group, #events {
+#first-name, #email, #events {
   text-align: justify;
   font-family: 'Helvetica';
 }
@@ -158,10 +162,10 @@ nav a:hover {
   mask-border-width: 40%;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
   border-radius: 25px;
-  background-color: lightslategray;
+  background-color: lightcyan;
   background-blend-mode: lighten;
   text-align: left;
-  color: white;
+  color: darkcyan;
   display: flex;
   justify-content:space-around;
 }
@@ -179,16 +183,16 @@ nav a:hover {
   mask-border-width: 40%;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
   border-radius: 25px;
-  background-color: lightslategray;
+  background-color: lightcyan;
   text-align: justify;
-  color: white;
+  color: darkcyan;
   display: flex;
   justify-content:space-around;
 }
 
-.rule-card {
-  margin: 1px;
-  margin-left: 30%;
+
+.group-name-card {  margin: 1px;
+  margin-left: 0%;
   margin-bottom:10%;
   padding: 10px 10px 10px 10px;
   box-sizing: border-box;
@@ -199,31 +203,70 @@ nav a:hover {
   mask-border-width: 40%;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
   border-radius: 25px;
-  background-color: lightslategray;
+  background-color: lightcyan;
   text-align: left;
-  color: white;
+  color: darkcyan;
   display: flex;
   justify-content:space-around;
 }
 
-.member-card {
-  margin: 20px;
-  margin-left: 30%;
-  margin-bottom:10%;
-  padding: 10px 10px 10px 10px;
-  box-sizing: border-box;
-  height: 70% !important;
-  flex-wrap: wrap;
-  flex-flow: wrap;
+.group-pic-card {
+  height: 80% !important;
+  padding: 50px 40px 50px 40px;
   border: 7px double darkcyan;
   mask-border-width: 40%;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
-  border-radius: 25px;
-  background-color: lightslategray;
+  border-radius: 15px;
+  background-color: lightcyan;
   text-align: left;
-  color: white;
-  display: flex;
-  justify-content:space-around;
+  color: darkcyan;
+}
+
+.pod-options-card {
+  height: 100% !important;
+  padding: 50px 20px 50px 20px;
+  background-color: lightcyan;
+  background-blend-mode: lighten;
+  text-align: left;
+  color: darkcyan;
+  border: 7px double darkcyan;
+  mask-border-width: 40%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  border-radius: 15px;
+}
+
+.rule-card {
+  height: 100% !important;
+  padding: 50px 20px 50px 20px;
+  border: 7px double darkcyan;
+  mask-border-width: 40%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  border-radius: 15px;
+  background-color: lightcyan;
+  text-align: left;
+  color: darkcyan;
+}
+
+.member-card {  
+  height: 100% !important;
+  padding: 80px 20px 80px 20px;
+  border: 7px double darkcyan;
+  mask-border-width: 40%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  border-radius: 15px;
+  background-color: lightcyan;
+  backface-visibility: hidden;
+  text-align: left;
+  color: darkcyan;
+}
+
+.grid-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   grid-gap: 40px;
+}
+.grid-container .card:first-child {
+   grid-row: span 2;
 }
 
 #update-password, #create-group, #join-group {
