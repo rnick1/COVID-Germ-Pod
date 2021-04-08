@@ -79,7 +79,7 @@ router.post('/login', async (req, res) => {
 router.put('/:id', withAuth, async (req, res) => {
     try{
         const newPassword = await User.update(
-            {password: req.body},
+            {password: req.body.password},
             {
                 where: {
                     id: req.params.id,

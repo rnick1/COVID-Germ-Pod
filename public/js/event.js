@@ -48,5 +48,9 @@ console.log('response', response)
 }
 
 document
+    .querySelector('#update-password-btn')
+    .addEventListener('click', updatePassword)
+
+document
     .querySelector('.report-event-form')
     .addEventListener('submit', eventEmailHandler)
