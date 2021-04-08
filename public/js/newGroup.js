@@ -71,26 +71,7 @@ const newGroupHandler = async (event) => {
   }
 };
 
-const deleteGroup = async (event) => {
-  if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute("data-id");
-
-    const response = await fetch(`/api/groups/${id}`, {
-      method: "DELETE",
-    });
-    if (response.ok) {
-      document.location.replace("/profile");
-  }
-  
-  } else {
-    alert("Failed to delete group");
-  }
-};
-
-
 document
   .querySelector(".new-group-form")
   .addEventListener("submit", newGroupHandler);
-// document
-//     .querySelector('#group-delete-btn') //<I do not know what to put here
-//     .addEventListener('click', deleteGroup);
+

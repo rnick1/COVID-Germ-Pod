@@ -101,10 +101,15 @@ router.post('/sendInviteEmail/:id', withAuth, async (req,  res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
     try {
+        const userData = await User.findAll({ where: { group_id: req.params.id }})
+        userData.forEach(element => {
+            element.group_id = null;
+            element.save()
+        });
         const groupData = await Group.destroy({
             where: {
              id: req.params.id,
-             user_id: req.session.user_id,   
+            //  user_id: req.session.user_id,   
             },
         });
 

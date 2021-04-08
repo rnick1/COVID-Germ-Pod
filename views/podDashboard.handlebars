@@ -51,7 +51,7 @@
         {{#if groupMatches}}
         <button id="invite-users">Invite Members</button>
         <button id="leave-group">Leave Group</button>
-        <button id="delete-group">Delete Group</button>
+        <button data-id='{{id}}' id="delete-group">Delete Group</button>
         <script src="/js/editGroup.js"></script>
         {{else}}
         <button id='join-group'>Join Group</button>
