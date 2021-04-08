@@ -5,23 +5,31 @@
         <h1 id="my-dashboard">My Dashboard</h1>
         <hr>
         <br>
+        <a class="mx-auto" alt="kids" href="/">
+            <img src="/images/profile-pic.png" class="rounded-circle"
+                style="height: 200px; border: 7px double darkcyan;">
+        </a>
         <br>
         <form action="upload.php" method="post">
             <input type="file" name="file" id="file" />
         </form>
     </div>
-    <aside class="col-md-6 user-info">
+    <div class="col-md-7 user-info">
         <div class="info-card">
             <h4 id="my-info">Personal Information</h4>
+            <hr>
             <ul>
                 <ul id="first-name">Name: {{name}}</ul>
                 <ul id="email">Email: {{email}}</ul>
                 <button id="update-password">Update Password</button>
             </ul>
         </div>
-        ​<div class="flex-column justify-space-around"></div>
+    </div>
+    {{!-- ​<div class="flex-column justify-space-around"></div> --}}
+    <div class="container">
         <div class="row">
-            <div class="col-md-6 user-group">
+            <div class="col-md-3 user-group"></div>
+            <div class="col-md-9 user-group">
                 <div class="group-card">
                     <h4 id="my-info">Pod Options</h4>
                     <hr>
@@ -29,7 +37,8 @@
                         {{#if group_id}}
                         <li><a href='/group/{{group_id}}'>{{group.name}}</a></li>
                         {{else}}
-                        <li><a class='btn' id='create-group' href='/newGroup' role='button'>Create a New Germ Pod</a></li>
+                        <li><a class='btn' id='create-group' href='/newGroup' role='button'>Create a New Germ Pod</a>
+                        </li>
                         {{/if}}
                         {{!-- <button class='btn' id='create-group' style='position: relative'></button> --}}
                         {{!-- <button id="create-group" href="/newGroup" style="position: relative;">Create a New
@@ -39,5 +48,5 @@
                 </div>
             </div>
         </div>
-    </aside>
+    </div>
 </div>

@@ -125,8 +125,8 @@ nav a:hover {
   margin-left: 30%;
   padding: 10px 40px 10px 40px;
   box-sizing: border-box;
-  max-width: 50%;
-  height: 40% !important;
+  max-width: 300%;
+  height: 100% !important;
   flex-wrap: wrap;
   flex-flow: column;
   border: 7px double darkcyan;
@@ -141,12 +141,12 @@ nav a:hover {
 }
 
 .group-card {
-  margin: 10px;
-  margin-left: 30%;
-  padding: 40px 20px 40px 20px;
+  margin: 50px;
+  margin-left: 38%;
+  padding: 10px 50px 10px 50px;
   box-sizing: border-box;
-  width: 10%;
-  height: 30% !important;
+  max-width: 50%;
+  height: 150% !important;
   flex-wrap: wrap;
   flex-flow: column;
   border: 7px double darkcyan;
@@ -154,6 +154,7 @@ nav a:hover {
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
   border-radius: 25px;
   background-color: lightslategray;
+  background-blend-mode: lighten;
   text-align: left;
   color: white;
   display: flex;
@@ -204,9 +205,11 @@ nav a:hover {
     color: darkcyan;
     font: small-caps;
     font-weight: bolder;
-    font-family:'Arial';
+    font-family: Helvetica;
     text-shadow: steelblue;
-    background-color: thistle;
+    text-align: left;
+    background-color: rgb(207, 231, 238);
+    background-blend-mode: hue;
     border-radius: 10px;
     box-shadow: slategrey;
     margin: 5%;
