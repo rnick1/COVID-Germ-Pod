@@ -12,6 +12,7 @@ _LIVE_
 2. [Technologies Used](#technologies-used)
 3. [Web Application](#web-application)
 4. [Contributors](#contributors)
+5. [Questions](#questions)
 
 ## Project Description:
 
@@ -31,23 +32,23 @@ bcrypt, bootstrap, express, mySQL, nodemailer, and many others
 
 _Home-Page_
 
-![Home-Page](public\images\home-page.PNG)
+![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/home-page.PNG)
 
 _Login/Signup_
 
-![Login/signup](public\images\login.PNG)
+![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/login.png)
 
 _Dashboard_
 
-![Dashboard](public\images\dashboard.PNG)
+![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/dashboard.png)
 
 _Search-Results_
 
-![Search-Results](public\images\searchresult.PNG)
+![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/searchresult.png)
 
 _Create-New-Group_
 
-![Create-New-Pod](public\images\new-group.PNG)
+![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/new-group.png)
 
 ## Contributors:
 
@@ -60,3 +61,7 @@ _Create-New-Group_
 [Mikey Perara](https://www.github.com/mikeyp957) - Heroku Launch/Routes
 
 [Ingrid lyublinsky](https://www.github.com/ilyublinsky) - Handlebars/CSS
+
+## Questions:
+
+Email [Page Black](#mursepage@gmail.com) if you have any questions.
