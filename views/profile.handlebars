@@ -32,20 +32,20 @@
                 <div class="group-card">
                     <h4 id="my-info">Pod Options</h4>
                     <hr>
-                    <ul>
+                    <ul id='pod-options'>
                         {{#if group_id}}
-                        <li><a href='/group/{{group_id}}'>{{group.name}}</a></li>
+                        <a href='/group/{{group_id}}'>{{group.name}}</a>
                         {{else}}
 
-                        <li><a class='btn' id='create-group' href='/newGroup' role='button'>Create a New Germ Pod</a>
-                        </li>
-                        <li><a class='btn' id='join-group' href='/newGroup' role='button'>Join a Germ Pod</a></li>
+                        <a class='btn' id='create-group' href='/newGroup' role='button'>Create a New Germ Pod</a>
+                        
+                        <button id="join-group">Search for a Germ Pod to Join</button>
 
                         {{/if}}
                         {{!-- <button class='btn' id='create-group' style='position: relative'></button> --}}
                         {{!-- <button id="create-group" href="/newGroup" style="position: relative;">Create a New
                             Germpod</button> --}}
-                        {{!-- <button id="join-group" href="#groupDashboard">Go to my Germpod</button> --}}
+                        
                     </ul>
                 </div>
             </div>
@@ -76,4 +76,8 @@
 </div>
 <br>
 </div>
+{{#if group_id}}
+{{else}}
+<script src="/js/profileSearch.js"></script>
+{{/if}}
 <script src="/js/event.js"></script>
