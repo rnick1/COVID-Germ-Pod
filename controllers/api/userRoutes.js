@@ -73,6 +73,22 @@ router.post('/login', async (req, res) => {
 })
 
 // This enables a user to join a group
+router.put('/:id', withAuth, async (req, res) => {
+    try{
+        const newPassword = await User.update(
+            {password: req.body.password},
+            {
+                where: {
+                    id: req.params.id,
+                }
+            }
+        )
+        res.status(200).json(newPassword)
+    } catch(err) {
+        res.status(400).json(err)
+    }
+})
+
 router.put('/joinGroup', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id)
