@@ -3,8 +3,7 @@ const { User, Group, GroupRule, Rule } = require('../../models');
 const withAuth = require('../../utils/auth');
 const nodeMail = require('../../utils/mail/email')
 
-// routes are /api/groups
-
+// Displays all groups (AKA pods)
 router.get('/', async (req, res) => {
     try {
         const groupData = await Group.findAll({
@@ -15,9 +14,9 @@ router.get('/', async (req, res) => {
         res.status(400).json(error)
     }
 })
-// For search bar:
-router.get('/:name', async (req, res) => {
 
+// Displays single group referencing it's name
+router.get('/:name', async (req, res) => {
     try{
         const groupData = await Group.findOne({
             where: {
@@ -35,8 +34,8 @@ router.get('/:name', async (req, res) => {
     }
 });
 
+// Displays single group referencing it's id
 router.get('/:id', async (req, res) => {
-
     try{
         const groupData = await Group.findByPk(req.params.id, {
             include: [{ model: Rule, through: GroupRule }]
@@ -45,28 +44,26 @@ router.get('/:id', async (req, res) => {
             res.status(404).json({ message: 'No location found with this id. '});
             return;
         }
-
         res.status(200).json(groupData);
     } catch (err) {
         res.status(500).json(err);
     }
-    
 });
 
+// Creates a new group
 router.post('/', withAuth, async (req, res) => {
     try{
         const newGroup = await Group.create({
             ...req.body,
             user_id: req.session.user_id,
-            
         })
-        
         res.status(200).json(newGroup);
     } catch (err) {
         res.status(400).json(err)
     }
 });
 
+// This adds a new rule to a group
 router.post('/addRule', withAuth, async (req, res) => {
     try {
         if (req.body.rule_id.length) {
@@ -84,7 +81,7 @@ router.post('/addRule', withAuth, async (req, res) => {
     }
 })
     
-
+// This sends email invitations for a particular group
 router.post('/sendInviteEmail/:id', withAuth, async (req,  res) => {
     try {
         const email = await req.body.email.split(',')
@@ -99,6 +96,7 @@ router.post('/sendInviteEmail/:id', withAuth, async (req,  res) => {
     }
 })
 
+// This deletes a group referencing it's id
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const userData = await User.findAll({ where: { group_id: req.params.id }})
@@ -112,7 +110,6 @@ router.delete('/:id', withAuth, async (req, res) => {
             //  user_id: req.session.user_id,   
             },
         });
-
         if(!groupData) {
             res.status(404).json({message: 'No project found with this ID.'})
             return;
