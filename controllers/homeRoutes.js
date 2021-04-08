@@ -75,10 +75,12 @@ router.get('/group/:id', withAuth, async (req,res) => {
         });
 
         const group = groupData.get({ plain: true});
+        const groupMatches = (group.id == req.session.group_id)
 
         res.render('podDashboard', {
             ...group,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            groupMatches
         })
     } catch(err) {
         res.status(500).json(err)
