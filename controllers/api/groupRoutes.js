@@ -4,6 +4,7 @@ const withAuth = require('../../utils/auth');
 const nodeMail = require('../../utils/mail/email')
 
 router.get('/', async (req, res) => {
+    console.log('Hello')
     try {
         const groupData = await Group.findAll({
             include: [{ model: Rule, through: GroupRule }]
@@ -13,25 +14,25 @@ router.get('/', async (req, res) => {
         res.status(400).json(error)
     }
 })
-// NEW!!! For search bar:
-router.get('/:name', async (req, res) => {
+// // // NEW!!! For search bar:
+// // router.get('/:name', async (req, res) => {
 
-    try{
-        const groupData = await Group.findOne({
-            where: {
-                name: req.params.name
-            }, 
-            include: [{ model: Rule, through: GroupRule }, { model: User }]
-        })
-        if(!groupData) {
-            res.status(404).json({ message: 'No group found with this name. '});
-            return;
-        }
-        res.status(200).json(groupData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+//     try{
+//         const groupData = await Group.findOne({
+//             where: {
+//                 name: req.params.name
+//             }, 
+//             include: [{ model: Rule, through: GroupRule }, { model: User }]
+//         })
+//         if(!groupData) {
+//             res.status(404).json({ message: 'No group found with this name. '});
+//             return;
+//         }
+//         res.status(200).json(groupData);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 router.get('/:id', async (req, res) => {
 
