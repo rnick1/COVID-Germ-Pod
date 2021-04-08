@@ -11,7 +11,7 @@ if (name) {
         headers: { "Content-Type": "application/json" },
     });
     if(response.ok) {
-        document.location.replace("/singleGroup");
+        document.location.replace("/views/singleGroup.handlebars");
     }else{
         alert(response.statusText);
     }
