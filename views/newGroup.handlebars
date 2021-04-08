@@ -13,11 +13,21 @@
       </div>
       <div class="form-group">
         <label for="group-invites">email addresses of pod-members you'd like to invite (seperate each address with a comma)</label>
-        <input class="form-input" type="email" id="group-invites" name="group-invites" multiple />
+        <input class="form-input" type="email" id="group-invites" name="group-invites"/>
       </div>
-      <div class="form-group">
+      
+        <h4>Which rules should the group agree to follow?</h4>
+    {{#each rules as |rule| }}
+    <div class='form-group'>
+      <input class='form-input group-rules' type='checkbox' name='group-rules' value={{rule.id}}> <label for={{rule.id}}> {{rule.name}}: {{rule.description}}</label></input>
+        </div>
+        {{/each}}
+
+        <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
       </div>
     </form>
   </div>
+
+
   <script src="./js/newGroup.js"></script>
