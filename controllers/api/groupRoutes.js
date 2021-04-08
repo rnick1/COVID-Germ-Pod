@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { Group, GroupRule, Rule } = require('../../models');
+const { User, Group, GroupRule, Rule } = require('../../models');
 const withAuth = require('../../utils/auth');
+const nodeMail = require('../../utils/mail/email')
 
 router.get('/', async (req, res) => {
     try {
@@ -20,7 +21,7 @@ router.get('/:name', async (req, res) => {
             where: {
                 name: req.params.name
             }, 
-            include: [{ model: Rule, through: GroupRule }]
+            include: [{ model: Rule, through: GroupRule }, { model: User }]
         })
         if(!groupData) {
             res.status(404).json({ message: 'No group found with this name. '});
@@ -65,7 +66,6 @@ router.post('/', withAuth, async (req, res) => {
 
 router.post('/addRule', withAuth, async (req, res) => {
     try {
-        console.log(req.body)
         if (req.body.rule_id.length) {
             const groupRuleIdArr = req.body.rule_id.map((rule_id) => {
                 return {
@@ -91,7 +91,17 @@ router.post('/addRule', withAuth, async (req, res) => {
     // }
 // })
 
-
+router.post('/sendInviteEmail/:id', withAuth, async (req,  res) => {
+    try {
+        const email = await req.body.email
+        const user = await User.findByPk(req.session.user_id)
+        const group = await Group.findByPk(req.params.id) 
+        nodeMail.sendInviteEmail(email, user, group)
+        res.status(200)
+    } catch (error) {
+        
+    }
+})
 
 router.delete('/:id', withAuth, async (req, res) => {
     try {

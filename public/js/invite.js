@@ -2,7 +2,8 @@ const nodeMail = import('../../utils/mail/email')
 
 const sendEmail = (event) => {
         event.preventDefault();
-        const email = document.querySelector('#email-invite').nodeValue.trim();
+        const email = document.querySelectorAll('#group-invites').nodeValue.split(',').trim();
+        
         nodeMail.sendInviteEmail(email);
         
     }
