@@ -1,6 +1,8 @@
 const router = require('express').Router();
+
 const { User, UserEvent, Event} = require('../../models');
 const withAuth = require('../../utils/auth');
+const nodeMail = require('../../utils/mail/email')
 
 
 router.get('/', async (req, res) => {
@@ -89,15 +91,41 @@ router.put('/joinGroup', withAuth, async (req, res) => {
     }
 })
 
+// router.get('/getGroupMembers', withAuth, async (req, res) => {
+//     try {
+        
+//     } catch (error) {
+//         res.status(500).json(error)
+//     }
+// })
+
 router.post('/addEvent', withAuth, async (req, res) => {
     try {
-        const addEvent = await UserEvent.create({
-            user_id: req.session.user_id,
-            event_id: req.body.event_id
-        })
-        res.status(200).json(addEvent)
+        try {
+            const addEvent = await UserEvent.create({
+                user_id: req.session.user_id,
+                event_id: req.body.event_id
+            })
+        }
+        catch (error) {
+            if (error.name === 'SequelizeUniqueConstraintError') {
+                
+            }
+            else {
+                res.status(500).json(error)
+            }
+        }
+        
+        const currentUser = await User.findByPk(req.session.user_id)
+        const userData = await User.findAll({ where: { group_id: currentUser.group_id }, attributes: ['email']})
+        const currentEvent = await Event.findByPk(req.body.event_id)
+
+        userData.forEach(element => {
+            nodeMail.sendEventEmail(element.email, currentUser, currentEvent);
+        });
+        res.status(200).json(userData)
     } catch (error) {
-        res.status(400).json(error)        
+        res.status(500).json(error)        
     }
 })
 

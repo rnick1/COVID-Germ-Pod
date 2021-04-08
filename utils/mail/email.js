@@ -38,7 +38,7 @@ const sendInviteEmail = (email, User, Group) => {
 }
 
 
-const sendEventEmail = (email, User, Group) => {
+const sendEventEmail = (email, User, Event) => {
     let subject= 'There was an event';
     let body = `<h1>Something Happened</h1>
     <p>Someone in your germpod had an interaction they wanted you to know about. Please login to your account to view the update.</p>
