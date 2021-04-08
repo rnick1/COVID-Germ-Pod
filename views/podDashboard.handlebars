@@ -47,8 +47,13 @@
 </div>
 <div class="col col-md-6">
     <div class="rule-card">
+        
+        {{#if groupMatches}}
         <button id="invite-peeps">Invite More Peeps</button>
         <button id="update-peeps">Update Peeps</button>
         <button id="delete-group">Delete Group</button>
+        {{else}}
+        <button id='join-group'>Join Group</button>
+        {{/if}}
     </div>
 </div>

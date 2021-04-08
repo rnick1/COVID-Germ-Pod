@@ -12,6 +12,7 @@ UserEvent.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
+      unique: false,
       references: {
         model: 'user',
         key: 'id'
@@ -19,6 +20,7 @@ UserEvent.init(
     },
     event_id: {
       type: DataTypes.INTEGER,
+      unique: false,
       references: {
         model: 'event',
         key: 'id'
@@ -27,7 +29,7 @@ UserEvent.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'user_event',
