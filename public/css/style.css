@@ -37,8 +37,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .faq {
-  margin: 15px 100px 15px 100px;
-  padding: 40px 20px 40px 20px;
+  margin: 0px 300px 5px 300px;
+  padding: 10px 20px 40px 10px;
   box-sizing: border-box;
   height: 70% !important;
   text-align: left;
@@ -50,14 +50,14 @@ h1, h2, h3, h4, h5, h6 {
   border-width: 10px;
 }
 
-.faq-images-container {
-  padding-left: 300px;
-  padding-bottom: 5000px;
+.pod-images {
+  padding-right: 200px;
+  padding-bottom: 0px;
   flex-direction: wrap;
-  text-align: right;
-  justify-content: right;
+  justify-content: left;
   flex-wrap: wrap;
   flex-flow: wrap;
+  float:initial;
 }
 
 .navbar {
