@@ -1,78 +1,80 @@
-# COVID Germ Pod
+## Group Project 2 - Room 6:
 
-## Deployed Link
+## COVID Germ Pod
 
-[COVID Germ Pod](https://https://git.heroku.com/covid-bubble-app.git)
+## Deployment:
 
+_LIVE_
 
-**Homepage
+<a href="">COVID Germ Pod<a>
 
-Personal Dashboard
+## Table of Contents
 
-Group Dashboard
+1. Project Description
+2. Technologies Used
+3. Web Application
+4. Challenges
+5. Future
+6. Contributors
 
-**
+## Project Description:
 
+…COVID Bubble, Quaranteam, whatever you call them, they can be useful tools for mitigating the risks of contracting and spreading serious diseases while reducing the harms of social isolation.
 
-## User Story
+Establishing and navigating within these groups can be difficult especially without clear understanding of expectations.
 
-///
+Let us help you get your Germ Pod started with our simple process. After you signup/login you will be able to create your own pod and start inviting your friend’s today! If you are new to Germ Pods it’s highly recommended that you begin at our FAQ page to help you get started on the right foot.
 
-* As a person who wants to minimize COVID impact to myself and others
-* I want to be able to establish a social "bubble"
-* So that one can keep close ones safe during the pandemic
+## Technologies Used:
 
-///
+bcrypt, bootstrap, express, mySQL, nodemailer, and many others
 
-## How It Works
+## Web-Application
 
+### COVID Germ Pod
 
-**New Library/Package/Technology:
+_Home-Page_
 
-Nodemailer
+![Home-Page]()
 
-Stretch goal: API calls to CDC/state health departments or COVID data/recommendations
+_Login/Signup_
 
-HomePage:
+![Login/signup]()
 
-Explanation of Germ Pods and what they entail (lengthy description) - basic
+_Dashboard_
 
-Profile:
+![Dashboard]()
 
-Basic- Add name, email (unique), password, connection to other germ pod
+_Search-Results_
 
-Basic- Establish Germ Pod ‘rules’ that must be unanimous and default to the most restrictive
+![Search-Results]()
 
-Extra- Current risk assessment (based upon job status, activities, etc.)
+_Create-New-Group_
 
-Current covid numbers per area
+![Create-New-Pod]()
 
-Current covid health department rules/regulations per area
+## Challenges:
 
-Choose which group activities to be alerted by
-Covid Event:
+- From the beginning of the project we divided the tasks into neat categories such as Nick doing the database and models, Mikey doing the routes, etc. This worked very well until it came time to link everything together. Each member's lack of familiarity with other parts of the project made it a challenge to pull everything together.
 
-Basic- Update group on related COVID event, ie Vaccination, Exposure, Potential exposure, Positive Test, Group Hangouts, etc
+## Direction for Future Development:
 
-Extra- CDC recs on next steps (for you and group)
+- Increased functionality for adding photos.
 
-Extras: Mapping of COVID germ pod
+-
 
-**
+## Contributors:
 
-
-## Demo
-
-
+Page Black, Ingrid Lyublisky, Mikey Perara, Nick Rider, Hancong Wang
 
 ## Team & Roles
 
-[Page Black](https://www.github.com/noheropage) - Nodemailer/Package JSON
+[Page Black](https://www.github.com/noheropage) - Nodemailer/Routes
 
 [Hancong Wang](https://www.github.com/herita7171) - Handlebars
 
-[Nick Rider](https://www.github.com/rnick1) - MVC
+[Nick Rider](https://www.github.com/rnick1) - Database
 
-[Mikey Perara](https://www.github.com/mikeyp957) - Heroku Launch/Routes (APIs & Other)
+[Mikey Perara](https://www.github.com/mikeyp957) - Heroku Launch/Routes
 
-[Ingrid lyublinsky](https://www.github.com/ilyublinsky) - Tests/Handlebars
+[Ingrid lyublinsky](https://www.github.com/ilyublinsky) - Handlebars/CSS

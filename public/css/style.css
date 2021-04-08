@@ -13,8 +13,13 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-stretch: semi-condensed;
-    font-weight: bold;
+    font-stretch:semi-expanded;
+    display: inline-block;
+    text-align: left;
+}
+
+hr {
+  color: lightcoral;
 }
 
 /* .container {
@@ -64,8 +69,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color:  lightcyan;
   font-family:'Lucida Sans Unicode';
   font-weight: bolder;
-  color: cadetblue;
-  opacity: 80%;
+  opacity: 90%;
   height: min-content;
 }
 
@@ -78,7 +82,7 @@ nav a {
 
 nav a:hover {
   color: rgb(216, 220, 224);
-  background-color: lightskyblue;
+  background-color: darkcyan !important;
   opacity: 40%;
   border-radius: 40%;
   transition: ease-in;
@@ -94,81 +98,61 @@ nav a:hover {
   width: 10px;
 }
 
+#homepage-card {
+    height: 100%;
+    width: 150%;
+    background-color: darkcyan;
+    color: darkslategray;
+    font-family:'Trebuchet MS';
+    flex-direction: wrap;
+}
+
 
 /* CARDS */
 .dash-card {
-  margin: 20px;
-  padding: 40px 20px 40px 20px;
-  box-sizing: border-box;
-  height: 70% !important;
-  flex-wrap: wrap;
-  flex-flow: column;
+  height: 65% !important;
+  padding: 50px 40px 50px 40px;
   border: 7px double darkcyan;
   mask-border-width: 40%;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
-  border-radius: 25px;
-  background-color: lightslategray;
-  text-align: center;
-  color: white;
-  display: flex;
-  justify-content:space-around;
+  border-radius: 15px;
+  background-color: lightcyan;
+  text-align: left;
+  color: darkcyan;
 }
-
-/* .aside {
-  align-content: flex-end;
-  display: flex;
-  justify-content:space-around;
-} */
 
 .info-card {
-  margin: 20px;
-  margin-left: 30%;
-  padding: 10px 40px 10px 40px;
-  box-sizing: border-box;
-  max-width: 300%;
-  height: 90% !important;
-  flex-wrap: wrap;
-  flex-flow: column;
+  height: 100% !important;
+  padding: 80px 40px 80px 40px;
   border: 7px double darkcyan;
   mask-border-width: 40%;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
-  border-radius: 25px;
-  background-color: lightslategray;
+  border-radius: 15px;
+  background-color: lightcyan;
   text-align: left;
-  color: white;
-  display: flex;
-  justify-content:space-around;
+  color: darkcyan;
 }
 
-#first-name, #email, #create-group, #join-group, #events {
+#first-name, #email, #events {
   text-align: justify;
   font-family: 'Helvetica';
 }
 
 .group-card {
-  margin: 30px;
-  margin-left: 10%;
-  padding: 60px 50px 60px 50px;
-  box-sizing: border-box;
-  max-width: 50%;
-  height: 60% !important;
-  flex-wrap: wrap;
-  flex-flow: column;
+  height: 100% !important;
+  padding: 50px 40px 50px 40px;
   border: 7px double darkcyan;
   mask-border-width: 40%;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
-  border-radius: 25px;
-  background-color: lightslategray;
-  background-blend-mode: lighten;
+  border-radius: 15px;
+  background-color: lightcyan;
   text-align: left;
-  color: white;
-  display: flex;
-  justify-content:space-around;
-}
+  color: darkcyan;
+} 
 
 .event-list {
-  margin: 60px;
-  padding: 40px 50px 40px 20px;
+  margin: 0px;
+  padding: 100px 50px 100px 20px;
   margin-right: 500%;
   box-sizing: border-box;
   width: fit-content;
@@ -179,16 +163,16 @@ nav a:hover {
   mask-border-width: 40%;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
   border-radius: 25px;
-  background-color: lightslategray;
+  background-color: lightcyan;
   text-align: justify;
-  color: white;
+  color: darkcyan;
   display: flex;
   justify-content:space-around;
 }
 
-.rule-card {
-  margin: 1px;
-  margin-left: 30%;
+
+.group-name-card {  margin: 1px;
+  margin-left: 0%;
   margin-bottom:10%;
   padding: 10px 10px 10px 10px;
   box-sizing: border-box;
@@ -199,31 +183,70 @@ nav a:hover {
   mask-border-width: 40%;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
   border-radius: 25px;
-  background-color: lightslategray;
+  background-color: lightcyan;
   text-align: left;
-  color: white;
+  color: darkcyan;
   display: flex;
   justify-content:space-around;
 }
 
-.member-card {
-  margin: 20px;
-  margin-left: 30%;
-  margin-bottom:10%;
-  padding: 10px 10px 10px 10px;
-  box-sizing: border-box;
-  height: 70% !important;
-  flex-wrap: wrap;
-  flex-flow: wrap;
+.group-pic-card {
+  height: 80% !important;
+  padding: 50px 40px 50px 40px;
   border: 7px double darkcyan;
   mask-border-width: 40%;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
-  border-radius: 25px;
-  background-color: lightslategray;
+  border-radius: 15px;
+  background-color: lightcyan;
   text-align: left;
-  color: white;
-  display: flex;
-  justify-content:space-around;
+  color: darkcyan;
+}
+
+.pod-options-card {
+  height: 100% !important;
+  padding: 50px 20px 50px 20px;
+  background-color: lightcyan;
+  background-blend-mode: lighten;
+  text-align: left;
+  color: darkcyan;
+  border: 7px double darkcyan;
+  mask-border-width: 40%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  border-radius: 15px;
+}
+
+.rule-card {
+  height: 100% !important;
+  padding: 50px 20px 50px 20px;
+  border: 7px double darkcyan;
+  mask-border-width: 40%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  border-radius: 15px;
+  background-color: lightcyan;
+  text-align: left;
+  color: darkcyan;
+}
+
+.member-card {  
+  height: 100% !important;
+  padding: 80px 20px 80px 20px;
+  border: 7px double darkcyan;
+  mask-border-width: 40%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  border-radius: 15px;
+  background-color: lightcyan;
+  backface-visibility: hidden;
+  text-align: left;
+  color: darkcyan;
+}
+
+.grid-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   grid-gap: 40px;
+}
+.grid-container .card:first-child {
+   grid-row: span 2;
 }
 
 #update-password, #create-group, #join-group {
@@ -266,6 +289,10 @@ nav a:hover {
   border-style: double;
   background-color: #d1e6e7;
   background-blend-mode: lighten;
+}
+
+.form-input {
+    text-align: justify;
 }
 
 /* .card header {
