@@ -1,3 +1,4 @@
+// This powers the login form
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -20,6 +21,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
+// This powers the signup form
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
@@ -33,7 +35,6 @@ const signupFormHandler = async (event) => {
       body: JSON.stringify({ name, email, password }),
       headers: { "Content-Type": "application/json" },
     });
-
     if (response.ok) {
       document.location.replace("/profile");
     } else {

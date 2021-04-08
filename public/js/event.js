@@ -1,6 +1,4 @@
-// find value of event box/id
-// send email to group
-
+// This responds when a user wants to report an event
 const eventEmailHandler = async (event) => {
     event.preventDefault();
     const covidEvent = document.getElementById('events').value
@@ -10,11 +8,9 @@ const eventEmailHandler = async (event) => {
         body: JSON.stringify({ event_id: covidEvent }),
         headers: { 'Content-Type': 'application/json' }
     })
-    
     const memberList = await response.json();
     console.log(memberList);
     console.log(covidEvent);
-
 }
 
 document

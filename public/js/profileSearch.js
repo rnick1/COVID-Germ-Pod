@@ -1,3 +1,4 @@
+// This powers the search bar
 const searchGroupHandler = async (event) => {
     event.preventDefault();
 
@@ -19,6 +20,7 @@ if (name) {
 }
 }
 
+// This powers the create searchbar functionality
 const createSearchBar = (event) => {
     event.preventDefault();
   
