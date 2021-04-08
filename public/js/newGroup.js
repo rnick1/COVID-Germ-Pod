@@ -3,9 +3,7 @@ document.getElementById('group-invites').multiple=true;
 const newGroupHandler = async (event) => {
   event.preventDefault();
 
-  // const user_name = //;
   const name = document.querySelector("#group-name").value.trim();
-  // const members = document.querySelector("#group-members").value.trim();
   const password = document.querySelector("#group-password").value.trim();
   const email = document
     .querySelector("#group-invites")
@@ -79,32 +77,19 @@ const deleteGroup = async (event) => {
     const response = await fetch(`/api/groups/${id}`, {
       method: "DELETE",
     });
+    if (response.ok) {
+      document.location.replace("/profile");
   }
-  if (response.ok) {
-    document.location.replace("/profile");
+  
   } else {
     alert("Failed to delete group");
   }
 };
 
-// const addRules = async (rules, groupData) => {
-//   rules.forEach(element => {
-//     console.log(element);
-//     const ruleCall = await fetch('api/groups/addRule', {
-//       method: 'POST',
-//       body: JSON.stringify({ rule_id: element, group_id: groupData.id})
-//     })
-//     if (ruleCall.ok) {
-//       console.log('did it work?');
-//       return await;
-//     }
-//     // console.log(rule_id);
-//   });
-// }
 
 document
   .querySelector(".new-group-form")
   .addEventListener("submit", newGroupHandler);
 // document
-//     .querySelector('') //<I do not know what to put here
+//     .querySelector('#group-delete-btn') //<I do not know what to put here
 //     .addEventListener('click', deleteGroup);

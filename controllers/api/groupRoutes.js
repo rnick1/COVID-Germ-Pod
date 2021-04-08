@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
         res.status(400).json(error)
     }
 })
-// // // NEW!!! For search bar:
+// For search bar:
 router.get('/:name', async (req, res) => {
 
     try{
