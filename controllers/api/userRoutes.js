@@ -72,7 +72,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
-// This enables a user to join a group
+//update password
 router.put('/joinGroup', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id)
