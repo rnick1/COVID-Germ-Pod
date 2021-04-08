@@ -32,23 +32,23 @@ bcrypt, bootstrap, express, mySQL, nodemailer, and many others
 
 _Home-Page_
 
-![Home-Page](https://github.com/rnick1/Group_6/blob/main/public/images/home-page.PNG)
+![Home-Page](https://github.com/rnick1/Group_6/blob/main/public/images/home-page.png)
 
 _Login/Signup_
 
-![Login/signup](https://github.com/rnick1/Group_6/blob/main/public/images/login.PNG)
+![Login/signup](https://github.com/rnick1/Group_6/blob/main/public/images/login.png)
 
 _Dashboard_
 
-![Dashboard](https://github.com/rnick1/Group_6/blob/main/public/images/dashboard.PNG)
+![Dashboard](https://github.com/rnick1/Group_6/blob/main/public/images/dashboard.png)
 
 _Search-Results_
 
-![Search-Results](https://github.com/rnick1/Group_6/blob/main/public/images/searchresult.PNG)
+![Search-Results](https://github.com/rnick1/Group_6/blob/main/public/images/searchresult.png)
 
 _Create-New-Group_
 
-![Create-New-Pod](https://github.com/rnick1/Group_6/blob/main/public/images/new-group.PNG)
+![Create-New-Pod](https://github.com/rnick1/Group_6/blob/main/public/images/new-group.png)
 
 ## Contributors:
 
