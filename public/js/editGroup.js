@@ -1,6 +1,8 @@
 const inviteUserHandler = async (event) => {
   event.preventDefault();
   const email = document.querySelector("#emails").value;
+  const findId = document.getElementById('group-name')
+  const id = findId.getAttribute("data-id");
   console.log(email);
 
   if (email) {
@@ -15,7 +17,7 @@ const inviteUserHandler = async (event) => {
     if (emailCall.ok) {
       // alert('created new group')
       await new Promise((r) => setTimeout(r, 1000));
-      document.location.replace(`/group/${groupData.id}`);
+      document.location.replace(`/group/${id}`);
     }
   }
 };
