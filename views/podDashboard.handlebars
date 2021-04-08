@@ -46,14 +46,24 @@
     </div>
 </div>
 <div class="col col-md-6">
-    <div class="rule-card">
+    <<<<<<< HEAD <div class="rule-card">
 
-        {{#if groupMatches}}
-        <button id="invite-peeps">Invite More Peeps</button>
-        <button id="update-peeps">Update Peeps</button>
-        <button id="delete-group">Delete Group</button>
-        {{else}}
-        <button id='join-group'>Join Group</button>
-        {{/if}}
-    </div>
+        =======
+        <div class="rule-card" id='rule-area'>
+            <h3>Pod Options</h3>
+            >>>>>>> 241a742832ab6f3fda9acba90a02d2d05b457dc6
+            {{#if groupMatches}}
+            <button id="invite-users">Invite Members</button>
+            <button id="leave-group">Leave Group</button>
+            <button data-id='{{id}}' id="delete-group">Delete Group</button>
+            <script src="/js/editGroup.js"></script>
+            {{else}}
+            <button id='join-group'>Join Group</button>
+            <script src="/js/joinGroup.js"></script>
+            {{/if}}
+        </div>
+        <<<<<<< HEAD </div>
+            =======
 </div>
+
+>>>>>>> 241a742832ab6f3fda9acba90a02d2d05b457dc6
