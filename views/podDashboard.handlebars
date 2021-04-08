@@ -46,7 +46,7 @@
     </div>
 </div>
 <div class="col col-md-6">
-    <div class="rule-card">
+    <div class="rule-card" id='rule-area'>
         
         {{#if groupMatches}}
         <button id="invite-peeps">Invite More Peeps</button>
@@ -54,6 +54,8 @@
         <button id="delete-group">Delete Group</button>
         {{else}}
         <button id='join-group'>Join Group</button>
+        <script src="/js/joinGroup.js"></script>
         {{/if}}
     </div>
 </div>
+

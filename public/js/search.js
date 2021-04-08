@@ -5,7 +5,7 @@ const name = document.querySelector('#searchbar').value.trim()
 
 console.log(name)
 if (name) {
-    const response = await fetch (`api/groups/${name}`, {
+    const response = await fetch (`/api/groups/${name}`, {
         method: "GET",
         // body: JSON.stringify(name),
         // headers: { "Content-Type": "application/json" },
