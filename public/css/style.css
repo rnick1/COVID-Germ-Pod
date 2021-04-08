@@ -146,7 +146,7 @@ nav a:hover {
   padding: 10px 40px 10px 40px;
   box-sizing: border-box;
   max-width: 300%;
-  height: 100% !important;
+  height: 90% !important;
   flex-wrap: wrap;
   flex-flow: column;
   border: 7px double darkcyan;
@@ -160,13 +160,18 @@ nav a:hover {
   justify-content:space-around;
 }
 
+#first-name, #email, #create-group, #join-group, #events {
+  text-align: justify;
+  font-family: 'Helvetica';
+}
+
 .group-card {
-  margin: 50px;
-  margin-left: 38%;
-  padding: 10px 50px 10px 50px;
+  margin: 30px;
+  margin-left: 10%;
+  padding: 60px 50px 60px 50px;
   box-sizing: border-box;
   max-width: 50%;
-  height: 150% !important;
+  height: 60% !important;
   flex-wrap: wrap;
   flex-flow: column;
   border: 7px double darkcyan;
@@ -180,6 +185,26 @@ nav a:hover {
   display: flex;
   justify-content:space-around;
 } */
+
+.event-list {
+  margin: 60px;
+  padding: 40px 50px 40px 20px;
+  margin-right: 500%;
+  box-sizing: border-box;
+  width: fit-content;
+  height: 50% !important;
+  flex-wrap: nowrap;
+  flex-flow: column;
+  border: 7px double darkcyan;
+  mask-border-width: 40%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  border-radius: 25px;
+  background-color: lightslategray;
+  text-align: justify;
+  color: white;
+  display: flex;
+  justify-content:space-around;
+}
 
 .rule-card {
   margin: 1px;
