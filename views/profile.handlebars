@@ -28,8 +28,7 @@
     {{!-- ​<div class="flex-column justify-space-around"></div> --}}
     <div class="container">
         <div class="row">
-            <div class="col-md-3 user-group"></div>
-            <div class="col-md-9 user-group">
+            <div class="col-md-6 user-group">
                 <div class="group-card">
                     <h4 id="my-info">Pod Options</h4>
                     <hr>
@@ -38,7 +37,8 @@
                         <li><a href='/group/{{group_id}}'>{{group.name}}</a></li>
                         {{else}}
 
-                        <li><a class='btn' id='create-group' href='/newGroup' role='button'>Create a New Germ Pod</a></li>
+                        <li><a class='btn' id='create-group' href='/newGroup' role='button'>Create a New Germ Pod</a>
+                        </li>
                         <li><a class='btn' id='join-group' href='/newGroup' role='button'>Join a Germ Pod</a></li>
 
                         {{/if}}
@@ -49,28 +49,31 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-md-1 user-group">
+                <div class='event-list'>
+                    <div>
+                        <form class="form report-event-form">
+                            <div class='form-group'>
+                                <h6>Event Report</h6>
+                                <hr>
+                                <label for='user-events'>Report a COVID Event to your Pod:</label>
+                                <select name='user-events' id='events'>
+                                    {{#each events as |event| }}
+
+                                    <option value={{event.id}}>{{event.name}}:{{event.description}}</option>
+
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <button type='submit' class='btn btn-primary'>Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    </aside>
-    
-<div class='event-list'>
-<div>
-    <form class="form report-event-form">
-    <div class='form-group'>
-    <label for='user-events'>Report a COVID Event to your Pod:</label>
-    <select name='user-events' id='events'>
-{{#each events as |event| }}
-    
-      <option value={{event.id}}>{{event.name}}:{{event.description}}</option>
-       
-        {{/each}}
-        </select>
-         </div>
-         <button type='submit' class='btn btn-primary'>Submit</button>
-         </form>
+    </div>
 </div>
 </div>
-
+<br>
 </div>
 <script src="/js/event.js"></script>
-
