@@ -3,6 +3,7 @@ const joinGroupHandler = async (event) => {
 
     const groupName = document.querySelector('#group-name').innerText.trim()
     const inputPassword = document.getElementById('password').value.trim()
+    // removes unicode spacing
     const cleanName = groupName.replace(/%20/g, " ")
 
     console.log(cleanName);
@@ -49,8 +50,8 @@ const requestPassword = (event) => {
     ruleEl.appendChild(node)
 
     document
-    .querySelector('#submit-password')
-    .addEventListener('click', joinGroupHandler)
+        .querySelector('#submit-password')
+        .addEventListener('click', joinGroupHandler)
 }
 
 document

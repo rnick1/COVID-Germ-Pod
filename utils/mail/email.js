@@ -30,7 +30,7 @@ const sendEmail = (toEmail, subject, body) => {
 const sendInviteEmail = (email, user, group) => {
     let body = `<h1>${group.name}</h1>
     <p>Bubbles, pods, quaranteams: whatever you call them, they can be an effective tool in reducing the spread of disease within a community while reducing the negative impacts of isolation. You have been invited to a pod by ${user.name}. If you haven't already, create an account to view the invite and decide if this group is right for you.</p>
-    <p>Use this password to join: ${group.password} 
+    <p>Use this password to join: ${group.password}</p> 
     <a href='https://https//git.heroku.com/covid-bubble-app.git/group/${group.id}'>Check out ${group.name}</a>`
 
     let subject = `${user.name} wants you in their GermPod`

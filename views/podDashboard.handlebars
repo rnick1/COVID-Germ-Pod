@@ -47,11 +47,12 @@
 </div>
 <div class="col col-md-6">
     <div class="rule-card" id='rule-area'>
-        
+        <h3>Pod Options</h3>
         {{#if groupMatches}}
-        <button id="invite-peeps">Invite More Peeps</button>
-        <button id="update-peeps">Update Peeps</button>
+        <button id="invite-users">Invite Members</button>
+        <button id="leave-group">Leave Group</button>
         <button id="delete-group">Delete Group</button>
+        <script src="/js/editGroup.js"></script>
         {{else}}
         <button id='join-group'>Join Group</button>
         <script src="/js/joinGroup.js"></script>
