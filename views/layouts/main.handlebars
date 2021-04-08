@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <title>{{!-- <i class="fas fa-viruses"></i> --}} COVID Germ Pod</title>
+    <title>{{!-- <i class="fas fa-viruses"></i> --}} COVID Germ Pod</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16" />
@@ -25,20 +25,20 @@
                 <li class="nav-item">
                     <a class="navbar-brand" href="/faq">FAQ</a>
                 </li>
-                
-                    {{#if logged_in}}
-                    <li class="nav-item">
+
+                {{#if logged_in}}
+                <li class="nav-item">
                     <a class='navbar-brand' href="/profile">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a class='navbar-brand' href='/' id='logout'>Logout</a>
-                    </li>
-                    {{else}}
-                    <li class="nav-item">
+                </li>
+                {{else}}
+                <li class="nav-item">
                     <a class='navbar-brand' href="/login" id="login">Let's get started!</a>
-                    </li>
-                    {{/if}}
-                
+                </li>
+                {{/if}}
+
                 <li class="nav-item active">
                     <a class='navbar-brand' id="cdc-nav" href="https://www.cdc.gov/">CDC Website</a>
                 </li>
@@ -65,10 +65,13 @@
     </nav>
 
     <main class="container container-fluid mt-5">
-        <!-- Render the sub layout -->
-        {{{ body }}}
+        <section class="block block--simple_content bg--none block--paddingTopMedium block--paddingBottomNone block--textDefault
+    block--alignCenter pad-top-100">
+            {{!-- <div class="container container--sm"> --}}
+                {{{ body }}}
+        </section>
     </main>
-    
+
     ​
     <!-- Render script for logged in users only -->
 
@@ -86,7 +89,7 @@
             </a>
         </nav>
     </footer>
-    
+
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
