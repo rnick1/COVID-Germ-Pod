@@ -11,9 +11,7 @@ _LIVE_
 1. [Project Description](#project-description)
 2. [Technologies Used](#technologies-used)
 3. [Web Application](#web-application)
-4. [Challenges](#challenges)
-5. [Future Development](#future-development)
-6. [Contributors](#contributors)
+4. [Contributors](#contributors)
 
 ## Project Description:
 
@@ -50,16 +48,6 @@ _Search-Results_
 _Create-New-Group_
 
 ![Create-New-Pod](public\images\new-group.PNG)
-
-## Challenges:
-
-- From the beginning of the project we divided the tasks into neat categories such as Nick doing the database and models, Mikey doing the routes, etc. This worked very well until it came time to link everything together. Each member's lack of familiarity with other parts of the project made it a challenge to pull everything together.
-
-## Future Development:
-
-- Increased functionality for adding photos.
-
--
 
 ## Contributors:
 

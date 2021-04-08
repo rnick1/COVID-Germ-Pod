@@ -1,96 +1,81 @@
-​<div class="flex-column justify-space-around"></div>
-<div class="container"></div>
-<div class="row" href="main">
-    <div class="dash-card">
-        <h1 id="my-dashboard">My Dashboard</h1>
-        <hr>
-        <br>
-        <a class="mx-auto" alt="kids" href="/">
-            <img src="/images/profile-pic.png" class="rounded-circle"
-                style="height: 200px; border: 7px double darkcyan;">
-        </a>
-        <br>
-        <form action="upload.php" method="post">
-            <input type="file" name="file" id="file" />
-        </form>
+<div class="grid-container">
+    <div class="card" style="background-color: transparent; border-style: none;">
+        <div class="dash-card">
+            <h1 class="my-dashboard">My Dashboard</h1>
+            <hr>
+            <br>
+            <a class="mx-auto" alt="kids" href="/">
+                <img src="/images/profile-pic.png" class="rounded-circle"
+                    style="height: 200px; border: 7px double darkcyan;">
+            </a>
+            <br>
+            <form action="upload.php" method="post">
+                <input type="file" name="file" id="file" />
+            </form>
+        </div>
     </div>
-    <div class="col-md-7 user-info">
+    <div class="card" style="background-color: transparent; border-style: none;">
         <div class="info-card">
             <h4 id="my-info">Personal Information</h4>
+            <hr>
             <ul>
                 <ul id="first-name">Name: {{name}}</ul>
                 <ul id="email">Email: {{email}}</ul>
-               
-            </ul>
-            <hr>
-        </div>
+                <ul>
+                    <div class="form-group">
+                        <label for="password-update">update password:</label>
+                        <input class="form-input" type="text" id="password-update" />
 
-        <div>
-            <div class="form-group">
-                <label for="password-update">update password:</label>
-                <input class="form-input" type="text" id="password-update" />
-
-                <button id="update-password-btn" data-id="{{id}}">Update Password</button>
-            </div>
-        ​<div class="flex-column justify-space-around"></div>
-
-    </div>
-    
-    <div class="container">
-
-        <div class="row">
-            <div class="col-md-6 user-group">
-                <div class="group-card">
-                    <ul id='pod-options'>
-                        <div class="row">
-                            <h4 id="my-info">Pod Options</h4>
-                        </div>
-                        <hr>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-3 user-group">
-                                {{#if group_id}}
-                                <a href='/group/{{group_id}}' style="text-align: center;">{{group.name}}</a>
-                                {{else}}
-
-                                <a class='btn' id='create-group' href='/newGroup' role='button'>Create a New Germ
-                                    Pod</a>
-                            </div>
-                            <div class="col-md-3 user-group">
-                                <button id="join-group">Search for a Germ Pod to Join</button>
-
-                                {{/if}}
-                            </div>
-                        </div>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-5 user-group">
-                <div class='event-list'>
-                    <div>
-                        <form class="form report-event-form">
-                            <div class='form-group'>
-                                <h6>Event Report</h6>
-                                <hr>
-                                <label for='user-events'>Report a COVID Event to your Pod:</label>
-                                <select name='user-events' id='events'>
-                                    {{#each events as |event| }}
-
-                                    <option value={{event.id}}>{{event.name}}:{{event.description}}</option>
-
-                                    {{/each}}
-                                </select>
-                            </div>
-                            <button type='submit' class='btn btn-secondary'>Submit</button>
-                        </form>
+                        <button id="update-password-btn" data-id="{{id}}">Update Password</button>
                     </div>
-                </div>
+                </ul>
+            </ul>
+
+        </div>
+    </div>
+    {{!-- <div class="card" style="background-color: transparent; border-style: none;">
+
+    </div> --}}
+    <div class="card" style="background-color: transparent; border-style: none;">
+        <div class="group-card">
+            <h4 id="my-info">Pod Options</h4>
+            <hr>
+            <br>
+            <ul>
+                {{#if group_id}}
+                <a href='/group/{{group_id}}'>{{group.name}}</a>
+                {{else}}
+
+                <a class='btn' id='create-group' href='/newGroup' role='button'>Create a New Germ Pod</a>
+
+                <button id="join-group">Search for a Germ Pod to Join</button>
+
+                {{/if}}
+
+            </ul>
+        </div>
+    </div>
+    <div class="card" style="background-color: transparent; border-style: none;">
+        <div class='event-list'>
+            <div>
+                <form class="form report-event-form">
+                    <div class='form-group'>
+                        <h6>Event Report</h6>
+                        <hr>
+                        <label for='user-events'>Report a COVID Event to your Pod:</label>
+                        <select name='user-events' id='events'>
+                            {{#each events as |event| }}
+
+                            <option value={{event.id}}>{{event.name}}:{{event.description}}</option>
+
+                            {{/each}}
+                        </select>
+                    </div>
+                    <button type='submit' class='btn btn-secondary'>Submit</button>
+                </form>
             </div>
         </div>
     </div>
-</div>
-</div>
-<br>
 </div>
 {{#if group_id}}
 {{else}}
