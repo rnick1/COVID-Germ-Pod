@@ -40,9 +40,9 @@ const sendInviteEmail = (email, user, group) => {
 
 
 const sendEventEmail = (email, user, event) => {
-    let subject= 'There was an event';
+    let subject= 'Someone from your GermPod Wants You to Know';
     let body = `<h1>Something Happened</h1>
-    <p>Someone in your germpod had an interaction they wanted you to know about. Please login to your account to view the update.</p>
+    <p>${user.name} from your GermPod wanted you to know that ${event.name}: ${event.description}. Please discuss with your group to determine the best path forward.</p>
     <a href='https://https//git.heroku.com/covid-bubble-app.git'>See the update</a>`
     
     sendEmail(email, subject, body)

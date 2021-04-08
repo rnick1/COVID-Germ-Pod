@@ -3,6 +3,7 @@ document.getElementById('group-invites').multiple=true;
 const newGroupHandler = async (event) => {
   event.preventDefault();
 
+  // const user_name = //;
   const name = document.querySelector("#group-name").value.trim();
   // const members = document.querySelector("#group-members").value.trim();
   const password = document.querySelector("#group-password").value.trim();

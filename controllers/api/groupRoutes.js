@@ -3,6 +3,8 @@ const { User, Group, GroupRule, Rule } = require('../../models');
 const withAuth = require('../../utils/auth');
 const nodeMail = require('../../utils/mail/email')
 
+// routes are /api/groups
+
 router.get('/', async (req, res) => {
     console.log('Hello')
     try {
@@ -15,24 +17,24 @@ router.get('/', async (req, res) => {
     }
 })
 // // // NEW!!! For search bar:
-// // router.get('/:name', async (req, res) => {
+router.get('/:name', async (req, res) => {
 
-//     try{
-//         const groupData = await Group.findOne({
-//             where: {
-//                 name: req.params.name
-//             }, 
-//             include: [{ model: Rule, through: GroupRule }, { model: User }]
-//         })
-//         if(!groupData) {
-//             res.status(404).json({ message: 'No group found with this name. '});
-//             return;
-//         }
-//         res.status(200).json(groupData);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+    try{
+        const groupData = await Group.findOne({
+            where: {
+                name: req.params.name
+            }, 
+            include: [{ model: Rule, through: GroupRule }, { model: User }]
+        })
+        if(!groupData) {
+            res.status(404).json({ message: 'No group found with this name. '});
+            return;
+        }
+        res.status(200).json(groupData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 router.get('/:id', async (req, res) => {
 
@@ -81,16 +83,7 @@ router.post('/addRule', withAuth, async (req, res) => {
         res.status(500).json(error)
     }
 })
-    //     try { 
-    //     const addRule = await GroupRule.create({
-    //         group_id: req.body.group_id,
-    //         rule_id: req.body.rule_id
-    //     })
-    //     res.status(200).json(addRule)
-    // } catch (error) {
-    //     res.status(400).json(error)
-    // }
-// })
+    
 
 router.post('/sendInviteEmail/:id', withAuth, async (req,  res) => {
     try {
