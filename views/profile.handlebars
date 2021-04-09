@@ -8,6 +8,9 @@
                 <img src="/images/profile-pic.png" class="rounded-circle"
                     style="height: 200px; border: 7px double darkcyan;">
             </a>
+            <hr>
+            <br>
+            <br>
             <br>
             <form action="upload.php" method="post">
                 <input type="file" name="file" id="file" />
@@ -20,6 +23,8 @@
             <hr>
             <ul>
                 <ul id="first-name">Name: {{name}}</ul>
+                <br>
+                <br>
                 <ul id="email">Email: {{email}}</ul>
                 <ul>
                     <div class="form-group">
@@ -47,7 +52,7 @@
                 {{else}}
 
                 <a class='btn' id='create-group' href='/newGroup' role='button'>Create a New Germ Pod</a>
-
+                <hr>
                 <button id="join-group">Search for a Germ Pod to Join</button>
 
                 {{/if}}
