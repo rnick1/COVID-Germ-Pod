@@ -35,7 +35,7 @@ const requestPassword = (event) => {
     event.preventDefault();
     document.querySelector('#join-group').setAttribute('hidden', 'true')
 
-    let ruleEl = document.getElementById('rule-area')
+    let podEl = document.getElementById('pod-option-area')
     let node = document.createElement('form')
     let passwordInput = document.createElement('input')
     passwordInput.setAttribute('id', 'password')
@@ -48,7 +48,7 @@ const requestPassword = (event) => {
 
     node.appendChild(passwordInput)
     node.appendChild(submitBtn)
-    ruleEl.appendChild(node)
+    podEl.appendChild(node)
 
     document
         .querySelector('#submit-password')

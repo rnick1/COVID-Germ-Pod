@@ -1,7 +1,7 @@
 <div class="grid-container">
     <div class="card" style="background-color: transparent; border-style: none;">
         <div class="group-pic-card">
-            <h3 id="group-name">{{name}}</h3>
+            <h3 id="group-name" data-id='{{id}}'>{{name}}</h3>
             <hr>
             <a class="mx-auto" alt="kids" href="/">
                 <img src="/images/kid-pod.png" class="rounded-circle"
@@ -15,7 +15,7 @@
             </form>
         </div>
     </div>
-    <div class="card" style="background-color: transparent; border-style: none;">
+    <div class="card"  style="background-color: transparent; border-style: none;">
         <div class="member-card">
             <h3 id="group-members">Group Members</h3>
             <hr>
@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="card" style="background-color: transparent; border-style: none;">
-        <div class="pod-options-card">
+        <div class="pod-options-card" id='pod-option-area'>
             <h3>Pod Options</h3>
             <hr>
             <br>
@@ -47,12 +47,12 @@
                 <br>
                 <ul>
                     <button data-id='{{id}}' id="delete-group">Delete Group</button>
-                    <script src="/js/editGroup.js"></script>
+                    
                     {{else}}
                     <button id='join-group'>Join Group</button>
                 </ul>
             </ul>
-            <script src="/js/joinGroup.js"></script>
+            
             {{/if}}
         </div>
     </div>
@@ -70,3 +70,8 @@
         </div>
     </div>
 </div>
+{{#if groupMatches}}
+<script src="/js/editGroup.js"></script>
+{{else}}
+<script src="/js/joinGroup.js"></script>
+{{/if}}

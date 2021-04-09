@@ -14,38 +14,38 @@ const eventEmailHandler = async (event) => {
 }
 
 
-const updatePassword = async (event) => {
+// const updatePassword = async (event) => {
 
-    event.preventDefault();
+//     event.preventDefault();
 
-    const password = document.querySelector('#password-update').value.trim();
-    const id = event.target.getAttribute('data-id');
+//     const password = document.querySelector('#password-update').value.trim();
+//     const id = event.target.getAttribute('data-id');
 
-console.log('id coming in is....', id)
-console.log('password coming in is....', password)
+// console.log('id coming in is....', id)
+// console.log('password coming in is....', password)
 
-    const response = await fetch(`/api/users/${id}`, {
-        method: "PUT",
-        body: JSON.stringify({password}),
-        headers: {
-            'Content-type': 'application/json'
-        }
-    })
+//     const response = await fetch(`/api/users/${id}`, {
+//         method: "PUT",
+//         body: JSON.stringify({password}),
+//         headers: {
+//             'Content-type': 'application/json'
+//         }
+//     })
     
-console.log('response', response)
+// console.log('response', response)
 
 
-    if(response.ok) {
-        document.location.replace('/profile')
-    } else {
-        alert('Failed to update.')
-    }
+//     if(response.ok) {
+//         document.location.replace('/profile')
+//     } else {
+//         alert('Failed to update.')
+//     }
 
-}
+// }
 
-document
-    .querySelector('#update-password-btn')
-    .addEventListener('click', updatePassword)
+// document
+//     .querySelector('#update-password-btn')
+//     .addEventListener('click', updatePassword)
 
 document
     .querySelector('.report-event-form')
