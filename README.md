@@ -4,7 +4,9 @@
 
 ## Deployment:
 
-_LIVE_
+_LIVE LINK_
+
+<a href="https://hidden-island-12801.herokuapp.com/">COVID GERM POD<a>
 
 ## Table of Contents
 
@@ -32,23 +34,23 @@ bcrypt, bootstrap, express, mySQL, nodemailer, and many others
 
 _Home-Page_
 
-![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/home-page.PNG)
+![screenshot](public\images\home-page.PNG)
 
 _Login/Signup_
 
-![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/login.png)
+![screenshot](public\images\login.PNG)
 
 _Dashboard_
 
-![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/dashboard.png)
+![screenshot](public\images\dashboard.PNG)
 
-_Search-Results_
+_Search-Result_
 
-![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/searchresult.png)
+![screenshot](public\images\searchresult.PNG)
 
 _Create-New-Group_
 
-![screenshot](https://github.com/rnick1/Group_6/blob/main/public/images/new-group.png)
+![screenshot](public\images\new-group.PNG)
 
 ## Contributors:
 
