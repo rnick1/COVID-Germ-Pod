@@ -60,7 +60,7 @@ const sendInviteEmail = (email, user, group) => {
     <p>Use this password to join: <b>${group.password}</b></p>
     <hr>
     <br>
-    <a href='https://https//git.heroku.com/covid-bubble-app.git/group/${group.id}'>Check out ${group.name}</a>
+    <a href='https://hidden-island-12801.herokuapp.com/group/${group.id}'>Check out ${group.name}</a>
     </div>
     </div>`
 
@@ -99,7 +99,7 @@ const sendEventEmail = (email, user, event) => {
     <hr>
     <i><p>${user.name} from your GermPod wanted you to know that ${event.name}: ${event.description}. Please discuss with your group to determine the best path forward.</p></i>
 
-    <a href='https://https//git.heroku.com/covid-bubble-app.git'>Login and check on your Pod</a>
+    <a href='https://hidden-island-12801.herokuapp.com/'>Login and check on your Pod</a>
     </div>
     </div>`
     
