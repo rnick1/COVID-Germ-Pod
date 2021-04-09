@@ -110,7 +110,7 @@ nav a:hover {
 
 /* CARDS */
 .dash-card {
-  height: 65% !important;
+  height: 100% !important;
   padding: 50px 40px 50px 40px;
   border: 7px double darkcyan;
   mask-border-width: 40%;
@@ -134,8 +134,10 @@ nav a:hover {
 }
 
 #first-name, #email, #events {
-  text-align: justify;
+  text-align: center;
   font-family: 'Helvetica';
+  font-weight: bolder;
+
 }
 
 .group-card {
@@ -147,7 +149,7 @@ nav a:hover {
   border-radius: 15px;
   background-color: lightcyan;
   text-align: left;
-  color: darkcyan;
+  color: darkcyan !important;
 } 
 
 .event-list {
@@ -249,7 +251,7 @@ nav a:hover {
    grid-row: span 2;
 }
 
-#update-password, #create-group, #join-group {
+/* button, #create-group {
     color: darkcyan;
     font: small-caps;
     font-weight: bolder;
@@ -260,12 +262,12 @@ nav a:hover {
     background-blend-mode: hue;
     border-radius: 10px;
     box-shadow: slategrey;
-    margin: 5%;
+    margin: 2%;
     padding: 10px 5px 10px 5px;
     flex-flow: wrap;
     flex-wrap: wrap;
     justify-content:space-between;
-}
+} */
 
 .login-form {
   margin: 0 0 200px 0;
@@ -284,6 +286,18 @@ nav a:hover {
   flex: 0 0 10%;
   max-width: 75%;
   padding:20px;
+  border: 3px darkslategray;
+  border-radius: var(--border-radius);
+  border-style: double;
+  background-color: #d1e6e7;
+  background-blend-mode: lighten;
+}
+
+.new-group-form {
+  margin: 0 0 200px 0;
+  flex: 0 0 10%;
+  max-width: 75%;
+  padding: 20px;
   border: 3px darkslategray;
   border-radius: var(--border-radius);
   border-style: double;
@@ -318,39 +332,6 @@ nav a:hover {
 .form-input {
     text-align: justify;
 }
-
-/* .card header {
-  color: var(--light);
-  font-weight: bold;
-  text-transform: uppercase;
-  margin: 0;
-  background-color: var(--tertiary);
-  padding: 0.625rem;
-  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
-} */
-
-/* .card-body {
-  font-size: 1.4rem;
-  text-align: center;
-  font-weight: bold;
-} */
-
-/* .container {
-  display: flex;
-  flex-flow: column wrap;
-  align-content: flex-start;
-  align-items: center;
-} */
-
-/* a, a:hover, a:focus {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-a[data-toggle="collapse"] {
-    position: relative;
-} */
 
 
 
