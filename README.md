@@ -4,7 +4,8 @@
 
 ## Deployment:
 
-_LIVE_
+_LIVE LINK_
+
 <a href="https://hidden-island-12801.herokuapp.com/">COVID GERM POD<a>
 
 ## Table of Contents
