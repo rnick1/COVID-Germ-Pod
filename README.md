@@ -34,23 +34,23 @@ bcrypt, bootstrap, express, mySQL, nodemailer, and many others
 
 _Home-Page_
 
-![screenshot](public\images\home-page.png)
+![screenshot](/public\images\home-page.png)
 
 _Login/Signup_
 
-![screenshot](public\images\login.png)
+![screenshot](/public\images\login.png)
 
 _Dashboard_
 
-![screenshot](public\images\dashboard.png)
+![screenshot](/public\images\dashboard.png)
 
 _Search-Result_
 
-![screenshot](public\images\searchresult.png)
+![screenshot](/public\images\searchresult.png)
 
 _Create-New-Group_
 
-![screenshot](public\images\new-group.png)
+![screenshot](/public\images\new-group.png)
 
 ## Contributors:
 
