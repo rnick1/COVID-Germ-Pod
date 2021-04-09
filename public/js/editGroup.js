@@ -29,7 +29,7 @@ const requestEmail = (event) => {
   document.querySelector("#leave-group").setAttribute("hidden", "true");
   document.querySelector("#delete-group").setAttribute("hidden", "true");
 
-  let ruleEl = document.getElementById("rule-area");
+  let podEl = document.getElementById("pod-option-area");
   let node = document.createElement("form");
   let emailInput = document.createElement("input");
   emailInput.setAttribute("type", "email");
@@ -53,7 +53,7 @@ const requestEmail = (event) => {
   node.appendChild(emailInput);
   node.appendChild(submitBtn);
   // node.appendChild(resetBtn)
-  ruleEl.appendChild(node);
+  podEl.appendChild(node);
 
   document
     .querySelector("#submit-email")

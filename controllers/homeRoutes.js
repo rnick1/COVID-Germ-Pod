@@ -56,32 +56,32 @@ router.get('/group/:id', withAuth, async (req,res) => {
 
 // This gets a single group by name and displays the associated users and rules.
 // Note: after testing remember to add 'withAuth' before 'async.'
-router.get('/group/name/:name', async (req, res) => {
-    try{
-        const groupData = await Group.findOne({
-                        where: {
-                            name: req.params.name
-                        }, 
-                        include: [
-                            {
-                                model: User,
-                                attributes: ['name']
-                            },
-                            {
-                                model: Rule,
-                                attributes: ['name']
-                            },
-                        ],
-    });
-    const group = groupData.get({ plain: true});
-    res.render('singleGroup', {
-        ...group,
-        // logged_in: req.session.logged_in
-    });
-} catch(err) {
-    res.status(500).json(err)
-}
-})
+// router.get('/group/name/:name', async (req, res) => {
+//     try{
+//         const groupData = await Group.findOne({
+//                         where: {
+//                             name: req.params.name
+//                         }, 
+//                         include: [
+//                             {
+//                                 model: User,
+//                                 attributes: ['name']
+//                             },
+//                             {
+//                                 model: Rule,
+//                                 attributes: ['name']
+//                             },
+//                         ],
+//     });
+//     const group = groupData.get({ plain: true});
+//     res.render('singleGroup', {
+//         ...group,
+//         // logged_in: req.session.logged_in
+//     });
+// } catch(err) {
+//     res.status(500).json(err)
+// }
+// })
 
 //This renders the user's profile page when they are signed in:
 router.get('/profile', withAuth, async (req,res) => {
@@ -105,23 +105,23 @@ router.get('/profile', withAuth, async (req,res) => {
 })
 
 //This renders the events:
-router.get('/events', async (req,res) => {
-    try{
-        const eventData = await Event.findAll()
-        console.log(eventData, 'eventData')
-        console.log("****************************")
-        //serialize the data and render
-        const events = eventData.map(({name, event_description, id}) => ({
-            name: name,
-            event_description: event_description,
-            id: id
-        }) )
-        console.log(events, 'Events')
-        res.render('events', events)
-    } catch(err) {
-        res.json(err)
-    }
-})
+// router.get('/events', async (req,res) => {
+//     try{
+//         const eventData = await Event.findAll()
+//         console.log(eventData, 'eventData')
+//         console.log("****************************")
+//         //serialize the data and render
+//         const events = eventData.map(({name, event_description, id}) => ({
+//             name: name,
+//             event_description: event_description,
+//             id: id
+//         }) )
+//         console.log(events, 'Events')
+//         res.render('events', events)
+//     } catch(err) {
+//         res.json(err)
+//     }
+// })
 
 //This makes sure that if a user is not logged in then they are directed to the login/signup page:
 router.get('/login', async (req,res) => {

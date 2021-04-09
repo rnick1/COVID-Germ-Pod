@@ -24,7 +24,7 @@ if (name) {
 const createSearchBar = (event) => {
     event.preventDefault();
   
-    let podEl = document.getElementById("pod-options");
+    let podEl = document.getElementById("pod-option-area");
     let node = document.createElement("form");
     let groupInput = document.createElement("input");
     groupInput.setAttribute("type", "text");
