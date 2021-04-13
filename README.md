@@ -34,23 +34,23 @@ bcrypt, bootstrap, express, mySQL, nodemailer, and many others
 
 _Home-Page_
 
-![screenshot](/public\images\home-page.png)
+![image](https://github.com/rnick1/Group_6/blob/main/public/images/home-page.PNG)
 
 _Login/Signup_
 
-![screenshot](/public\images\login.png)
+![image](https://github.com/rnick1/Group_6/blob/main/public/images/login.PNG)
 
 _Dashboard_
 
-![screenshot](/public\images\dashboard.png)
+![image](https://github.com/rnick1/Group_6/blob/main/public/images/dashboard.PNG)
 
 _Search-Result_
 
-![screenshot](/public\images\searchresult.png)
+![image](https://github.com/rnick1/Group_6/blob/main/public/images/searchresult.PNG)
 
 _Create-New-Group_
 
-![screenshot](/public\images\new-group.png)
+![image](https://github.com/rnick1/Group_6/blob/main/public/images/new-group.PNG)
 
 ## Contributors:
 
