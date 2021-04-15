@@ -26,7 +26,7 @@ Let us help you get your Germ Pod started with our simple process. After you sig
 
 ## Technologies Used:
 
-bcrypt, bootstrap, express, mySQL, nodemailer, and many others
+handlebars, bcrypt, bootstrap, express, mySQL, nodemailer, and sequelize
 
 ## Web-Application
 
@@ -50,11 +50,11 @@ _Search-Result_
 
 _Create-New-Group_
 
-![screenshot](/public\images\new-group.png)
+![screenshot](/public/images/new-group.PNG)
 
 ## Contributors:
 
-[Page Black](https://www.github.com/noheropage) - Nodemailer/Routes
+[Page Black](https://www.github.com/noheropage) - Nodemailer/Routes/JS
 
 [Hancong Wang](https://www.github.com/herita7171) - Handlebars
 
