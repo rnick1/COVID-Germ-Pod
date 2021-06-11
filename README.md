@@ -1,5 +1,3 @@
-## Group Project 2 - Room 6:
-
 ## COVID Germ Pod
 
 ## Deployment:
